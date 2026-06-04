@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== Manifest metadata (read by scripts/build-manifest.mjs — keep these accurate) ===== -->
+  <meta name="report:source" content="claude-changelog" />
+  <meta name="report:source-label" content="Claude Code Changelog" />
+  <meta name="report:source-color" content="#4cc4ff" />
+  <meta name="report:date" content="2026-06-04" />
+  <meta name="report:title" content="Claude Code ships agent swarms, Opus 4.8, and one-command code cleanup" />
+  <meta name="report:summary" content="Eleven releases since May 27 land dynamic multi-agent workflows, the Opus 4.8 default, and review tooling that now writes its own fixes — the most build-leverage update run in months." />
+  <meta name="report:highlights" content="6" />
+
+  <title>Claude Code: agent swarms, Opus 4.8, one-command cleanup — TSD Daily Reports</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234cc4ff'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%2304111f' font-family='Arial' font-weight='bold'>◆</text></svg>" />
+  <link rel="stylesheet" href="../../assets/theme.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../../">
+        <span class="mark"><span>◆</span></span>
+        <span>TSD Daily Reports<small>Charlotte Metro ◆ Web + AI Studio</small></span>
+      </a>
+      <nav>
+        <a href="../../">All briefings</a>
+        <a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Source ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap report">
+    <div class="masthead">
+      <div class="kicker">
+        <span class="badge-source" style="--src:#4cc4ff"><span class="dot"></span>Claude Code Changelog</span>
+        <span>◆</span>
+        <span>Thursday, June 4, 2026</span>
+        <span>◆</span>
+        <span>Releases 2.1.152 – 2.1.162</span>
+      </div>
+
+      <h1>Claude Code shipped agent swarms, Opus 4.8, and code review that writes its own fixes.</h1>
+
+      <p class="standfirst">The last eleven releases are the heaviest build-leverage run in months. The headline is no longer "better autocomplete" — it's the jump from one agent at a time to orchestrating hundreds, a new default model, and review commands that apply their own findings.</p>
+
+      <div class="byline">
+        <span>Filed by the TSD scout agent</span>
+        <span>◆</span>
+        <span>Window: May 27 – Jun 3, 2026</span>
+        <span>◆</span>
+        <a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Read the raw changelog ↗</a>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num">11</div><div class="lbl">releases in the window</div></div>
+      <div class="stat"><div class="num">3</div><div class="lbl">net-new capabilities</div></div>
+      <div class="stat"><div class="num">100s</div><div class="lbl">agents per workflow now</div></div>
+      <div class="stat"><div class="num">4.8</div><div class="lbl">new default Opus</div></div>
+    </div>
+
+    <!-- ===== TOP SIGNALS ===== -->
+    <section class="signals">
+      <div class="signals-label">◆ Top signals — read these first</div>
+      <div class="signal-grid">
+        <div class="signal"><div class="n">01</div><h4>Dynamic multi-agent workflows</h4><p>Ask Claude to fan a job across tens to hundreds of background agents. The ceiling on what one session can attempt just moved.</p></div>
+        <div class="signal"><div class="n">02</div><h4>Opus 4.8 is the default</h4><p>Higher default effort, leaner system prompt, and an <code>xhigh</code> tier for the hardest tasks. Better code with no prompt change.</p></div>
+        <div class="signal"><div class="n">03</div><h4>Review that fixes itself</h4><p><code>/code-review --fix</code> and <code>/simplify</code> now apply their findings straight to the working tree.</p></div>
+        <div class="signal"><div class="n">04</div><h4>Local skills auto-load</h4><p>Drop a skill in <code>.claude/skills</code> and it loads — no marketplace. Per-project tooling got frictionless.</p></div>
+        <div class="signal"><div class="n">05</div><h4>Background shell sessions</h4><p>In <code>claude agents</code>, <code>! &lt;command&gt;</code> spawns a detachable shell for long builds and tests.</p></div>
+        <div class="signal"><div class="n">06</div><h4>Auto mode on Bedrock / Vertex</h4><p>Hands-free Auto mode reaches the enterprise clouds — relevant the day a client wants it on their own infra.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== STORIES ===== -->
+    <section class="stories">
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Headline capabilities</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag new">New</span>
+            <span class="ver">2.1.154</span>
+            <h3>Dynamic workflows orchestrate hundreds of agents</h3>
+          </div>
+          <div class="story-body">
+            <p>You can now ask Claude to build a workflow that spreads a task across tens to hundreds of agents running in the background, then watch them with <code>/workflows</code>. This is the structural shift in the release: complex jobs stop being one long single-agent session and become a fan-out you supervise.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> a one-person delivery shop can now run audits, migrations, and multi-page builds in parallel instead of serially. This is the single feature most likely to change your throughput on a client build.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">changelog ◆ 2.1.154</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Model</span>
+            <span class="ver">2.1.154 / 2.1.158</span>
+            <h3>Opus 4.8 lands as the default, with an effort ceiling</h3>
+          </div>
+          <div class="story-body">
+            <p>Opus 4.8 now defaults to high effort, with <code>/effort xhigh</code> reserved for the hardest problems and a leaner system prompt cutting noise. Fast mode runs at 2&times; cost for ~2.5&times; speed when you need a quick pass.</p>
+            <p>Four releases later, Auto mode for Opus 4.7 and 4.8 reached Bedrock, Vertex, and Foundry — opt in with <code>CLAUDE_CODE_ENABLE_AUTO_MODE=1</code>.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> default quality went up without you touching a setting. Keep Fast mode for throwaway edits; spend <code>xhigh</code> on the gnarly client logic where a bug costs a callback.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">changelog ◆ 2.1.154</a><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">changelog ◆ 2.1.158</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Workflow &amp; delivery upgrades</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag improve">Improved</span>
+            <span class="ver">2.1.152</span>
+            <h3>Code review now applies its own fixes</h3>
+          </div>
+          <div class="story-body">
+            <p><code>/code-review --fix</code> writes its reuse, simplification, and efficiency findings straight into the working tree, and <code>/simplify</code> now runs that cleanup pass for you. Review stopped being a list of suggestions you action by hand.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> the part of solo delivery with no second engineer — the review pass — is now one command. Run it before every client push.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">changelog ◆ 2.1.152</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag new">New</span>
+            <span class="ver">2.1.157</span>
+            <h3>Project-local skills and plugins load on their own</h3>
+          </div>
+          <div class="story-body">
+            <p>Plugins placed in <code>.claude/skills</code> auto-load with no marketplace step, <code>claude plugin init &lt;name&gt;</code> scaffolds a new one, and <code>defaultEnabled: false</code> lets a plugin ship opt-in. <code>EnterWorktree</code> can also switch between Claude-managed worktrees mid-session now.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> bespoke per-client skills (a Bisque tone guide, a Studio C booking helper) can live in each repo and just work. Standardize your build skills per project.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">changelog ◆ 2.1.157</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag new">New</span>
+            <span class="ver">2.1.154 / 2.1.162</span>
+            <h3>Background shell sessions and a clearer agent dashboard</h3>
+          </div>
+          <div class="story-body">
+            <p>Inside <code>claude agents</code>, typing <code>! &lt;command&gt;</code> spawns a background shell you can attach to and detach from — long builds and test runs stop blocking the session. The dashboard now shows <code>done/total</code> for fanned-out work and surfaces a <code>waitingFor</code> field via <code>claude agents --json</code> so you can see what's blocking a session.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> kick off a Vercel build or a slow test suite and keep working. With multiple client repos in flight, the dashboard is how you stop losing track of sessions.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">changelog ◆ 2.1.154</a><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">changelog ◆ 2.1.162</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Safety</span>
+            <span class="ver">2.1.160</span>
+            <h3>Guardrails before touching shell + build config</h3>
+          </div>
+          <div class="story-body">
+            <p>Claude now prompts before writing to shell startup files (<code>.zshenv</code>, <code>.zlogin</code>, <code>.bash_login</code>), and <code>acceptEdits</code> mode asks before editing build-tool config. Edits also no longer require a separate Read after a single-file <code>grep</code>.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> safer to run in higher-autonomy modes on a live client repo without it quietly rewriting your environment.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">changelog ◆ 2.1.160</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Fixes &amp; smaller changes</h2>
+        <div class="quickhits">
+          <ul>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">WebFetch permission rules now apply correctly to preapproved domains, and MCP <code>timeout</code> values under 1000ms are no longer floored wrong. <span class="ver">2.1.162</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Restoring completed sessions no longer drops chat history, and background sessions survive overnight retirement without losing the conversation. <span class="ver">2.1.160</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Parallel tool calls: a failed Bash no longer cancels the other calls in the batch. <span class="ver">2.1.161</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Windows permission rules handle backslashes and case-variant paths; copy-on-select fixed on WSL. <span class="ver">2.1.160 / 2.1.162</span></span></li>
+            <li><span class="tag improve qh-tag">UX</span><span class="txt">Slash commands in autocomplete fill into the prompt (press Enter to run), and the <code>/effort</code> dialog now honors "Reduce motion." <span class="ver">2.1.161 / 2.1.162</span></span></li>
+            <li><span class="tag improve qh-tag">Hooks</span><span class="txt">New <code>MessageDisplay</code> hook can transform or hide assistant text; <code>SessionStart</code> hooks can return <code>reloadSkills: true</code> and set the session title. <span class="ver">2.1.152</span></span></li>
+            <li><span class="tag improve qh-tag">Telemetry</span><span class="txt"><code>OTEL_RESOURCE_ATTRIBUTES</code> ride along as labels on metric datapoints; Linux clipboard uses <code>wl-copy</code>/<code>xclip</code>/<code>xsel</code>. <span class="ver">2.1.161</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="byline" style="margin-top:40px">
+      <span>◆ End of briefing</span>
+      <span>◆</span>
+      <span>Sources are linked inline. Verify anything load-bearing against the raw changelog before acting.</span>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span><a href="../../">← All briefings</a></span>
+      <span>Scouted &amp; written by the TSD agent ◆ Built to own</span>
+    </div>
+  </footer>
+</body>
+</html>

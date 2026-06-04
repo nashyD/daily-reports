@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  ============================================================================
+  TSD DAILY REPORT TEMPLATE
+  ----------------------------------------------------------------------------
+  The scout agent copies this file to:  reports/<source>/<YYYY-MM-DD>.html
+  and replaces every {{TOKEN}} below. Repeat the marked blocks as needed.
+
+  RULES
+  - Keep ALL the <meta name="report:*"> tags and fill them accurately —
+    scripts/build-manifest.mjs reads them to build the hub index.
+  - Relative paths assume reports/<source>/<file>.html (two levels deep).
+    If you nest differently, fix the ../../ paths.
+  - 4–6 "Top signals" max. Group the rest into 2–4 story groups.
+  - Every story gets a "So what for TSD" line: blunt, concrete, no fluff.
+  - Link sources inline. Never invent a fact you can't point at.
+  - Tag classes: new | feature | improve | fix | breaking
+  ============================================================================
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== Manifest metadata — required, keep accurate ===== -->
+  <meta name="report:source" content="{{SOURCE_SLUG}}" />            <!-- e.g. claude-changelog -->
+  <meta name="report:source-label" content="{{SOURCE_LABEL}}" />     <!-- e.g. Claude Code Changelog -->
+  <meta name="report:source-color" content="{{SOURCE_COLOR}}" />     <!-- hex, e.g. #4cc4ff -->
+  <meta name="report:date" content="{{YYYY-MM-DD}}" />
+  <meta name="report:title" content="{{HEADLINE_PLAIN_TEXT}}" />
+  <meta name="report:summary" content="{{ONE_SENTENCE_SUMMARY}}" />
+  <meta name="report:highlights" content="{{N}}" />
+
+  <title>{{HEADLINE_PLAIN_TEXT}} — TSD Daily Reports</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234cc4ff'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%2304111f' font-family='Arial' font-weight='bold'>◆</text></svg>" />
+  <link rel="stylesheet" href="../../assets/theme.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../../">
+        <span class="mark"><span>◆</span></span>
+        <span>TSD Daily Reports<small>Charlotte Metro ◆ Web + AI Studio</small></span>
+      </a>
+      <nav>
+        <a href="../../">All briefings</a>
+        <a href="{{SOURCE_URL}}" target="_blank" rel="noopener">Source ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap report">
+    <div class="masthead">
+      <div class="kicker">
+        <span class="badge-source" style="--src:{{SOURCE_COLOR}}"><span class="dot"></span>{{SOURCE_LABEL}}</span>
+        <span>◆</span><span>{{LONG_DATE}}</span>
+        <span>◆</span><span>{{SCOPE_LINE}}</span>
+      </div>
+      <h1>{{HEADLINE}}</h1>
+      <p class="standfirst">{{STANDFIRST_2_SENTENCES}}</p>
+      <div class="byline">
+        <span>Filed by the TSD scout agent</span>
+        <span>◆</span><span>{{WINDOW_OR_CONTEXT}}</span>
+        <span>◆</span><a href="{{SOURCE_URL}}" target="_blank" rel="noopener">Read the source ↗</a>
+      </div>
+    </div>
+
+    <!-- Optional stat strip — delete if not useful for this source -->
+    <div class="stats">
+      <div class="stat"><div class="num">{{STAT_1}}</div><div class="lbl">{{STAT_1_LABEL}}</div></div>
+      <div class="stat"><div class="num">{{STAT_2}}</div><div class="lbl">{{STAT_2_LABEL}}</div></div>
+      <div class="stat"><div class="num">{{STAT_3}}</div><div class="lbl">{{STAT_3_LABEL}}</div></div>
+    </div>
+
+    <!-- ===== TOP SIGNALS (4–6) ===== -->
+    <section class="signals">
+      <div class="signals-label">◆ Top signals — read these first</div>
+      <div class="signal-grid">
+        <!-- repeat .signal 4–6 times -->
+        <div class="signal"><div class="n">01</div><h4>{{SIGNAL_TITLE}}</h4><p>{{SIGNAL_ONE_LINER}}</p></div>
+      </div>
+    </section>
+
+    <!-- ===== STORIES ===== -->
+    <section class="stories">
+
+      <!-- repeat .story-group per theme -->
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> {{GROUP_TITLE}}</h2>
+
+        <!-- repeat .story per item -->
+        <article class="story">
+          <div class="story-head">
+            <span class="tag {{new|feature|improve|fix|breaking}}">{{TAG_LABEL}}</span>
+            <span class="ver">{{VERSION_OR_DATE}}</span>
+            <h3>{{STORY_HEADLINE}}</h3>
+          </div>
+          <div class="story-body">
+            <p>{{1_2_SHORT_PARAGRAPHS}}</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> {{CONCRETE_IMPLICATION}}</div>
+          <div class="refs"><a href="{{REF_URL}}" target="_blank" rel="noopener">{{REF_LABEL}}</a></div>
+        </article>
+
+      </div>
+
+      <!-- Minor items as quick hits -->
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Fixes &amp; smaller changes</h2>
+        <div class="quickhits">
+          <ul>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">{{ONE_LINE}} <span class="ver">{{VER}}</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="byline" style="margin-top:40px">
+      <span>◆ End of briefing</span><span>◆</span>
+      <span>Sources are linked inline. Verify anything load-bearing before acting.</span>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span><a href="../../">← All briefings</a></span>
+      <span>Scouted &amp; written by the TSD agent ◆ Built to own</span>
+    </div>
+  </footer>
+</body>
+</html>

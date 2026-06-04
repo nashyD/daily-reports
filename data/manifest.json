@@ -1,0 +1,12 @@
+[
+  {
+    "source": "claude-changelog",
+    "sourceLabel": "Claude Code Changelog",
+    "sourceColor": "#4cc4ff",
+    "date": "2026-06-04",
+    "title": "Claude Code ships agent swarms, Opus 4.8, and one-command code cleanup",
+    "summary": "Eleven releases since May 27 land dynamic multi-agent workflows, the Opus 4.8 default, and review tooling that now writes its own fixes — the most build-leverage update run in months.",
+    "highlights": 6,
+    "path": "reports/claude-changelog/2026-06-04.html"
+  }
+]

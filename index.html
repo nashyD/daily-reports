@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TSD Daily Reports</title>
+  <meta name="description" content="Automated daily intelligence briefings, scouted and written by a TSD agent." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234cc4ff'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%2304111f' font-family='Arial' font-weight='bold'>◆</text></svg>" />
+  <link rel="stylesheet" href="assets/theme.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="./">
+        <span class="mark"><span>◆</span></span>
+        <span>TSD Daily Reports<small>Charlotte Metro ◆ Web + AI Studio</small></span>
+      </a>
+      <nav>
+        <a href="#feed">Feed</a>
+        <a href="https://github.com/nashyD/daily-reports" target="_blank" rel="noopener">Repo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" id="feed">
+    <section class="hero">
+      <span class="eyebrow"><span class="diamond">◆</span> Automated intelligence briefings</span>
+      <h1>The day's signal,<br /><span class="grad">scouted and distilled.</span></h1>
+      <p class="lede">Every morning a TSD agent reads the sources that matter, separates the meaningful from the noise, and files a clean briefing here.</p>
+      <div class="meta-row" id="hero-meta"></div>
+    </section>
+
+    <div id="latest"></div>
+    <div id="sources"></div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span>◆ TSD Modernization Solutions — Daily Reports</span>
+      <span id="foot-stamp"></span>
+    </div>
+  </footer>
+
+  <script>
+    const ARROW = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+
+    function fmtDate(iso) {
+      const [y, m, d] = iso.split('-').map(Number);
+      const dt = new Date(Date.UTC(y, m - 1, d));
+      return dt.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+    }
+    const esc = (s) => String(s ?? '').replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+
+    function card(r, feature) {
+      const color = r.sourceColor || 'var(--accent)';
+      const hl = r.highlights ? `${r.highlights} highlight${r.highlights == 1 ? '' : 's'}` : 'Briefing';
+      return `<a class="card${feature ? ' feature' : ''} reveal" href="${esc(r.path)}" style="--src:${esc(color)}">
+        <div class="card-top">
+          <span class="badge-source" style="--src:${esc(color)}"><span class="dot"></span>${esc(r.sourceLabel || r.source)}</span>
+          <span class="date">${fmtDate(r.date)}</span>
+        </div>
+        <h3>${esc(r.title)}</h3>
+        <p class="summary">${esc(r.summary)}</p>
+        <div class="card-foot">
+          <span>${hl}</span>
+          <span class="go">Read briefing ${ARROW}</span>
+        </div>
+      </a>`;
+    }
+
+    function render(reports) {
+      reports.sort((a, b) => b.date.localeCompare(a.date) || (a.sourceLabel || '').localeCompare(b.sourceLabel || ''));
+
+      // Hero meta
+      const sources = [...new Set(reports.map(r => r.sourceLabel || r.source))];
+      document.getElementById('hero-meta').innerHTML =
+        `<span class="pill"><span class="dot"></span>${reports.length} briefing${reports.length === 1 ? '' : 's'} filed</span>` +
+        `<span class="pill"><span class="dot" style="background:var(--accent-2)"></span>${sources.length} source${sources.length === 1 ? '' : 's'} tracked</span>` +
+        (reports[0] ? `<span class="pill"><span class="dot" style="background:var(--c-new)"></span>Latest ${fmtDate(reports[0].date)}</span>` : '');
+
+      if (!reports.length) {
+        document.getElementById('sources').innerHTML =
+          `<div class="empty"><p>No briefings filed yet. The first one lands as soon as the scout agent runs.</p></div>`;
+        return;
+      }
+
+      // Latest overall = feature card
+      const [latest, ...rest] = reports;
+      document.getElementById('latest').innerHTML =
+        `<div class="section-head"><h2><span class="diamond">◆</span> Latest briefing</h2></div>
+         <div class="grid">${card(latest, true)}</div>`;
+
+      // Group the rest by source, sources ordered by most-recent first
+      const groups = {};
+      for (const r of rest) (groups[r.source] ??= []).push(r);
+      const order = [...new Set(rest.map(r => r.source))];
+      let html = '';
+      for (const src of order) {
+        const items = groups[src];
+        const label = items[0].sourceLabel || src;
+        html += `<div class="section-head">
+            <h2><span class="diamond">◆</span> ${esc(label)}</h2>
+            <span class="count">${items.length} earlier</span>
+          </div>
+          <div class="grid">${items.map(r => card(r, false)).join('')}</div>`;
+      }
+      document.getElementById('sources').innerHTML = html;
+    }
+
+    fetch('data/manifest.json', { cache: 'no-store' })
+      .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(data => render(Array.isArray(data) ? data : (data.reports || [])))
+      .catch(() => {
+        document.getElementById('sources').innerHTML =
+          `<div class="empty"><p>Couldn't load the report index.<br><span class="mono">data/manifest.json</span> is generated on deploy — view this page on GitHub Pages, not the raw files.</p></div>`;
+      });
+
+    document.getElementById('foot-stamp').textContent = 'Built to own ◆ ' + new Date().getFullYear();
+  </script>
+</body>
+</html>
