@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1500" viewBox="0 0 1500 1500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1224"/>
+      <stop offset="1" stop-color="#070b14"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.28" r="0.6">
+      <stop offset="0" stop-color="#1c2a4a" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#070b14" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4cc4ff"/>
+      <stop offset="1" stop-color="#6f7bf7"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1500" height="1500" fill="url(#bg)"/>
+  <rect width="1500" height="1500" fill="url(#glow)"/>
+  <rect x="40" y="40" width="1420" height="1420" rx="48" fill="none" stroke="#4cc4ff" stroke-opacity="0.18" stroke-width="3"/>
+
+  <!-- diamond mark -->
+  <rect x="690" y="300" width="120" height="120" rx="22" transform="rotate(45 750 360)" fill="url(#accent)"/>
+  <text x="750" y="378" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="64" font-weight="700" fill="#06121f">◆</text>
+
+  <!-- wordmark -->
+  <text x="750" y="780" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="360" font-weight="700" fill="url(#accent)" letter-spacing="6">TSD</text>
+  <text x="750" y="980" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="190" font-weight="700" fill="#eaf0fa" letter-spacing="26">DAILY</text>
+
+  <rect x="560" y="1055" width="380" height="6" rx="3" fill="url(#accent)"/>
+
+  <text x="750" y="1170" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="50" font-weight="400" fill="#9fb0c9" letter-spacing="10">DAILY INTELLIGENCE BRIEFING</text>
+  <text x="750" y="1410" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="38" font-weight="500" fill="#5b6a86" letter-spacing="6">TSD MODERNIZATION SOLUTIONS</text>
+</svg>

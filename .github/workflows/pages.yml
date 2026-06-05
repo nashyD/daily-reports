@@ -28,6 +28,8 @@ jobs:
           node-version: 20
       - name: Build manifest from report files
         run: node scripts/build-manifest.mjs
+      - name: Build podcast feed from audio sidecars
+        run: node scripts/build-podcast-feed.mjs
       - name: Ensure Jekyll is bypassed
         run: touch .nojekyll
       - uses: actions/configure-pages@v5

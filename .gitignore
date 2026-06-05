@@ -1,0 +1,8 @@
+# Secrets — never commit the Gemini key
+.env
+.env.local
+
+# Build scratch
+*.pcm
+node_modules/
+.DS_Store

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>TSD Daily</title>
+    <link>https://nashyd.github.io/daily-reports/</link>
+    <language>en-us</language>
+    <description>A short daily audio briefing — the day&apos;s most interesting AI, technology, and US news, scouted and hosted by a TSD agent.</description>
+    <itunes:author>TSD Modernization Solutions</itunes:author>
+    <itunes:summary>A short daily audio briefing — the day&apos;s most interesting AI, technology, and US news, scouted and hosted by a TSD agent.</itunes:summary>
+    <itunes:type>episodic</itunes:type>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:image href="https://nashyd.github.io/daily-reports/assets/podcast-cover.png"/>
+    <image><url>https://nashyd.github.io/daily-reports/assets/podcast-cover.png</url><title>TSD Daily</title><link>https://nashyd.github.io/daily-reports/</link></image>
+    <itunes:category text="Technology"/>
+    <itunes:owner><itunes:name>TSD Modernization Solutions</itunes:name><itunes:email>nashdavis@tsd-ventures.com</itunes:email></itunes:owner>
+    <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="https://nashyd.github.io/daily-reports/podcast.xml" rel="self" type="application/rss+xml"/>
+
+  </channel>
+</rss>

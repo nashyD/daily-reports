@@ -30,6 +30,7 @@
       <div class="meta-row" id="hero-meta"></div>
     </section>
 
+    <div id="podcast"></div>
     <div id="latest"></div>
     <div id="sources"></div>
   </main>
@@ -114,6 +115,45 @@
         document.getElementById('sources').innerHTML =
           `<div class="empty"><p>Couldn't load the report index.<br><span class="mono">data/manifest.json</span> is generated on deploy — view this page on GitHub Pages, not the raw files.</p></div>`;
       });
+
+    // ---- Daily podcast ----
+    function renderPodcast(eps) {
+      const feedUrl = new URL('podcast.xml', location.href).href;
+      const subscribe = 'podcast://' + feedUrl.replace(/^https?:\/\//, '');
+      const head = `<div class="section-head"><h2><span class="diamond">◆</span> Daily podcast</h2></div>`;
+      const cover = `<div class="cover" style="background-image:url('assets/podcast-cover.png')"></div>`;
+      if (!eps || !eps.length) {
+        document.getElementById('podcast').innerHTML = head + `<div class="podcast-card">${cover}
+          <div class="pc-body">
+            <div class="pc-kicker">◆ TSD Daily</div>
+            <div class="pc-title">Your daily audio briefing</div>
+            <div class="pc-meta">The first episode lands here once the podcast routine runs.</div>
+          </div>
+          <div class="pc-side"><a class="btn btn-ghost" href="podcast.xml">View RSS feed</a></div>
+        </div>`;
+        return;
+      }
+      const e = eps[0];
+      const mins = e.durationSec ? `${Math.max(1, Math.round(e.durationSec / 60))} min` : 'audio';
+      const older = eps.length > 1 ? ` · ${eps.length - 1} earlier episode${eps.length === 2 ? '' : 's'}` : '';
+      document.getElementById('podcast').innerHTML = head + `<div class="podcast-card">${cover}
+        <div class="pc-body">
+          <div class="pc-kicker">◆ TSD Daily ◆ Latest episode</div>
+          <div class="pc-title">${esc(e.title)}</div>
+          <div class="pc-meta">${fmtDate(e.date)} · ${mins}${older}</div>
+          <audio controls preload="none" src="${esc(e.file)}"></audio>
+        </div>
+        <div class="pc-side">
+          <a class="btn btn-primary" href="${subscribe}">Subscribe</a>
+          <a class="btn btn-ghost" href="podcast.xml">RSS feed</a>
+          <span class="feed-url">${esc(feedUrl)}</span>
+        </div>
+      </div>`;
+    }
+    fetch('data/episodes.json', { cache: 'no-store' })
+      .then(r => r.ok ? r.json() : [])
+      .then(renderPodcast)
+      .catch(() => renderPodcast([]));
 
     document.getElementById('foot-stamp').textContent = 'Built to own ◆ ' + new Date().getFullYear();
   </script>
