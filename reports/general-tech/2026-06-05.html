@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== Manifest metadata ===== -->
+  <meta name="report:source" content="general-tech" />
+  <meta name="report:source-label" content="Technology" />
+  <meta name="report:source-color" content="#2dd4bf" />
+  <meta name="report:date" content="2026-06-05" />
+  <meta name="report:title" content="The IPO window reopened and the PC got a new challenger: 60 days in tech" />
+  <meta name="report:summary" content="Summer kickoff edition — SpaceX filed the largest IPO ever, Nvidia attacked the laptop CPU market, the tech IPO window blew open, your Next.js stack got a 400%-faster dev loop and a patch-now security bundle, and the year's biggest breach hit the SaaS identity layer." />
+  <meta name="report:highlights" content="6" />
+
+  <title>The IPO window reopened, and the PC got a new challenger — TSD Daily Reports</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232dd4bf'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%23062a25' font-family='Arial' font-weight='bold'>◆</text></svg>" />
+  <link rel="stylesheet" href="../../assets/theme.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../../">
+        <span class="mark"><span>◆</span></span>
+        <span>TSD Daily Reports<small>Charlotte Metro ◆ Web + AI Studio</small></span>
+      </a>
+      <nav>
+        <a href="../../">All briefings</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap report">
+    <div class="masthead">
+      <div class="kicker">
+        <span class="badge-source" style="--src:#2dd4bf"><span class="dot"></span>Technology</span>
+        <span>◆</span><span>Friday, June 5, 2026</span>
+        <span>◆</span><span>Summer kickoff · past 60 days</span>
+      </div>
+
+      <h1>The IPO window reopened, and the PC got a new challenger.</h1>
+
+      <p class="standfirst">A catch-up edition covering April through early June, focused on tech beyond the AI models. The headline themes: a flood of money into public markets and the compute layer, Nvidia stepping into laptop CPUs, real movement on your own Next.js stack, and a reminder that the soft target is the SaaS identity layer. Daily editions from here only cover what's new.</p>
+
+      <div class="byline">
+        <span>Filed by the TSD scout agent</span>
+        <span>◆</span><span>Window: Apr 5 – Jun 5, 2026</span>
+        <span>◆</span><span>Every item links its source — verify before acting</span>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num">~$1.75T</div><div class="lbl">SpaceX IPO target valuation</div></div>
+      <div class="stat"><div class="num">+68%</div><div class="lbl">Cerebras first-day IPO pop</div></div>
+      <div class="stat"><div class="num">~400%</div><div class="lbl">faster Next.js dev startup (16.2)</div></div>
+      <div class="stat"><div class="num">13</div><div class="lbl">Next.js security advisories patched</div></div>
+    </div>
+
+    <!-- ===== TOP SIGNALS ===== -->
+    <section class="signals">
+      <div class="signals-label">◆ Top signals — read these first</div>
+      <div class="signal-grid">
+        <div class="signal"><div class="n">01</div><h4>Nvidia enters PC CPUs</h4><p>An Arm "RTX Spark" superchip aimed straight at Intel, AMD, Qualcomm, and Apple. The biggest PC-silicon shake-up in years.</p></div>
+        <div class="signal"><div class="n">02</div><h4>SpaceX files the largest IPO ever</h4><p>Nasdaq ticker "SPCX," targeting roughly a $1.75T valuation, now fused with xAI. A defining capital-markets event.</p></div>
+        <div class="signal"><div class="n">03</div><h4>Cerebras IPO pops 68%</h4><p>The biggest tech IPO since Uber reopens the window and validates a non-Nvidia AI-silicon architecture.</p></div>
+        <div class="signal"><div class="n">04</div><h4>SpaceX takes a $60B option on Cursor</h4><p>The coding tool many solo builders live in is now strategically spoken-for by SpaceX/xAI.</p></div>
+        <div class="signal"><div class="n">05</div><h4>Next.js 16.2 + a patch-now security bundle</h4><p>A ~400% faster dev loop and agent tooling — plus 13 advisories you need to be patched against.</p></div>
+        <div class="signal"><div class="n">06</div><h4>The year's biggest breach hit SaaS identity</h4><p>ShinyHunters' Canvas/Instructure breach exposed data on a reported ~275M people via voice-phishing into SaaS accounts.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== STORIES ===== -->
+    <section class="stories">
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Your stack</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag breaking">Patch now</span>
+            <span class="ver">May</span>
+            <h3>Next.js coordinated security release — 13 advisories</h3>
+          </div>
+          <div class="story-body">
+            <p>Vercel shipped a coordinated Next.js security release patching 13 advisories spanning denial-of-service, middleware/proxy bypass, SSRF, cache poisoning, and XSS. This is a fleet-wide "confirm your version" event for anyone running Next.js in production.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> this is your whole client portfolio. Check every Next.js site you run (TSD app, Bisque, Sonderwerks, detailing-inventory) is on a patched version — middleware/proxy bypass and cache poisoning are serious on client sites.</div>
+          <div class="refs"><a href="https://vercel.com/changelog/next-js-may-2026-security-release" target="_blank" rel="noopener">Vercel ◆ security release</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag new">Release</span>
+            <span class="ver">Jun 4</span>
+            <h3>Next.js 16.2 — ~400% faster dev startup and agent-native tooling</h3>
+          </div>
+          <div class="story-body">
+            <p>The release reports a roughly 400% faster <code>next dev</code> startup, double-digit rendering speedups, and 200+ Turbopack fixes. It also leans into AI-assisted dev: <code>create-next-app</code> scaffolds an <code>AGENTS.md</code>, version-matched docs ship as local Markdown, and an experimental CLI lets agents inspect a running app from the terminal.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> a materially faster local loop on the framework you ship most, plus first-class hooks for the coding agents you already use to drive a running app. Worth upgrading a project to feel it.</div>
+          <div class="refs"><a href="https://nextjs.org/blog" target="_blank" rel="noopener">Next.js blog</a><a href="https://www.infoq.com/news/2026/06/nextjs-6-2/" target="_blank" rel="noopener">InfoQ</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Deal</span>
+            <span class="ver">Apr 21</span>
+            <h3>SpaceX takes a $60B option to buy Cursor</h3>
+          </div>
+          <div class="story-body">
+            <p>SpaceX secured the right to acquire AI-coding company Cursor (Anysphere) for a reported $60B later in 2026, or pay $10B for an ongoing compute partnership tied to xAI's infrastructure. Cursor is reportedly used across most of the Fortune 500.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> the dev tool you build in is now strategically owned-in-waiting. Not urgent, but a nudge to keep a second coding agent (Claude Code, Codex) in your workflow so a single owner doesn't dictate your toolchain.</div>
+          <div class="refs"><a href="https://techcrunch.com/2026/04/21/spacex-is-working-with-cursor-and-has-an-option-to-buy-the-startup-for-60-billion/" target="_blank" rel="noopener">TechCrunch</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> The IPO window blew open</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag new">IPO</span>
+            <span class="ver">May 20</span>
+            <h3>SpaceX files for the largest IPO in history</h3>
+          </div>
+          <div class="story-body">
+            <p>SpaceX filed to list on Nasdaq as "SPCX," reportedly raising on the order of $75B at a roughly $1.75 trillion valuation — which would be the largest IPO ever. The financials fold in xAI, acquired earlier in 2026, entangling Starlink, compute, and an AI bet in one ticker.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> nothing to do, but it sets the tone for the whole risk market. When the biggest names go public, capital and attention flow to the AI/compute layer your business rides on.</div>
+          <div class="refs"><a href="https://www.cnbc.com/2026/05/20/spacex-ipo-live-updates.html" target="_blank" rel="noopener">CNBC ◆ SPCX</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag new">IPO</span>
+            <span class="ver">May 14</span>
+            <h3>Cerebras pops 68% — the first blockbuster tech IPO of 2026</h3>
+          </div>
+          <div class="story-body">
+            <p>Wafer-scale AI chipmaker Cerebras priced its IPO and closed up about 68% on day one — the largest tech IPO since Uber in 2019 — before pulling back the next session. It reopened the tech IPO market and validated an AI-silicon architecture that isn't Nvidia's.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> a healthy IPO window signals an environment where AI-adjacent businesses get funded and acquired. Background context for how aggressively you lean into AI offerings this year.</div>
+          <div class="refs"><a href="https://techcrunch.com/2026/05/14/cerebras-raises-5-5b-kicking-off-2026s-ipo-season-with-a-bang/" target="_blank" rel="noopener">TechCrunch ◆ Cerebras</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Hardware, space &amp; robots</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Hardware</span>
+            <span class="ver">Late May</span>
+            <h3>Nvidia enters the PC CPU market</h3>
+          </div>
+          <div class="story-body">
+            <p>At Computex, Nvidia unveiled its first PC processor — an Arm-based "RTX Spark" superchip co-developed with MediaTek, pairing a Grace-class CPU with a Blackwell-class GPU and the full CUDA stack. It's slated to ship this fall in Windows-on-Arm laptops from Dell, HP, ASUS, Lenovo, and MSI.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> mostly a "watch this" — a credible Nvidia laptop chip reshapes the PC market and, longer term, what local AI on a laptop can do for the kind of on-device tooling you might one day ship.</div>
+          <div class="refs"><a href="https://www.cnbc.com/2026/05/31/nvidias-new-chip-to-power-fresh-line-of-windows-laptops-by-dell-hp.html" target="_blank" rel="noopener">CNBC ◆ Nvidia N1X</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag new">Space</span>
+            <span class="ver">May 22</span>
+            <h3>SpaceX flies Starship V3 for the first time</h3>
+          </div>
+          <div class="story-body">
+            <p>The first Block 3 / V3 Starship completed its suborbital debut, deploying 20 mock Starlink satellites and surviving reentry, though the Super Heavy booster was lost on its landing burn. V3 is the configuration meant to become the operational heavy-lift workhorse — and it underpins the SPCX story.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> not actionable — included because it's the groundbreaking item of the window and it's the hardware behind the largest IPO ever.</div>
+          <div class="refs"><a href="https://spacenews.com/spacex-launches-first-starship-v3/" target="_blank" rel="noopener">SpaceNews ◆ Starship V3</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Also worth knowing</h2>
+        <div class="quickhits">
+          <ul>
+            <li><span class="tag breaking qh-tag">Security</span><span class="txt"><b>ShinyHunters</b> breached Canvas-maker Instructure twice in two weeks — reportedly exposing data on ~275M students/staff — by voice-phishing into SaaS/CRM accounts (Salesforce, Microsoft 365), not the apps themselves. The soft target is identity. <span class="ver">Apr–May</span></span></li>
+            <li><span class="tag improve qh-tag">Robotics</span><span class="txt">Humanoids crossed from demos to paid pilots: 1X began NEO production in California, and Japan Airlines deployed humanoid robots at Tokyo Haneda. <span class="ver">May</span></span></li>
+            <li><span class="tag feature qh-tag">EV</span><span class="txt"><b>Rivian R2</b> reached market with final orders opening June 9, and Uber agreed to invest up to $1.25B and buy up to 50,000 autonomous R2 robotaxis. <span class="ver">Jun 9</span></span></li>
+            <li><span class="tag improve qh-tag">Fintech</span><span class="txt">US crypto market-structure momentum (CLARITY Act in committee) pushed Bitcoin past $80K; US and EU regulators signed a stablecoin-oversight MOU. Not law yet. <span class="ver">Early May</span></span></li>
+            <li><span class="tag new qh-tag">Funding</span><span class="txt">April global venture funding hit a one-year high (~$56B), concentrated in mega-rounds (Anthropic, Bezos's Project Prometheus) and the energy layer — nuclear startup X-energy IPO'd above range. <span class="ver">Apr</span></span></li>
+            <li><span class="tag improve qh-tag">Gadget</span><span class="txt">Valve shipped a well-reviewed second-gen <b>Steam Controller</b> at $99 — anti-drift sticks, trackpads, gyro — a milestone for its hardware ambitions. <span class="ver">May 4</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="byline" style="margin-top:40px">
+      <span>◆ End of briefing</span><span>◆</span>
+      <span>This was a 60-day catch-up edition. Valuations, specs, and deal terms are as reported by the linked sources; the SpaceX IPO and CLARITY Act were still in progress as of filing.</span>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span><a href="../../">← All briefings</a></span>
+      <span>Scouted &amp; written by the TSD agent ◆ Built to own</span>
+    </div>
+  </footer>
+</body>
+</html>

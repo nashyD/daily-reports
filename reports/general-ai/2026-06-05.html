@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== Manifest metadata ===== -->
+  <meta name="report:source" content="general-ai" />
+  <meta name="report:source-label" content="General AI" />
+  <meta name="report:source-color" content="#a78bfa" />
+  <meta name="report:date" content="2026-06-05" />
+  <meta name="report:title" content="Sixty days that reset the AI stack: a near-$1T Anthropic, Opus 4.8, and coding agents writing their own code" />
+  <meta name="report:summary" content="Summer kickoff edition — the past two months brought a nearly $1T Anthropic raise, a wave of cheaper and more agentic frontier models, reasoning-grade voice APIs, and the clearest signal yet that coding agents now write most of their own code." />
+  <meta name="report:highlights" content="6" />
+
+  <title>Sixty days that reset the AI stack — TSD Daily Reports</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23a78bfa'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%23120b1f' font-family='Arial' font-weight='bold'>◆</text></svg>" />
+  <link rel="stylesheet" href="../../assets/theme.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../../">
+        <span class="mark"><span>◆</span></span>
+        <span>TSD Daily Reports<small>Charlotte Metro ◆ Web + AI Studio</small></span>
+      </a>
+      <nav>
+        <a href="../../">All briefings</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap report">
+    <div class="masthead">
+      <div class="kicker">
+        <span class="badge-source" style="--src:#a78bfa"><span class="dot"></span>General AI</span>
+        <span>◆</span><span>Friday, June 5, 2026</span>
+        <span>◆</span><span>Summer kickoff · past 60 days</span>
+      </div>
+
+      <h1>Sixty days that reset the AI stack.</h1>
+
+      <p class="standfirst">This is a catch-up edition covering April through early June. In one window: Anthropic raised toward a trillion-dollar valuation, the frontier models got cheaper and more agentic almost across the board, voice APIs crossed into real reasoning, and a coding startup disclosed that its own agent now writes 89% of its code. Daily editions from here only cover what's new.</p>
+
+      <div class="byline">
+        <span>Filed by the TSD scout agent</span>
+        <span>◆</span><span>Window: Apr 5 – Jun 5, 2026</span>
+        <span>◆</span><span>Every item links its source — verify before acting</span>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num">$965B</div><div class="lbl">Anthropic valuation (Series H)</div></div>
+      <div class="stat"><div class="num">4.8</div><div class="lbl">new default Claude Opus</div></div>
+      <div class="stat"><div class="num">89%</div><div class="lbl">of Cognition's code written by Devin</div></div>
+      <div class="stat"><div class="num">6+</div><div class="lbl">frontier models shipped</div></div>
+    </div>
+
+    <!-- ===== TOP SIGNALS ===== -->
+    <section class="signals">
+      <div class="signals-label">◆ Top signals — read these first</div>
+      <div class="signal-grid">
+        <div class="signal"><div class="n">01</div><h4>Anthropic raises ~$65B near a $1T valuation</h4><p>Passes OpenAI as the most valuable private AI company, with an IPO now in view. This is the ecosystem your stack sits on.</p></div>
+        <div class="signal"><div class="n">02</div><h4>Claude Opus 4.8 ships</h4><p>Better coding and knowledge-work scores, high-effort by default, and a fast mode that's ~2.5&times; quicker and cheaper.</p></div>
+        <div class="signal"><div class="n">03</div><h4>Google's Gemini 3.5 Flash + Omni</h4><p>A cheap, agent-first frontier model and an any-input-to-any-output multimodal model. The price/perf tier solo builders live on.</p></div>
+        <div class="signal"><div class="n">04</div><h4>OpenAI's reasoning-grade voice API</h4><p>GPT-Realtime-2 brings GPT-5-class reasoning, parallel tool-calls, and live translation to voice agents — your receptionist's category.</p></div>
+        <div class="signal"><div class="n">05</div><h4>Devin now writes 89% of its own code</h4><p>Cognition raised $1B+; the self-written-code figure jumped from 13% in December. The clearest read yet on agent leverage.</p></div>
+        <div class="signal"><div class="n">06</div><h4>Meta goes proprietary with Muse Spark</h4><p>The biggest backer of open weights ships a closed model — a structural shift for the open-source options indies rely on.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== STORIES ===== -->
+    <section class="stories">
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> The frontier got cheaper and more agentic</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Model</span>
+            <span class="ver">May 28</span>
+            <h3>Claude Opus 4.8</h3>
+          </div>
+          <div class="story-body">
+            <p>Anthropic shipped Opus 4.8 with measurable gains on agentic coding and knowledge work, high-effort mode on by default for coding, and finer "effort control." Fast mode is reported at roughly 2.5&times; the speed and a fraction of the cost of the prior version, with base pricing unchanged.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> this is the model you build and ship with. Cheaper, faster "fast mode" directly improves the unit economics of the RAG concierge and any agent product you put in front of a client.</div>
+          <div class="refs"><a href="https://9to5mac.com/2026/05/28/anthropic-upgrades-claude-with-new-opus-4-8-model-heres-whats-new/" target="_blank" rel="noopener">9to5Mac ◆ Opus 4.8</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Model</span>
+            <span class="ver">May 19</span>
+            <h3>Google ships Gemini 3.5 Flash and Gemini Omni at I/O</h3>
+          </div>
+          <div class="story-body">
+            <p>Gemini 3.5 Flash is pitched as beating the prior 3.1 Pro on coding and agentic benchmarks at roughly 25% lower cost, with Google explicitly betting its "next wave" on agents over chatbots. Alongside it, Gemini Omni is an any-input-to-any-output multimodal model, starting with video, with a Flash variant for developers.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> a fast, cheap, agent-optimized frontier model is the tier you'd reach for on high-volume SMB automation. Worth pricing against Claude for the non-critical paths.</div>
+          <div class="refs"><a href="https://techcrunch.com/2026/05/19/with-gemini-3-5-flash-google-bets-its-next-ai-wave-on-agents-not-chatbots/" target="_blank" rel="noopener">TechCrunch ◆ Gemini 3.5</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Model</span>
+            <span class="ver">May 5</span>
+            <h3>GPT-5.5 Instant becomes the ChatGPT default</h3>
+          </div>
+          <div class="story-body">
+            <p>OpenAI made GPT-5.5 Instant the new ChatGPT default, reporting a sizable drop in hallucinated claims on high-stakes medicine, law, and finance prompts versus the prior Instant model. The same week it pushed ChatGPT into Excel and Google Sheets globally.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> the hallucination drop matters for any client-facing AI you deploy. The Sheets/Excel sidebar is also a marker of what an SMB can now do for free — useful to know when you scope a paid build around it.</div>
+          <div class="refs"><a href="https://openai.com/index/gpt-5-5-instant/" target="_blank" rel="noopener">OpenAI ◆ GPT-5.5 Instant</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> The money and the coding-agent leap</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag new">Funding</span>
+            <span class="ver">May 28</span>
+            <h3>Anthropic raises ~$65B at a reported $965B valuation</h3>
+          </div>
+          <div class="story-body">
+            <p>Anthropic closed a Series H that nearly tripled its February mark and, per reporting, overtook OpenAI to become the most valuable private AI company, on run-rate revenue reported in the tens of billions. It's framed as likely the last private raise before an IPO.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> your core vendor is now one of the best-capitalized companies on earth and heading public. That's durability for the Claude ecosystem your whole delivery model is built on — a point you can make to a nervous client.</div>
+          <div class="refs"><a href="https://www.anthropic.com/news/series-h" target="_blank" rel="noopener">Anthropic ◆ Series H</a><a href="https://techcrunch.com/2026/05/28/anthropic-raises-65-billion-nears-1t-valuation-ahead-of-ipo/" target="_blank" rel="noopener">TechCrunch</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag new">Funding</span>
+            <span class="ver">May 27</span>
+            <h3>Cognition raises $1B+; Devin writes 89% of its own code</h3>
+          </div>
+          <div class="story-body">
+            <p>Cognition (maker of Devin, owner of Windsurf) raised over $1B at a reported ~$26B valuation. The number that travels: 89% of code committed at Cognition is now written by Devin, up from 13% in December 2025.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> that 13%→89% jump in six months is the single best data point on where solo-builder leverage is going. Plan your capacity assuming the agent does more of the typing each quarter.</div>
+          <div class="refs"><a href="https://cognition.ai/blog/series-d" target="_blank" rel="noopener">Cognition ◆ Series D</a><a href="https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/" target="_blank" rel="noopener">TechCrunch</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag improve">Tooling</span>
+            <span class="ver">May 18</span>
+            <h3>Cursor's Composer 2.5 lands cheap and agent-first</h3>
+          </div>
+          <div class="story-body">
+            <p>Anysphere's Cursor shipped Composer 2.5, reporting strong coding-agent benchmark scores at aggressively low token pricing, built on an open Kimi K2.5 checkpoint. It lands competitively with the frontier coding models at a fraction of the cost.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> a cheap, fast coding model compounds your output. Keep a second agent tool in rotation so you're not single-vendor on the part of the job that's now most of the job.</div>
+          <div class="refs"><a href="https://cursor.com/blog/composer-2-5" target="_blank" rel="noopener">Cursor ◆ Composer 2.5</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Voice, infrastructure &amp; the rules</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag new">Product</span>
+            <span class="ver">May 7</span>
+            <h3>OpenAI ships reasoning-grade real-time voice models</h3>
+          </div>
+          <div class="story-body">
+            <p>OpenAI released three Realtime API voice models: GPT-Realtime-2 (its first voice model with GPT-5-class reasoning, parallel tool-calling, and a much larger context window), a translation model spanning 70+ input languages, and a low-latency streaming transcription model.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> you sell an AI phone receptionist. Reasoning plus parallel tool calls plus live translation is a direct upgrade path for that product — benchmark it against your current voice stack before your next receptionist pitch.</div>
+          <div class="refs"><a href="https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api/" target="_blank" rel="noopener">OpenAI ◆ voice models</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Infra</span>
+            <span class="ver">~May 19</span>
+            <h3>NVIDIA's Vera Rubin platform ramps to production</h3>
+          </div>
+          <div class="story-body">
+            <p>At Computex, NVIDIA said its next-gen Vera Rubin platform is ramping into full production with first cloud instances due in the second half of 2026, alongside a large new open MoE model. This is the compute substrate under every model you use.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> nothing to act on today, but cheaper inference downstream eventually lowers your API bill. A macro tailwind for anyone selling AI on per-call economics.</div>
+          <div class="refs"><a href="https://blogs.nvidia.com/blog/nvidia-gtc-taipei-computex-2026-news/" target="_blank" rel="noopener">NVIDIA ◆ Computex 2026</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Also worth knowing</h2>
+        <div class="quickhits">
+          <ul>
+            <li><span class="tag feature qh-tag">Model</span><span class="txt">Meta Superintelligence Labs launched <b>Muse Spark</b>, a small, fast, natively multimodal reasoning model — and notably proprietary, a break from the open-weight Llama line. <span class="ver">Apr 8</span></span></li>
+            <li><span class="tag feature qh-tag">Open</span><span class="txt"><b>DeepSeek V4</b> (Pro/Flash) shipped MIT-licensed with long context and led several open-weight rankings; DeepSeek then made a steep API price cut permanent. Cheap self-hostable frontier-class weights. <span class="ver">Apr 24</span></span></li>
+            <li><span class="tag feature qh-tag">Model</span><span class="txt"><b>xAI Grok 4.3</b> added a 1M-token context, native video input, and direct PDF/PPTX/XLSX output from a prompt at low pricing — useful primitives for SMB deliverables. <span class="ver">Apr 30</span></span></li>
+            <li><span class="tag improve qh-tag">Research</span><span class="txt">Google DeepMind detailed <b>Co-Scientist</b>, a multi-agent system that generates and refines novel scientific hypotheses — a real-output signal for the agent-orchestration direction. <span class="ver">~May</span></span></li>
+            <li><span class="tag fix qh-tag">Policy</span><span class="txt">The EU reached a provisional <b>"Digital Omnibus"</b> deal — the AI Act's first amendments — deferring high-risk obligations into late 2027 and adding new prohibitions. Compliance breathing room if you ever serve EU clients. <span class="ver">May 7</span></span></li>
+            <li><span class="tag improve qh-tag">Trend</span><span class="txt">The coding stack is <b>converging</b>: cross-vendor plugins now let Claude Code, Cursor, and Codex compose as layers of one workflow rather than competing tools. <span class="ver">Apr–May</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="byline" style="margin-top:40px">
+      <span>◆ End of briefing</span><span>◆</span>
+      <span>This was a 60-day catch-up edition. A few specifics (exact valuations, specs, and dates) are as reported by the linked sources — confirm anything load-bearing before you quote it to a client.</span>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span><a href="../../">← All briefings</a></span>
+      <span>Scouted &amp; written by the TSD agent ◆ Built to own</span>
+    </div>
+  </footer>
+</body>
+</html>

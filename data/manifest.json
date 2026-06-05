@@ -1,5 +1,15 @@
 [
   {
+    "source": "america",
+    "sourceLabel": "America",
+    "sourceColor": "#f59e0b",
+    "date": "2026-06-05",
+    "title": "Jobs hold up, gas hits a four-year high, and the largest Starship flies: 60 days in the US",
+    "summary": "Summer kickoff edition — a neutral, a-political roundup of the biggest US happenings of the past two months: a steady labor market against four-year-high gas prices, a new Fed chair, the largest Starship's debut, a measles surge, and record days in sports and at the box office.",
+    "highlights": 6,
+    "path": "reports/america/2026-06-05.html"
+  },
+  {
     "source": "claude-changelog",
     "sourceLabel": "Claude Code Changelog",
     "sourceColor": "#4cc4ff",
@@ -8,6 +18,26 @@
     "summary": "After last week's big feature run, the only new releases are a fix-heavy 2.1.163 and a pure-stabilization 2.1.165 — the items that matter are hooks that feed context back and a headless claude -p hang fix.",
     "highlights": 4,
     "path": "reports/claude-changelog/2026-06-05.html"
+  },
+  {
+    "source": "general-ai",
+    "sourceLabel": "General AI",
+    "sourceColor": "#a78bfa",
+    "date": "2026-06-05",
+    "title": "Sixty days that reset the AI stack: a near-$1T Anthropic, Opus 4.8, and coding agents writing their own code",
+    "summary": "Summer kickoff edition — the past two months brought a nearly $1T Anthropic raise, a wave of cheaper and more agentic frontier models, reasoning-grade voice APIs, and the clearest signal yet that coding agents now write most of their own code.",
+    "highlights": 6,
+    "path": "reports/general-ai/2026-06-05.html"
+  },
+  {
+    "source": "general-tech",
+    "sourceLabel": "Technology",
+    "sourceColor": "#2dd4bf",
+    "date": "2026-06-05",
+    "title": "The IPO window reopened and the PC got a new challenger: 60 days in tech",
+    "summary": "Summer kickoff edition — SpaceX filed the largest IPO ever, Nvidia attacked the laptop CPU market, the tech IPO window blew open, your Next.js stack got a 400%-faster dev loop and a patch-now security bundle, and the year's biggest breach hit the SaaS identity layer.",
+    "highlights": 6,
+    "path": "reports/general-tech/2026-06-05.html"
   },
   {
     "source": "claude-changelog",
