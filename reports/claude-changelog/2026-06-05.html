@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== Manifest metadata — required, keep accurate ===== -->
+  <meta name="report:source" content="claude-changelog" />
+  <meta name="report:source-label" content="Claude Code Changelog" />
+  <meta name="report:source-color" content="#4cc4ff" />
+  <meta name="report:date" content="2026-06-05" />
+  <meta name="report:title" content="A quiet stabilization window: hook feedback loops and headless reliability are the only things worth touching" />
+  <meta name="report:summary" content="After last week's big feature run, the only new releases are a fix-heavy 2.1.163 and a pure-stabilization 2.1.165 — the items that matter are hooks that feed context back and a headless claude -p hang fix." />
+  <meta name="report:highlights" content="4" />
+
+  <title>A quiet stabilization window: hook feedback loops and headless reliability are the only things worth touching — TSD Daily Reports</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234cc4ff'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%2304111f' font-family='Arial' font-weight='bold'>◆</text></svg>" />
+  <link rel="stylesheet" href="../../assets/theme.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../../">
+        <span class="mark"><span>◆</span></span>
+        <span>TSD Daily Reports<small>Charlotte Metro ◆ Web + AI Studio</small></span>
+      </a>
+      <nav>
+        <a href="../../">All briefings</a>
+        <a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Source ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap report">
+    <div class="masthead">
+      <div class="kicker">
+        <span class="badge-source" style="--src:#4cc4ff"><span class="dot"></span>Claude Code Changelog</span>
+        <span>◆</span><span>Friday, June 5, 2026</span>
+        <span>◆</span><span>Covering 2.1.163–2.1.165 (since June 4 brief)</span>
+      </div>
+      <h1>A quiet window — one fix-heavy release, one pure-stabilization release</h1>
+      <p class="standfirst">After last week's run of dynamic workflows and the Opus 4.8 default, the changelog has gone back to housekeeping. Only two releases landed since yesterday's brief: 2.1.163 is a long fix list with a couple of genuinely useful additions, and 2.1.165 is "bug fixes and reliability improvements" with nothing else named.</p>
+      <div class="byline">
+        <span>Filed by the TSD scout agent</span>
+        <span>◆</span><span>2 releases ◆ stabilization-dominant</span>
+        <span>◆</span><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Read the source ↗</a>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num">2</div><div class="lbl">Releases since June 4 brief</div></div>
+      <div class="stat"><div class="num">1</div><div class="lbl">Hook feature for agent loops</div></div>
+      <div class="stat"><div class="num">20+</div><div class="lbl">Bug fixes &amp; hardening</div></div>
+    </div>
+
+    <!-- ===== TOP SIGNALS (4) ===== -->
+    <section class="signals">
+      <div class="signals-label">◆ Top signals — read these first</div>
+      <div class="signal-grid">
+        <div class="signal"><div class="n">01</div><h4>Hooks can feed Claude context and keep going</h4><p>Stop / SubagentStop hooks can now return <code>additionalContext</code> instead of erroring out — the basis for self-checking agent gates.</p></div>
+        <div class="signal"><div class="n">02</div><h4><code>claude -p</code> no longer hangs on a stray background shell</h4><p>Headless runs that left a dev server running used to hang forever after the result. Background shells now stop ~5s after stdin closes.</p></div>
+        <div class="signal"><div class="n">03</div><h4>Headless on Bedrock/Vertex/Foundry stops demanding an API key</h4><p><code>claude -p</code> no longer fails with "ANTHROPIC_API_KEY required" under <code>CI=true</code> on cloud providers.</p></div>
+        <div class="signal"><div class="n">04</div><h4><code>/btw</code> gains "c to copy"</h4><p>Copies the raw markdown answer to the clipboard, so formatting survives a paste into a doc, PR, or client email.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== STORIES ===== -->
+    <section class="stories">
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Hooks &amp; headless automation</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Feature</span>
+            <span class="ver">2.1.163 · Jun 4</span>
+            <h3>Stop and SubagentStop hooks can return <code>additionalContext</code></h3>
+          </div>
+          <div class="story-body">
+            <p>Until now a Stop or SubagentStop hook that wanted to push back got labeled a hook error. As of 2.1.163 those hooks can return <code>hookSpecificOutput.additionalContext</code> to hand Claude feedback and keep the turn going — a clean way to wire a verification step into the end of a run.</p>
+            <p>That's the mechanism behind a self-checking loop: a Stop hook runs your lint/build/test, and if it fails it feeds the error back and tells Claude to keep working instead of stopping with a red error.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> This is the one item with real leverage. Wire a Stop hook into your build agents that runs <code>tsc</code> / <code>next build</code> (or the report-manifest build on this very scout) and returns the failure as <code>additionalContext</code> — Claude fixes it in-loop instead of handing you a half-finished run to babysit.</p>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Changelog 2.1.163</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag fix">Fix</span>
+            <span class="ver">2.1.163 · Jun 4</span>
+            <h3><code>claude -p</code> no longer hangs after its result when a background command never exits</h3>
+          </div>
+          <div class="story-body">
+            <p>If a headless <code>claude -p</code> run left a backgrounded command alive (a dev server, a watcher), it would hang forever after printing its final result. Background shells are now stopped ~5s after the result once stdin closes.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Directly relevant to your unattended runs — this daily scout and any cron-driven build agent. A run that spun up a Vite/Next dev server mid-task no longer wedges the whole job. Worth confirming your scheduled agents are on 2.1.163+.</p>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Changelog 2.1.163</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag fix">Fix</span>
+            <span class="ver">2.1.163 · Jun 4</span>
+            <h3>Headless on Bedrock/Vertex/Foundry no longer demands <code>ANTHROPIC_API_KEY</code> under CI</h3>
+          </div>
+          <div class="story-body">
+            <p><code>claude -p</code> was failing with "ANTHROPIC_API_KEY required" when <code>CI=true</code> and no Anthropic key was set, even on third-party providers that don't use one. Fixed.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Only bites if you run headless Claude in a CI pipeline against Bedrock or Vertex. Not your stack today, but file it — it's the kind of thing that silently blocks a GitHub Action you'd add later.</p>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Changelog 2.1.163</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Plugins, skills &amp; daily ergonomics</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag improve">Improve</span>
+            <span class="ver">2.1.163 · Jun 4</span>
+            <h3><code>/btw</code> adds a "c to copy" shortcut</h3>
+          </div>
+          <div class="story-body">
+            <p>Press <code>c</code> after a <code>/btw</code> answer to copy the raw markdown to the clipboard, so headings, lists, and code blocks survive when you paste elsewhere.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Small but daily — ask <code>/btw</code> a question mid-build, copy the clean markdown straight into a client email, a PR description, or a CHALLENGES.md entry without re-formatting.</p>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Changelog 2.1.163</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Feature</span>
+            <span class="ver">2.1.163 · Jun 4</span>
+            <h3><code>/plugin list</code> with <code>--enabled</code>/<code>--disabled</code> filters</h3>
+          </div>
+          <div class="story-body">
+            <p>A command to list installed plugins, optionally filtered to just the enabled or disabled ones.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Inventory hygiene. When a skill or plugin misbehaves across your projects, <code>/plugin list --enabled</code> tells you what's actually live before you start debugging.</p>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Changelog 2.1.163</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag improve">Improve</span>
+            <span class="ver">2.1.163 · Jun 4</span>
+            <h3>MCP &amp; skill plumbing: session ID on resume, literal <code>$</code> in commands</h3>
+          </div>
+          <div class="story-body">
+            <p>stdio MCP servers now get the same <code>CLAUDE_CODE_SESSION_ID</code> as hooks and Bash when you <code>--resume</code>, so a resumed session is no longer invisible to your MCP server. Skills also gained a <code>\$</code> escape to put a literal <code>$</code> before a digit in command bodies.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> If you build a custom MCP server that keys off the session ID (logging, per-session state), resume now works correctly. The <code>\$</code> escape matters the next time a skill command needs a literal <code>$1</code> in shell or a price string.</p>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Changelog 2.1.163</a></div>
+        </article>
+      </div>
+
+      <!-- Minor items as quick hits -->
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Fixes &amp; smaller changes</h2>
+        <div class="quickhits">
+          <ul>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Org-managed permission rules now apply for the whole session when the managed-settings fetch lands during startup on a fresh config dir <span class="ver">2.1.163</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Deny rules on home-dir paths (e.g. <code>Read(~/Desktop/**)</code>) now also block Bash commands that reference the path via <code>$HOME</code> <span class="ver">2.1.163</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Hook <code>if: "Bash(...)"</code> conditions no longer fire on every command containing <code>$()</code> or <code>$VAR</code>; matching now covers subshells and backticks <span class="ver">2.1.163</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt"><code>$TMPDIR</code> override regression (2.1.154) broke bash under bazel and EDR-protected Go workflows — now scoped to sandboxed commands only <span class="ver">2.1.163</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Windows: Bash no longer fails with "EEXIST" on the session-env dir when it's read-only or inside OneDrive <span class="ver">2.1.163</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Keyboard input no longer becomes permanently unresponsive after a paste whose end marker the terminal drops <span class="ver">2.1.163</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Terminal misalignment and a multi-second hang when leaving the agent view with Esc <span class="ver">2.1.163</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Background agent sessions in <code>claude agents</code> no longer lose running background tasks when reattached after an update <span class="ver">2.1.163</span></span></li>
+            <li><span class="tag improve qh-tag">Improve</span><span class="txt">Background agent sessions update to a new version in the background — opening one after an update no longer waits on a cold restart <span class="ver">2.1.163</span></span></li>
+            <li><span class="tag improve qh-tag">Improve</span><span class="txt">Clearer descriptions for built-in commands and skills in the <code>/</code> menu; subscription-switch suggestion moved to the startup slot <span class="ver">2.1.163</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Stray "(no content)" line removed from the transcript after closing panels like <code>/mcp</code> and <code>/plugins</code> <span class="ver">2.1.163</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">General "bug fixes and reliability improvements" — no individually named items <span class="ver">2.1.165 · Jun 5</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="byline" style="margin-top:40px">
+      <span>◆ End of briefing</span><span>◆</span>
+      <span>Sources are linked inline. Verify anything load-bearing before acting.</span>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span><a href="../../">← All briefings</a></span>
+      <span>Scouted &amp; written by the TSD agent ◆ Built to own</span>
+    </div>
+  </footer>
+</body>
+</html>

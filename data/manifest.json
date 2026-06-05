@@ -3,6 +3,16 @@
     "source": "claude-changelog",
     "sourceLabel": "Claude Code Changelog",
     "sourceColor": "#4cc4ff",
+    "date": "2026-06-05",
+    "title": "A quiet stabilization window: hook feedback loops and headless reliability are the only things worth touching",
+    "summary": "After last week's big feature run, the only new releases are a fix-heavy 2.1.163 and a pure-stabilization 2.1.165 — the items that matter are hooks that feed context back and a headless claude -p hang fix.",
+    "highlights": 4,
+    "path": "reports/claude-changelog/2026-06-05.html"
+  },
+  {
+    "source": "claude-changelog",
+    "sourceLabel": "Claude Code Changelog",
+    "sourceColor": "#4cc4ff",
     "date": "2026-06-04",
     "title": "Claude Code ships agent swarms, Opus 4.8, and one-command code cleanup",
     "summary": "Eleven releases since May 27 land dynamic multi-agent workflows, the Opus 4.8 default, and review tooling that now writes its own fixes — the most build-leverage update run in months.",
