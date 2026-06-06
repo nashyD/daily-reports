@@ -1,5 +1,15 @@
 [
   {
+    "source": "america",
+    "sourceLabel": "America",
+    "sourceColor": "#f59e0b",
+    "date": "2026-06-06",
+    "title": "A hot jobs report triggers the year's worst market day; Stanley Cup heads to Vegas",
+    "summary": "May payrolls came in at 172,000 — roughly double expectations — pushing bond yields up and sending the S&P 500 to its worst day since October and the Nasdaq down 4%; the FOMC meets June 16–17 under new Chair Kevin Warsh, and the Stanley Cup Final shifts to Las Vegas for Game 3.",
+    "highlights": 4,
+    "path": "reports/america/2026-06-06.html"
+  },
+  {
     "source": "claude-changelog",
     "sourceLabel": "Claude Code Changelog",
     "sourceColor": "#4cc4ff",
@@ -8,6 +18,26 @@
     "summary": "2.1.166 lets you chain up to three fallback models on overload and auto-retries once on the fallback; 2.1.167 is bug fixes only.",
     "highlights": 5,
     "path": "reports/claude-changelog/2026-06-06.html"
+  },
+  {
+    "source": "general-ai",
+    "sourceLabel": "General AI",
+    "sourceColor": "#a78bfa",
+    "date": "2026-06-06",
+    "title": "Anthropic floats a coordinated slowdown as Claude writes most of its own code; Alibaba undercuts on a 1M-token model",
+    "summary": "Anthropic says more than 80% of code merged in May was written by Claude and called for coordinated restraint if self-improvement accelerates; Alibaba shipped a 1M-token multimodal model at $2 per million tokens; and the AI rally cracked, with the Nasdaq down 4% on Friday.",
+    "highlights": 5,
+    "path": "reports/general-ai/2026-06-06.html"
+  },
+  {
+    "source": "general-tech",
+    "sourceLabel": "Technology",
+    "sourceColor": "#2dd4bf",
+    "date": "2026-06-06",
+    "title": "Supabase hits $10.5B on vibe-coding; Quantinuum's $1.68B IPO and a supply-chain security scare",
+    "summary": "Supabase reached a $10.5B valuation on the back of natural-language app building, Honeywell's Quantinuum raised $1.68B in a Nasdaq debut, Chinese-made PCBs under Nvidia AI chips drew national-security scrutiny, GitLab cut 14% of staff, and US data-center buildouts are slipping on grid constraints.",
+    "highlights": 5,
+    "path": "reports/general-tech/2026-06-06.html"
   },
   {
     "source": "america",
