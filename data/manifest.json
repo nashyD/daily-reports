@@ -1,5 +1,15 @@
 [
   {
+    "source": "claude-changelog",
+    "sourceLabel": "Claude Code Changelog",
+    "sourceColor": "#4cc4ff",
+    "date": "2026-06-06",
+    "title": "Fallback models keep your sessions alive when Opus is overloaded",
+    "summary": "2.1.166 lets you chain up to three fallback models on overload and auto-retries once on the fallback; 2.1.167 is bug fixes only.",
+    "highlights": 5,
+    "path": "reports/claude-changelog/2026-06-06.html"
+  },
+  {
     "source": "america",
     "sourceLabel": "America",
     "sourceColor": "#f59e0b",

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== Manifest metadata — required, keep accurate ===== -->
+  <meta name="report:source" content="claude-changelog" />
+  <meta name="report:source-label" content="Claude Code Changelog" />
+  <meta name="report:source-color" content="#4cc4ff" />
+  <meta name="report:date" content="2026-06-06" />
+  <meta name="report:title" content="Fallback models keep your sessions alive when Opus is overloaded" />
+  <meta name="report:summary" content="2.1.166 lets you chain up to three fallback models on overload and auto-retries once on the fallback; 2.1.167 is bug fixes only." />
+  <meta name="report:highlights" content="5" />
+
+  <title>Fallback models keep your sessions alive when Opus is overloaded — TSD Daily Reports</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234cc4ff'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%2304111f' font-family='Arial' font-weight='bold'>◆</text></svg>" />
+  <link rel="stylesheet" href="../../assets/theme.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../../">
+        <span class="mark"><span>◆</span></span>
+        <span>TSD Daily Reports<small>Charlotte Metro ◆ Web + AI Studio</small></span>
+      </a>
+      <nav>
+        <a href="../../">All briefings</a>
+        <a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Source ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap report">
+    <div class="masthead">
+      <div class="kicker">
+        <span class="badge-source" style="--src:#4cc4ff"><span class="dot"></span>Claude Code Changelog</span>
+        <span>◆</span><span>Saturday, June 6, 2026</span>
+        <span>◆</span><span>Releases 2.1.166 – 2.1.167</span>
+      </div>
+      <h1>Fallback models keep your sessions alive when Opus is overloaded</h1>
+      <p class="standfirst">Two releases landed since yesterday. 2.1.167 is pure bug fixes, so the meaty 2.1.166 carries the day: configure up to three fallback models that Claude Code tries in order when your primary is saturated, plus a one-shot auto-retry on the fallback when the API throws an unexpected error. The rest of the release is a long run of background-agent, permission, and terminal fixes.</p>
+      <div class="byline">
+        <span>Filed by the TSD scout agent</span>
+        <span>◆</span><span>Window: since the 2026-06-05 briefing (covered through 2.1.165)</span>
+        <span>◆</span><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Read the source ↗</a>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num">2</div><div class="lbl">releases since 6/5</div></div>
+      <div class="stat"><div class="num">5</div><div class="lbl">top signals</div></div>
+      <div class="stat"><div class="num">~20</div><div class="lbl">fixes in 2.1.166</div></div>
+    </div>
+
+    <!-- ===== TOP SIGNALS ===== -->
+    <section class="signals">
+      <div class="signals-label">◆ Top signals — read these first</div>
+      <div class="signal-grid">
+        <div class="signal"><div class="n">01</div><h4>Fallback model chain</h4><p>Set up to three fallback models tried in order on overload; <code>--fallback-model</code> now applies to interactive sessions too.</p></div>
+        <div class="signal"><div class="n">02</div><h4>Auto-retry on the fallback</h4><p>An unexpected non-retryable API error now triggers one retry on the fallback before it surfaces to you.</p></div>
+        <div class="signal"><div class="n">03</div><h4>Relayed messages lose authority</h4><p>Messages relayed via <code>SendMessage</code> from other sessions can no longer approve permission prompts.</p></div>
+        <div class="signal"><div class="n">04</div><h4>Glob deny rules</h4><p><code>"*"</code> in a deny rule blocks all tools — a clean way to pin an agent to read-only.</p></div>
+        <div class="signal"><div class="n">05</div><h4>Thinking actually turns off</h4><p><code>MAX_THINKING_TOKENS=0</code> and <code>--thinking disabled</code> now disable thinking on models that think by default.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== STORIES ===== -->
+    <section class="stories">
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Keeping sessions moving</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Feature</span>
+            <span class="ver">2.1.166</span>
+            <h3>Configure up to three fallback models</h3>
+          </div>
+          <div class="story-body">
+            <p>A new <code>fallbackModel</code> setting lets you specify up to three models Claude Code tries in order when the primary is overloaded or unavailable. The existing <code>--fallback-model</code> flag now applies to interactive sessions, not just headless runs.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Set a fallback chain in <code>settings.json</code> (e.g. Opus → Sonnet) so a Bisque or Studio C build session keeps moving when Opus is saturated at peak hours instead of erroring out and forcing a re-prompt. This is the single biggest throughput win in the release for a solo operator.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Changelog · 2.1.166</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag improve">Improve</span>
+            <span class="ver">2.1.166</span>
+            <h3>One retry on the fallback for unexpected errors</h3>
+          </div>
+          <div class="story-body">
+            <p>When the API rejects a turn with an unexpected non-retryable error, Claude Code now retries once on the fallback model. Auth, rate-limit, request-size, and transport errors still surface immediately.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Fewer dead turns mid-build. During a long Next.js session you'll hit fewer hard stops that make you restart by hand — pairs directly with the fallback chain above.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Changelog · 2.1.166</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Feature</span>
+            <span class="ver">2.1.166</span>
+            <h3>Thinking can now be fully disabled</h3>
+          </div>
+          <div class="story-body">
+            <p><code>MAX_THINKING_TOKENS=0</code>, <code>--thinking disabled</code>, and the per-model thinking toggle now disable thinking on models that think by default via the Claude API. Third-party providers are unchanged.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> For mechanical passes — bulk renames, find-and-replace across the Studio C repo — you can genuinely turn thinking off now to cut latency and token spend, where before the model kept thinking anyway.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Changelog · 2.1.166</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Permissions &amp; agent security</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag breaking">Hardening</span>
+            <span class="ver">2.1.166</span>
+            <h3>Relayed cross-session messages no longer carry user authority</h3>
+          </div>
+          <div class="story-body">
+            <p>Messages relayed via <code>SendMessage</code> from other Claude sessions no longer carry user authority. Receivers refuse relayed permission requests, and auto mode blocks them outright.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> If you run multiple sessions that message each other (or the daily-reports scout tasks), a relayed message can no longer approve its own permission prompts — closes a prompt-injection path. Nothing to change; just update and you're safer.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Changelog · 2.1.166</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Feature</span>
+            <span class="ver">2.1.166</span>
+            <h3>Glob patterns in deny rules</h3>
+          </div>
+          <div class="story-body">
+            <p>Deny rules now support glob patterns in the tool-name position — <code>"*"</code> denies all tools. Allow rules still reject non-MCP globs, and unknown tool names in deny rules now warn at startup.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Lock a review or report-writing agent to read-only with a <code>"*"</code> deny plus a few targeted allows. Useful for the daily-reports scout and any client-facing agent you don't want writing to disk.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Changelog · 2.1.166</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag fix">Fix</span>
+            <span class="ver">2.1.166</span>
+            <h3>Managed-settings enforcement bugs</h3>
+          </div>
+          <div class="story-body">
+            <p>An invalid entry in managed settings no longer silently disables enforcement of the remaining valid policies. Separately, <code>allowedMcpServers</code>/<code>deniedMcpServers</code> predicates now match when they use <code>${VAR}</code> references.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Low priority solo, but worth knowing if you ever standardize a locked config across machines or a client's box — a single typo no longer quietly voids the rest of your policy.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Changelog · 2.1.166</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> macOS &amp; background-agent reliability</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag fix">Fix</span>
+            <span class="ver">2.1.166</span>
+            <h3>Orphaned <code>bg-pty-host</code> no longer pins a CPU core on macOS</h3>
+          </div>
+          <div class="story-body">
+            <p>Fixed orphaned <code>claude --bg-pty-host</code> processes spinning at 100% CPU after the daemon dies while connected on macOS.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> You're on macOS running scheduled background tasks (this scout included). This kills a silent 100%-CPU orphan that could drain battery and spin up the fans after a daemon crash — a real reason to take the update.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Changelog · 2.1.166</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag fix">Fix</span>
+            <span class="ver">2.1.166</span>
+            <h3>Two ways background sessions could get permanently wedged</h3>
+          </div>
+          <div class="story-body">
+            <p>Remote sessions no longer become permanently stuck when a brief backend disruption hits during worker registration at startup. And background agent sessions that entered a git worktree no longer crash-loop with "No conversation found" when reopened from <code>claude agents</code>.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> If you lean on background agents for parallel client work or worktree-isolated builds, these remove two failure modes that could leave a session dead and need a manual kill.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Changelog · 2.1.166</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag fix">Fix</span>
+            <span class="ver">2.1.166</span>
+            <h3>The recurring "image could not be processed" error</h3>
+          </div>
+          <div class="story-body">
+            <p>Fixed a recurring "image could not be processed" error and the extra token usage that came with it when an unprocessable image was sent in a session.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> If you paste screenshots into sessions (design reviews, client mockups), you'll stop burning tokens on a silent retry loop when one image doesn't decode.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Changelog · 2.1.166</a></div>
+        </article>
+      </div>
+
+      <!-- Minor items as quick hits -->
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Fixes &amp; smaller changes</h2>
+        <div class="quickhits">
+          <ul>
+            <li><span class="tag improve qh-tag">Improve</span><span class="txt"><code>claude update</code> now announces the target version before downloading instead of going silent <span class="ver">2.1.166</span></span></li>
+            <li><span class="tag feature qh-tag">Feature</span><span class="txt"><code>claude agents</code>: typing a URL into the list filters to the session whose first prompt contained it <span class="ver">2.1.166</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">JetBrains terminal flicker (IntelliJ, PyCharm, WebStorm) on 2026.1+ resolved via synchronized output <span class="ver">2.1.166</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Shift+non-ASCII (e.g. Shift+ä → Ä) no longer dropped under the Kitty keyboard protocol (WezTerm, Ghostty, kitty) <span class="ver">2.1.166</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Duplicated thinking text in the Ctrl+O transcript view while streaming <span class="ver">2.1.166</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Cursor sticking at the end of the first line when typing a multiline prompt in <code>claude agents</code> inputs <span class="ver">2.1.166</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt"><code>/doctor</code> showing a contradictory failed "Not inside a remote session" check when run inside one <span class="ver">2.1.166</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Voice mode requiring <code>/login</code> to clear a stale auth check after toggling <code>/voice</code> <span class="ver">2.1.166</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">PowerShell command validation hanging past its time budget on Windows when a killed process held output pipes <span class="ver">2.1.166</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Blank lines between background agent rows in the task list on terminals without Unicode support <span class="ver">2.1.166</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Reliability and bug fixes <span class="ver">2.1.167</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="byline" style="margin-top:40px">
+      <span>◆ End of briefing</span><span>◆</span>
+      <span>Sources are linked inline. Verify anything load-bearing before acting.</span>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span><a href="../../">← All briefings</a></span>
+      <span>Scouted &amp; written by the TSD agent ◆ Built to own</span>
+    </div>
+  </footer>
+</body>
+</html>
