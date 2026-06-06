@@ -277,6 +277,28 @@ code, .mono { font-family: var(--font-mono); font-size: .86em; }
   word-break: break-all; max-width: 220px;
 }
 
+/* Episode archive (click to play) */
+.ep-list { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+.ep-list .ep-label {
+  font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--text-faint); margin: 4px 0 2px;
+}
+.ep-item {
+  display: flex; align-items: center; gap: 14px; width: 100%; text-align: left; cursor: pointer;
+  padding: 11px 14px; border-radius: var(--r-sm); border: 1px solid var(--border);
+  background: var(--surface); color: var(--text); font-family: var(--font-sans);
+  transition: border-color .18s, background .18s;
+}
+.ep-item:hover { border-color: var(--border-strong); background: var(--surface-2); }
+.ep-item.active { border-color: var(--accent); background: var(--accent-soft); }
+.ep-play {
+  flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #04111f; font-size: 11px;
+}
+.ep-info { display: flex; flex-direction: column; min-width: 0; }
+.ep-t { font-weight: 600; font-size: .9rem; }
+.ep-d { font-size: .8rem; color: var(--text-faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
 /* ============================================================================
    REPORT PAGE (reports/<source>/<date>.html)
    ========================================================================== */

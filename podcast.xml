@@ -14,6 +14,15 @@
     <itunes:category text="Technology"/>
     <itunes:owner><itunes:name>TSD Modernization Solutions</itunes:name><itunes:email>nashdavis@tsd-ventures.com</itunes:email></itunes:owner>
     <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="https://nashyd.github.io/daily-reports/podcast.xml" rel="self" type="application/rss+xml"/>
-
+    <item>
+      <title>TSD Daily — June 5, 2026</title>
+      <description>Anthropic nears a trillion and Opus 4.8 ships, a Next.js security patch you need, a steady US jobs report against four-year-high gas, and a quiet week for Claude Code.</description>
+      <itunes:summary>Anthropic nears a trillion and Opus 4.8 ships, a Next.js security patch you need, a steady US jobs report against four-year-high gas, and a quiet week for Claude Code.</itunes:summary>
+      <enclosure url="https://nashyd.github.io/daily-reports/audio/2026-06-05.mp3" length="2498157" type="audio/mpeg"/>
+      <guid isPermaLink="false">tsd-daily-2026-06-05</guid>
+      <pubDate>Fri, 05 Jun 2026 12:00:00 GMT</pubDate>
+      <itunes:duration>3:28</itunes:duration>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
   </channel>
 </rss>

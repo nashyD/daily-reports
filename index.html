@@ -117,38 +117,55 @@
       });
 
     // ---- Daily podcast ----
+    const mins = (s) => s ? `${Math.max(1, Math.round(s / 60))} min` : 'audio';
     function renderPodcast(eps) {
       const feedUrl = new URL('podcast.xml', location.href).href;
       const subscribe = 'podcast://' + feedUrl.replace(/^https?:\/\//, '');
       const head = `<div class="section-head"><h2><span class="diamond">◆</span> Daily podcast</h2></div>`;
       const cover = `<div class="cover" style="background-image:url('assets/podcast-cover.png')"></div>`;
+      const el = document.getElementById('podcast');
       if (!eps || !eps.length) {
-        document.getElementById('podcast').innerHTML = head + `<div class="podcast-card">${cover}
+        el.innerHTML = head + `<div class="podcast-card">${cover}
           <div class="pc-body">
             <div class="pc-kicker">◆ TSD Daily</div>
             <div class="pc-title">Your daily audio briefing</div>
             <div class="pc-meta">The first episode lands here once the podcast routine runs.</div>
-          </div>
-          <div class="pc-side"><a class="btn btn-ghost" href="podcast.xml">View RSS feed</a></div>
-        </div>`;
+          </div></div>`;
         return;
       }
       const e = eps[0];
-      const mins = e.durationSec ? `${Math.max(1, Math.round(e.durationSec / 60))} min` : 'audio';
-      const older = eps.length > 1 ? ` · ${eps.length - 1} earlier episode${eps.length === 2 ? '' : 's'}` : '';
-      document.getElementById('podcast').innerHTML = head + `<div class="podcast-card">${cover}
+      const list = eps.map((ep, i) => `<button class="ep-item${i === 0 ? ' active' : ''}" data-file="${esc(ep.file)}" data-title="${esc(ep.title)}" data-date="${esc(ep.date)}" data-dur="${ep.durationSec || 0}">
+          <span class="ep-play">▶</span>
+          <span class="ep-info"><span class="ep-t">${fmtDate(ep.date)} · ${mins(ep.durationSec)}</span><span class="ep-d">${esc(ep.summary || '')}</span></span>
+        </button>`).join('');
+      el.innerHTML = head + `<div class="podcast-card">${cover}
         <div class="pc-body">
-          <div class="pc-kicker">◆ TSD Daily ◆ Latest episode</div>
+          <div class="pc-kicker">◆ TSD Daily ◆ Now playing</div>
           <div class="pc-title">${esc(e.title)}</div>
-          <div class="pc-meta">${fmtDate(e.date)} · ${mins}${older}</div>
-          <audio controls preload="none" src="${esc(e.file)}"></audio>
+          <div class="pc-meta">${fmtDate(e.date)} · ${mins(e.durationSec)}</div>
+          <audio id="pc-audio" controls preload="metadata" src="${esc(e.file)}"></audio>
         </div>
         <div class="pc-side">
-          <a class="btn btn-primary" href="${subscribe}">Subscribe</a>
-          <a class="btn btn-ghost" href="podcast.xml">RSS feed</a>
+          <a class="btn btn-primary" href="${subscribe}">Subscribe in app</a>
+          <button class="btn btn-ghost" id="copyFeed" type="button">Copy feed link</button>
           <span class="feed-url">${esc(feedUrl)}</span>
         </div>
-      </div>`;
+      </div>` + (eps.length > 1 ? `<div class="ep-list"><div class="ep-label">◆ All episodes</div>${list}</div>` : '');
+
+      const audio = document.getElementById('pc-audio');
+      el.querySelectorAll('.ep-item').forEach(b => b.addEventListener('click', () => {
+        audio.src = b.dataset.file; audio.play().catch(() => {});
+        el.querySelectorAll('.ep-item').forEach(x => x.classList.remove('active'));
+        b.classList.add('active');
+        el.querySelector('.pc-title').textContent = b.dataset.title;
+        el.querySelector('.pc-meta').textContent = fmtDate(b.dataset.date) + ' · ' + mins(Number(b.dataset.dur));
+      }));
+      const cb = document.getElementById('copyFeed');
+      cb && cb.addEventListener('click', async () => {
+        try { await navigator.clipboard.writeText(feedUrl); cb.textContent = 'Copied ✓'; }
+        catch { cb.textContent = feedUrl; }
+        setTimeout(() => { cb.textContent = 'Copy feed link'; }, 1900);
+      });
     }
     fetch('data/episodes.json', { cache: 'no-store' })
       .then(r => r.ok ? r.json() : [])
