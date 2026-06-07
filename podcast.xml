@@ -15,12 +15,22 @@
     <itunes:owner><itunes:name>TSD Modernization Solutions</itunes:name><itunes:email>nashdavis@tsd-ventures.com</itunes:email></itunes:owner>
     <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="https://nashyd.github.io/daily-reports/podcast.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>TSD Daily — Sunday, June 7, 2026</title>
+      <description>Microsoft ships seven in-house models and a Copilot coder, DeepSeek&apos;s first raise, a Next.js patch that becomes a recurring Site Care offer, an ISS shelter scare, and two championship series swinging.</description>
+      <itunes:summary>Microsoft ships seven in-house models and a Copilot coder, DeepSeek&apos;s first raise, a Next.js patch that becomes a recurring Site Care offer, an ISS shelter scare, and two championship series swinging.</itunes:summary>
+      <enclosure url="https://nashyd.github.io/daily-reports/audio/2026-06-07.mp3" length="4405581" type="audio/mpeg"/>
+      <guid isPermaLink="false">tsd-daily-2026-06-07</guid>
+      <pubDate>Sun, 07 Jun 2026 12:00:00 GMT</pubDate>
+      <itunes:duration>6:07</itunes:duration>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+    <item>
       <title>TSD Daily — June 5, 2026</title>
       <description>Anthropic nears a trillion and Opus 4.8 ships, a Next.js security patch you need, a steady US jobs report against four-year-high gas, and a quiet week for Claude Code.</description>
       <itunes:summary>Anthropic nears a trillion and Opus 4.8 ships, a Next.js security patch you need, a steady US jobs report against four-year-high gas, and a quiet week for Claude Code.</itunes:summary>
       <enclosure url="https://nashyd.github.io/daily-reports/audio/2026-06-05.mp3" length="2498157" type="audio/mpeg"/>
       <guid isPermaLink="false">tsd-daily-2026-06-05</guid>
-      <pubDate>Fri, 05 Jun 2026 12:00:00 GMT</pubDate>
+      <pubDate>Fri, 05 Jun 2026 12:00:01 GMT</pubDate>
       <itunes:duration>3:28</itunes:duration>
       <itunes:episodeType>full</itunes:episodeType>
     </item>
