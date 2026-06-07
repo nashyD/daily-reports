@@ -1,6 +1,9 @@
-# Secrets — never commit the Gemini key
+# Secrets — never commit the Gemini key or the private owner profile
 .env
 .env.local
+# Private profile read by the money-moves routine (keep OFF the public repo)
+profile.local.md
+*.local.md
 
 # Build scratch
 *.pcm

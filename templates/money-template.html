@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  ============================================================================
+  TSD "MONEY MOVES" TEMPLATE
+  Copy to reports/money-moves/<YYYY-MM-DD>.html and replace every {{TOKEN}}.
+  Repeat the .opp blocks. Keep the <meta report:*> tags. See routines/money-moves.md.
+  Each opportunity = a SHIFT in the world → WHY IT FITS NASH → a concrete FIRST MOVE,
+  plus effort / upfront-cost / time-to-first-dollar chips.
+  ============================================================================
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="report:source" content="money-moves" />
+  <meta name="report:source-label" content="Money Moves" />
+  <meta name="report:source-color" content="#22c55e" />
+  <meta name="report:date" content="{{YYYY-MM-DD}}" />
+  <meta name="report:title" content="{{HEADLINE_PLAIN_TEXT}}" />
+  <meta name="report:summary" content="{{ONE_SENTENCE_SUMMARY}}" />
+  <meta name="report:highlights" content="{{N_OPPORTUNITIES}}" />
+
+  <title>{{HEADLINE_PLAIN_TEXT}} — TSD Daily Reports</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2322c55e'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%23052e16' font-family='Arial' font-weight='bold'>◆</text></svg>" />
+  <link rel="stylesheet" href="../../assets/theme.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../../">
+        <span class="mark"><span>◆</span></span>
+        <span>TSD Daily Reports<small>Charlotte Metro ◆ Web + AI Studio</small></span>
+      </a>
+      <nav><a href="../../">All briefings</a></nav>
+    </div>
+  </header>
+
+  <!-- green accent for the whole Money Moves report -->
+  <main class="wrap report" style="--accent:#22c55e; --accent-2:#16a34a; --accent-soft:rgba(34,197,94,0.12)">
+    <div class="masthead">
+      <div class="kicker">
+        <span class="badge-source" style="--src:#22c55e"><span class="dot"></span>Money Moves</span>
+        <span>◆</span><span>{{LONG_DATE}}</span>
+        <span>◆</span><span>Opportunities tailored to you</span>
+      </div>
+      <h1>{{HEADLINE}}</h1>
+      <p class="standfirst">{{STANDFIRST_2_SENTENCES — the through-line of today's opportunities}}</p>
+      <div class="byline">
+        <span>Scouted &amp; matched to your profile by the TSD agent</span>
+        <span>◆</span><span>{{N}} moves ◆ ranked by fit</span>
+        <span>◆</span><span>Ideas, not financial advice — verify before you act</span>
+      </div>
+    </div>
+
+    <!-- ===== THIS WEEK'S BEST BET (single highest-fit opportunity) ===== -->
+    <div class="best-bet">
+      <div class="bb-label">◆ Best bet right now</div>
+      <h3>{{BEST_BET_TITLE}}</h3>
+      <p>{{BEST_BET_2_3_SENTENCES — the shift + why it's the top pick for Nash + the first move}}</p>
+      <div class="opp-meta">
+        <span class="chip"><span class="k">Effort</span> <b>{{Low|Medium|High}}</b></span>
+        <span class="chip"><span class="k">Upfront</span> <b>{{$0|$|$$|$$$}}</b></span>
+        <span class="chip"><span class="k">Time to first $</span> <b>{{days|weeks|months}}</b></span>
+        <span class="chip"><span class="k">Type</span> <b>{{New TSD offer|Build & sell|Service/gig|Content|Local}}</b></span>
+      </div>
+    </div>
+
+    <!-- ===== THE MOVES ===== -->
+    <section class="stories">
+      <div class="signals-label" style="margin:34px 0 8px">◆ The moves</div>
+
+      <!-- repeat .opp per opportunity -->
+      <article class="opp">
+        <div class="opp-head">
+          <span class="tag {{new|feature|improve}}">{{TYPE_LABEL}}</span>
+          <h3>{{OPPORTUNITY_TITLE}}</h3>
+        </div>
+        <p class="shift"><b>The shift:</b> {{WHAT_CHANGED_IN_THE_WORLD — 1-2 sentences, link the source}} <a href="{{SOURCE_URL}}" target="_blank" rel="noopener">source ↗</a></p>
+        <div class="opp-blocks">
+          <div class="why"><b>Why you:</b> {{WHY_NASH_SPECIFICALLY_CAN_WIN_THIS — tie to his skills/assets}}</div>
+          <div class="move"><b>First move:</b> {{ONE_CONCRETE_ACTION_HE_CAN_TAKE_THIS_WEEK}}</div>
+        </div>
+        <div class="opp-meta">
+          <span class="chip"><span class="k">Effort</span> <b>{{Low|Medium|High}}</b></span>
+          <span class="chip"><span class="k">Upfront</span> <b>{{$0|$|$$|$$$}}</b></span>
+          <span class="chip"><span class="k">Time to first $</span> <b>{{days|weeks|months}}</b></span>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ===== WATCH LIST (slower / speculative / keep-an-eye-on) ===== -->
+    <div class="story-group" style="margin-top:38px">
+      <h2><span class="diamond">◆</span> Watch list</h2>
+      <div class="quickhits">
+        <ul>
+          <li><span class="tag improve qh-tag">Watch</span><span class="txt">{{SLOWER_OR_SPECULATIVE_OPPORTUNITY — one line, why it's worth tracking}}</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="byline" style="margin-top:40px">
+      <span>◆ End of briefing</span><span>◆</span>
+      <span>These are opportunity ideas matched to your profile, not financial advice. Validate demand before you invest time or money.</span>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span><a href="../../">← All briefings</a></span>
+      <span>Scouted &amp; written by the TSD agent ◆ Built to own</span>
+    </div>
+  </footer>
+</body>
+</html>

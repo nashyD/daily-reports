@@ -30,6 +30,16 @@
     "path": "reports/general-ai/2026-06-06.html"
   },
   {
+    "source": "money-moves",
+    "sourceLabel": "Money Moves",
+    "sourceColor": "#22c55e",
+    "date": "2026-06-06",
+    "title": "Cheap AI, a Next.js scramble, and a vibe-coding flood — six ways to get paid",
+    "summary": "Launch edition — this week AI got cheaper and writes most of its own code, a Next.js security release put every SMB site on notice, and non-engineers are shipping half-built apps faster than they can fix them. Six moves, ranked by how fast and cheaply you can act.",
+    "highlights": 6,
+    "path": "reports/money-moves/2026-06-06.html"
+  },
+  {
     "source": "general-tech",
     "sourceLabel": "Technology",
     "sourceColor": "#2dd4bf",
