@@ -9,10 +9,18 @@ States since the last edition.
 
 ## Source
 - **Not a single feed** — search broadly with WebSearch/WebFetch across: the economy
-  (markets, jobs, inflation, the Fed, major corporate news, big M&A), major weather and
-  natural disasters, public-safety incidents, science & space, infrastructure &
-  transportation, public health, energy, major sports, and notable culture/entertainment.
+  (markets, jobs, inflation, the Fed, rates, major corporate news, big M&A), policy &
+  legislation with a concrete effect on small business, major national events, weather &
+  natural disasters, public-safety incidents, science & space, and infrastructure/energy.
+- A **personal-investor lens** on markets is welcome (what a move means for someone managing
+  their own money), as are **Charlotte / North Carolina** items of real significance.
 - **Slug:** `america` · **Label:** `America` · **Color:** `#f59e0b`
+
+## Hard exclusions — NEVER include (even if it's the day's biggest story)
+- **Sports** — scores, leagues, championships, athletes, drafts, trades. Never.
+- **Entertainment** — movies, TV/streaming, box office, celebrity/influencer gossip.
+- **Partisan political horse-race** — election handicapping, polls, left-vs-right fights.
+  (Substantive policy is allowed only as neutral facts + concrete effect — see THE RULE.)
 
 ## THE RULE — keep it a-political and neutral
 - Report big factual happenings **without partisan framing and without taking sides.**
@@ -25,7 +33,8 @@ States since the last edition.
   effect neutrally and attribute the cause in a single neutral clause.
 
 ## Steps
-1. `git pull`.
+1. `git pull`, then read `profile.local.md` (gitignored, local) for Nash's interest
+   weighting and the hard exclusions above.
 2. Find the newest existing file in `reports/america/` (YYYY-MM-DD). Cover what's new since
    that date.
 3. Run several distinct searches across the focus areas. Verify each item with a real,

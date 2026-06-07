@@ -25,7 +25,9 @@ security advisories he must patch**), (b) change what a solo builder can build o
 **Also include anything just cool, potentially profitable, or genuinely groundbreaking.**
 
 ## Steps
-1. `git pull`.
+1. `git pull`, then read `profile.local.md` (gitignored, local) for Nash's interest weighting.
+   Hard rule: **never** cover sports or entertainment (shows, box office, celebrity); a major
+   chip/hardware/business story stands on its own merits. Skip partisan horse-race.
 2. Find the newest existing file in `reports/general-tech/` (YYYY-MM-DD). Cover what's new
    since that date.
 3. Run several distinct searches. Verify each item with a real, datable source URL. Never

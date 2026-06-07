@@ -24,7 +24,9 @@ cool, potentially profitable, or genuinely groundbreaking — even if it's unrel
 work.** He wants to not miss the big stuff.
 
 ## Steps
-1. `git pull` to get the latest.
+1. `git pull`, then read `profile.local.md` (gitignored, local) for Nash's interest weighting.
+   Hard rule: **never** include sports or entertainment (movies/TV/celebrity); skip partisan
+   horse-race.
 2. Find the newest existing file in `reports/general-ai/` (named YYYY-MM-DD). Cover what's
    new since that date. (Daily cadence — usually the last ~24h, but extend back to the last
    edition if a day was skipped.)
