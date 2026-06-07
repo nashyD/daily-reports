@@ -60,8 +60,8 @@ const items = episodes.map((e, i) => `    <item>
       <title>${xmlEscape(e.title)}</title>
       <description>${xmlEscape(e.summary)}</description>
       <itunes:summary>${xmlEscape(e.summary)}</itunes:summary>
-      <enclosure url="${SITE}/${e.file}" length="${e.bytes || 0}" type="audio/mpeg"/>
-      <guid isPermaLink="false">tsd-daily-${e.date}</guid>
+      <enclosure url="${xmlEscape(`${SITE}/${e.file}`)}" length="${Number.isFinite(e.bytes) ? e.bytes : 0}" type="audio/mpeg"/>
+      <guid isPermaLink="false">tsd-daily-${xmlEscape(e.date)}</guid>
       <pubDate>${pubDate(e.date, i)}</pubDate>
       <itunes:duration>${hms(e.durationSec)}</itunes:duration>
       <itunes:episodeType>full</itunes:episodeType>
