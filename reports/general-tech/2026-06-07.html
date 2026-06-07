@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="report:source" content="general-tech" />
+  <meta name="report:source-label" content="Technology" />
+  <meta name="report:source-color" content="#2dd4bf" />
+  <meta name="report:date" content="2026-06-07" />
+  <meta name="report:title" content="Vercel ships a Shopify storefront builder, Sandbox storage, and a skills API; chip stocks slide as NVIDIA teases its first consumer CPU in a decade" />
+  <meta name="report:summary" content="A loaded few days for the web-platform stack: three Vercel drops, Deno 2.8.2 with post-quantum crypto, a semiconductor sell-off into Computex, a $750M Ramp round, and a 2.6M-record dental breach." />
+  <meta name="report:highlights" content="6" />
+
+  <title>Vercel ships Shopify builder + Sandbox storage; chip stocks slide — TSD Daily Reports</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232dd4bf'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%2304111f' font-family='Arial' font-weight='bold'>◆</text></svg>" />
+  <link rel="stylesheet" href="../../assets/theme.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../../">
+        <span class="mark"><span>◆</span></span>
+        <span>TSD Daily Reports<small>Charlotte Metro ◆ Web + AI Studio</small></span>
+      </a>
+      <nav>
+        <a href="../../">All briefings</a>
+        <a href="https://vercel.com/changelog" target="_blank" rel="noopener">Source ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap report">
+    <div class="masthead">
+      <div class="kicker">
+        <span class="badge-source" style="--src:#2dd4bf"><span class="dot"></span>Technology</span>
+        <span>◆</span><span>Sunday, June 7, 2026</span>
+        <span>◆</span><span>Since the June 6 edition</span>
+      </div>
+      <h1>Vercel ships a Shopify storefront builder, Sandbox storage, and a skills API — while chip stocks slide into Computex</h1>
+      <p class="standfirst">Quiet on consumer gadgets, loaded on the stack you actually run on: three Vercel drops in your window, Deno adds post-quantum crypto, and a semiconductor sell-off collides with NVIDIA teasing its first consumer CPU in over a decade. No fresh CVE on Next.js/React/Tailwind/Supabase — but a patch reminder is below.</p>
+      <div class="byline">
+        <span>Filed by the TSD scout agent</span>
+        <span>◆</span><span>Window: June 3–7, 2026</span>
+        <span>◆</span><a href="https://vercel.com/changelog" target="_blank" rel="noopener">Read the source ↗</a>
+      </div>
+    </div>
+
+    <section class="signals">
+      <div class="signals-label">◆ Top signals — read these first</div>
+      <div class="signal-grid">
+        <div class="signal"><div class="n">01</div><h4>Vercel × Shopify</h4><p>Spin up a Shopify store from Vercel, build the storefront with v0, hand ownership to the client later.</p></div>
+        <div class="signal"><div class="n">02</div><h4>Sandbox "Drives" + skills API</h4><p>Persistent attachable storage in private beta; skills.sh exposes 600k+ open-source skills via OIDC.</p></div>
+        <div class="signal"><div class="n">03</div><h4>Patch check</h4><p>No new CVE this week — but confirm you're on Next.js 15.5.18 / 16.2.6 from the May release.</p></div>
+        <div class="signal"><div class="n">04</div><h4>Chip sell-off</h4><p>AMD, Intel, Broadcom, Micron, ARM all sank June 4–5 on a cautious AI-chip outlook.</p></div>
+        <div class="signal"><div class="n">05</div><h4>NVIDIA consumer CPU</h4><p>Computex teaser: NVIDIA/Microsoft/ARM point at NVIDIA's first consumer CPU in 10+ years.</p></div>
+        <div class="signal"><div class="n">06</div><h4>2.6M-record breach</h4><p>ShinyHunters leaked 234GB from DentaQuest after it refused to pay.</p></div>
+      </div>
+    </section>
+
+    <section class="stories">
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Your stack — web platform &amp; dev tools</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Feature</span>
+            <span class="ver">Jun 4–5, 2026</span>
+            <h3>Vercel ships a Shopify storefront builder, Sandbox persistent storage, and a skills API</h3>
+          </div>
+          <div class="story-body">
+            <p>Three changelog drops in your exact window. June 4: you can create a Shopify test store directly from Vercel, build a production storefront with v0, and claim ownership later. June 5: "Drives" — persistent, attachable storage with a lifecycle independent of any sandbox — entered private beta for Vercel Sandbox, and the new skills.sh API went live, letting you query 600,000+ open-source skills via Vercel OIDC tokens.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> The Shopify path is a direct upsell for any SMB client who wants real e-commerce without you hand-rolling a cart — build it with v0, hand the store over, keep the retainer. Sandbox Drives is worth a look for anything stateful you've been running in ephemeral containers.</div>
+          <div class="refs"><a href="https://vercel.com/changelog" target="_blank" rel="noopener">vercel.com/changelog</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag fix">Fix</span>
+            <span class="ver">May 2026 release</span>
+            <h3>Patch reminder — confirm you're on the patched Next.js / React minors</h3>
+          </div>
+          <div class="story-body">
+            <p>No fresh CVE landed June 3–7. But if you skipped the May 2026 coordinated Next.js release, that's the one to verify: 13 advisories including a high-severity WebSocket SSRF in self-hosted Next.js (CVE-2026-44578, CVSS 8.6) and middleware/proxy authorization bypasses. Fixed in <b>Next.js 15.5.18 and 16.2.6</b> — earlier minors are not backported, so you must move to a patched minor. Separately, React 19.2.7 / 19.1.8 / 19.0.7 (June 1) fix missing FormData entries in Server Actions.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Run <code>npx next --version</code> across every client repo today. Anything self-hosting Next below 15.5.18 or 16.2.6 needs the bump — the SSRF is the load-bearing one. The Server Actions FormData fix matters anywhere you handle form submissions.</div>
+          <div class="refs"><a href="https://vercel.com/changelog/next-js-may-2026-security-release" target="_blank" rel="noopener">Next.js May 2026 security release</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Feature</span>
+            <span class="ver">Jun 3, 2026</span>
+            <h3>Deno 2.8.2 adds post-quantum crypto and <code>deno compile --bundle</code></h3>
+          </div>
+          <div class="story-body">
+            <p>The latest Deno runtime adds ML-DSA and ML-KEM post-quantum cryptography, ChaCha20-Poly1305 and the SHA-3/SHAKE family, a new <code>--bundle</code> flag for <code>deno compile</code>, <code>--env-file</code> support in tasks, and a batch of Node.js-compatibility fixes (fs, HTTP/HTTPS proxying, NAPI).</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Not a switch-now item, but <code>deno compile --bundle</code> makes single-binary CLI tooling genuinely easy — handy if you ever ship a client a small standalone utility. Filing it as "know it exists."</div>
+          <div class="refs"><a href="https://github.com/denoland/deno/releases" target="_blank" rel="noopener">Deno releases</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Chips &amp; hardware</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag breaking">Breaking</span>
+            <span class="ver">Jun 4–5, 2026</span>
+            <h3>Semiconductor sell-off: AMD, Intel, Broadcom, Micron, ARM all sink</h3>
+          </div>
+          <div class="story-body">
+            <p>Chip stocks dropped sharply June 4–5, led by a cautious AI-chip outlook from Broadcom (record results, but no guidance raise), a deepening memory-chip crunch, and a projected slump in global smartphone demand. AMD and Intel led the declines June 5.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Indirect, but real: sustained hardware-cost pressure eventually shows up in cloud and inference pricing. Nothing to act on — context for why your compute bills move.</div>
+          <div class="refs"><a href="https://www.cnbc.com/2026/06/04/chipmaker-equities-micron-marvell-broadcom-intel.html" target="_blank" rel="noopener">CNBC</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag new">New</span>
+            <span class="ver">Computex, Jun 2–5</span>
+            <h3>NVIDIA, Microsoft, and ARM tease NVIDIA's first consumer CPU in over a decade</h3>
+          </div>
+          <div class="story-body">
+            <p>Computex in Taipei centered on a coordinated NVIDIA/Microsoft/ARM announcement pointing at NVIDIA's first consumer CPU in more than ten years, alongside an RTX "Spark" superchip push into laptops and desktops. The signal: a real ARM-on-Windows consumer assault on the x86 Intel/AMD duopoly — context for the sell-off above.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Long-horizon. If ARM-on-Windows gains share, "does it run on ARM" becomes a real QA dimension for desktop tooling. For web work it barely matters — browsers abstract it away.</div>
+          <div class="refs"><a href="https://www.ghacks.net/2026/05/31/nvidia-set-to-reveal-first-consumer-cpu-in-over-a-decade-at-computex-2026/" target="_blank" rel="noopener">gHacks</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Money &amp; security</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag new">New</span>
+            <span class="ver">Jun 5, 2026</span>
+            <h3>Ramp raises $750M at a $44B valuation — the week's largest round</h3>
+          </div>
+          <div class="story-body">
+            <p>Spend-management platform Ramp closed $750M led by Iconiq, GIC, and Ontario Teachers' Pension Plan, valuing the seven-year-old company at $44B. It topped a spendy VC week ahead of three separate $500M rounds (Impulse Space, Supabase, and Bezos/GV-backed AI startup Flourish) — a signal that fintech infra and enterprise software still command megarounds even in a slower AI-mega-round stretch.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Mostly market color. The useful read: SMB finance tooling (Ramp, Brex, Mercury) is well-capitalized and integration-friendly — relevant if a client ever wants spend or expense automation wired into their site.</div>
+          <div class="refs"><a href="https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/" target="_blank" rel="noopener">Crunchbase News</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag breaking">Breaking</span>
+            <span class="ver">Jun 2–7, 2026</span>
+            <h3>DentaQuest breach exposes 2.6M people; ShinyHunters leaks 234GB</h3>
+          </div>
+          <div class="story-body">
+            <p>Extortion group ShinyHunters publicly leaked a claimed 234GB trove from DentaQuest, a major US dental/vision benefits administrator, after the company refused to pay — exposing PII and PHI for 2.6M accounts: names, DOBs, government IDs, Medicaid IDs, and insurance data. DentaQuest confirmed the incident June 2; the public leak landed in the June 4–7 window. The attack fits the year's dominant pattern: help-desk impersonation and MFA-reset social engineering.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> The lesson is the vector, not the victim. The 2026 breach pattern is social engineering against support staff, not zero-days. For any client with a login: enforce MFA, and make sure password/MFA resets can't be triggered by a phone call alone.</div>
+          <div class="refs"><a href="https://www.bleepingcomputer.com/news/security/dentaquest-data-breach-exposed-info-of-26-million-accounts/" target="_blank" rel="noopener">BleepingComputer</a></div>
+        </article>
+      </div>
+
+    </section>
+
+    <div class="byline" style="margin-top:40px">
+      <span>◆ End of briefing</span><span>◆</span>
+      <span>Sources are linked inline. Verify anything load-bearing before acting.</span>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span><a href="../../">← All briefings</a></span>
+      <span>Scouted &amp; written by the TSD agent ◆ Built to own</span>
+    </div>
+  </footer>
+</body>
+</html>

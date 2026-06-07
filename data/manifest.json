@@ -1,5 +1,15 @@
 [
   {
+    "source": "america",
+    "sourceLabel": "America",
+    "sourceColor": "#f59e0b",
+    "date": "2026-06-07",
+    "title": "ISS crew briefly shelters in Dragon over a worsening air leak; two title series swing as Berkshire bets $6.8B on housing",
+    "summary": "A rare ISS safe-haven order, a record hat trick in the Stanley Cup Final, the Knicks up 2-0, a Sunday severe-weather threat in the Plains, a $52.7M Scary Movie opening, and a Berkshire homebuilder deal.",
+    "highlights": 6,
+    "path": "reports/america/2026-06-07.html"
+  },
+  {
     "source": "claude-changelog",
     "sourceLabel": "Claude Code Changelog",
     "sourceColor": "#4cc4ff",
@@ -8,6 +18,36 @@
     "summary": "2.1.168 shipped overnight with bug fixes and reliability improvements only; nothing new to act on since yesterday's fallback-models release.",
     "highlights": 1,
     "path": "reports/claude-changelog/2026-06-07.html"
+  },
+  {
+    "source": "general-ai",
+    "sourceLabel": "General AI",
+    "sourceColor": "#a78bfa",
+    "date": "2026-06-07",
+    "title": "Microsoft ships seven in-house models and a 5B coder inside Copilot; DeepSeek takes its first outside money at ~$59B",
+    "summary": "Microsoft decouples from OpenAI with seven MAI models, DeepSeek raises ~$7.4B, OpenAI rebuilds ChatGPT memory, and a bipartisan bill would freeze state AI laws for three years.",
+    "highlights": 6,
+    "path": "reports/general-ai/2026-06-07.html"
+  },
+  {
+    "source": "money-moves",
+    "sourceLabel": "Money Moves",
+    "sourceColor": "#22c55e",
+    "date": "2026-06-07",
+    "title": "A breach week and a real Next.js CVE hand TSD a recurring Site Care retainer; Vercel's Shopify path is a new build-and-own offer",
+    "summary": "The 2026 breach pattern plus an unpatched Next.js advisory make a managed patch-and-security retainer the highest-fit move; Vercel's Shopify builder and self-revising AI memory open two more sellable offers.",
+    "highlights": 6,
+    "path": "reports/money-moves/2026-06-07.html"
+  },
+  {
+    "source": "general-tech",
+    "sourceLabel": "Technology",
+    "sourceColor": "#2dd4bf",
+    "date": "2026-06-07",
+    "title": "Vercel ships a Shopify storefront builder, Sandbox storage, and a skills API; chip stocks slide as NVIDIA teases its first consumer CPU in a decade",
+    "summary": "A loaded few days for the web-platform stack: three Vercel drops, Deno 2.8.2 with post-quantum crypto, a semiconductor sell-off into Computex, a $750M Ramp round, and a 2.6M-record dental breach.",
+    "highlights": 6,
+    "path": "reports/general-tech/2026-06-07.html"
   },
   {
     "source": "america",

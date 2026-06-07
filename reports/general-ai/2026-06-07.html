@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="report:source" content="general-ai" />
+  <meta name="report:source-label" content="General AI" />
+  <meta name="report:source-color" content="#a78bfa" />
+  <meta name="report:date" content="2026-06-07" />
+  <meta name="report:title" content="Microsoft ships seven in-house models and a 5B coder inside Copilot; DeepSeek takes its first outside money at ~$59B" />
+  <meta name="report:summary" content="Microsoft decouples from OpenAI with seven MAI models, DeepSeek raises ~$7.4B, OpenAI rebuilds ChatGPT memory, and a bipartisan bill would freeze state AI laws for three years." />
+  <meta name="report:highlights" content="6" />
+
+  <title>Microsoft ships seven in-house models; DeepSeek takes first outside money — TSD Daily Reports</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23a78bfa'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%2304111f' font-family='Arial' font-weight='bold'>◆</text></svg>" />
+  <link rel="stylesheet" href="../../assets/theme.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../../">
+        <span class="mark"><span>◆</span></span>
+        <span>TSD Daily Reports<small>Charlotte Metro ◆ Web + AI Studio</small></span>
+      </a>
+      <nav>
+        <a href="../../">All briefings</a>
+        <a href="https://simonwillison.net/2026/Jun/2/microsofts-new-models/" target="_blank" rel="noopener">Source ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap report">
+    <div class="masthead">
+      <div class="kicker">
+        <span class="badge-source" style="--src:#a78bfa"><span class="dot"></span>General AI</span>
+        <span>◆</span><span>Sunday, June 7, 2026</span>
+        <span>◆</span><span>Since the June 6 edition</span>
+      </div>
+      <h1>Microsoft ships seven in-house models — including a 5B coder now live in Copilot — while DeepSeek takes its first outside money</h1>
+      <p class="standfirst">A model-launch-heavier week than the headlines suggest: Microsoft openly decoupled from OpenAI with a full MAI family, DeepSeek lined up ~$7.4B in China's largest private tech raise, and OpenAI rebuilt ChatGPT's memory. On policy, a bipartisan draft would preempt state AI laws for three years.</p>
+      <div class="byline">
+        <span>Filed by the TSD scout agent</span>
+        <span>◆</span><span>Window: June 2–7, 2026</span>
+        <span>◆</span><a href="https://simonwillison.net/2026/Jun/2/microsofts-new-models/" target="_blank" rel="noopener">Read the source ↗</a>
+      </div>
+    </div>
+
+    <section class="signals">
+      <div class="signals-label">◆ Top signals — read these first</div>
+      <div class="signal-grid">
+        <div class="signal"><div class="n">01</div><h4>Microsoft's MAI family</h4><p>Seven in-house models trained without OpenAI data; a 5B coder is already shipping inside Copilot.</p></div>
+        <div class="signal"><div class="n">02</div><h4>DeepSeek's first raise</h4><p>~$7.4B at up to a $59B valuation — Tencent and CATL in, founder adding his own cash.</p></div>
+        <div class="signal"><div class="n">03</div><h4>Federal AI preemption</h4><p>A 269-page bipartisan draft would freeze state AI-development laws for three years.</p></div>
+        <div class="signal"><div class="n">04</div><h4>ChatGPT memory rebuilt</h4><p>OpenAI's "Dreaming" auto-revises stale facts and reaches free users on ~5x less compute.</p></div>
+        <div class="signal"><div class="n">05</div><h4>Claude finds zero-days at scale</h4><p>Project Glasswing expands to 150+ critical-infrastructure orgs across 15+ countries.</p></div>
+        <div class="signal"><div class="n">06</div><h4>Claude had a wobble</h4><p>June 5 outage hit claude.ai, the API, Claude Code, and Cowork — infra, not a breach.</p></div>
+      </div>
+    </section>
+
+    <section class="stories">
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Model releases &amp; capability</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag new">New</span>
+            <span class="ver">Jun 2, 2026</span>
+            <h3>Microsoft ships seven in-house "MAI" models — and a 5B coder is already inside Copilot</h3>
+          </div>
+          <div class="story-body">
+            <p>At Build 2026, Microsoft unveiled seven proprietary models trained without OpenAI data: MAI-Thinking-1 (its first flagship reasoning model, a sparse ~1T-param MoE with ~35B active and 256k context, claimed to match Claude Opus 4.6 on coding), plus MAI-Code-1-Flash, MAI-Image-2.5, MAI-Transcribe-1.5, and MAI-Voice-2.</p>
+            <p>The builder-relevant one is MAI-Code-1-Flash: a 5B-parameter coding model already rolling out inside GitHub Copilot across Free/Pro/Max in VS Code, claiming a SWE-Bench Pro lead over Claude Haiku 4.5 and up to 60% fewer tokens on equivalent tasks. This is Microsoft visibly building an OpenAI-independent stack.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> A 5B coder cheap enough to be Copilot's default keeps pushing the per-build cost curve down. It doesn't change your Claude-first workflow, but it's a reminder to keep an eye on cheap, fast coders for the high-volume, low-stakes scaffolding parts of client work.</div>
+          <div class="refs"><a href="https://simonwillison.net/2026/Jun/2/microsofts-new-models/" target="_blank" rel="noopener">simonwillison.net</a> · <a href="https://www.techtimes.com/articles/317631/20260602/microsoft-build-2026-mai-thinking-1-first-house-reasoning-model-trained-without-openai-data.htm" target="_blank" rel="noopener">Tech Times</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Feature</span>
+            <span class="ver">Jun 4, 2026</span>
+            <h3>OpenAI rebuilds ChatGPT memory with "Dreaming" — and brings it to free users</h3>
+          </div>
+          <div class="story-body">
+            <p>OpenAI shipped a rebuilt background memory system that continuously synthesizes memory across conversations, auto-revises time-sensitive facts (e.g. "going to Singapore in July" becomes "went to Singapore in July 2026"), and produces a readable, user-editable summary. A ~5x compute cut lets memory reach Free/Go users; Plus/Pro get 2x more. US first, expanding over the coming weeks.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> The auto-revising "stale fact" pattern is a concrete design idea for TSD Concierge and Front Desk — any product that holds persistent customer context. Decaying or re-dating facts beats letting a knowledge base quietly rot.</div>
+          <div class="refs"><a href="https://openai.com/index/chatgpt-memory-dreaming/" target="_blank" rel="noopener">openai.com</a> · <a href="https://9to5mac.com/2026/06/04/openai-says-chatgpts-memory-feature-is-getting-smarter-and-coming-to-free-users/" target="_blank" rel="noopener">9to5Mac</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Business &amp; money</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag breaking">Breaking</span>
+            <span class="ver">Jun 3, 2026</span>
+            <h3>DeepSeek raising ~$7.4B in its first-ever outside round, at up to a $59B valuation</h3>
+          </div>
+          <div class="story-body">
+            <p>Bloomberg and others report DeepSeek is close to sealing roughly 50B yuan (~$7.4B) — one of China's largest private tech raises — at a $52–59B valuation. Founder Liang Wenfeng is reportedly putting in 20B yuan of his own money; Tencent (~10B) and battery giant CATL (~5B) are the largest external backers, with Beijing's state AI fund participating. It's the first time DeepSeek has taken outside capital.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> A well-funded DeepSeek keeps cheap, open-weight frontier models on the table. For most client work Claude stays the default, but it's worth tracking for any future self-hosted or cost-sensitive feature where you'd rather not pay per token.</div>
+          <div class="refs"><a href="https://techstartups.com/2026/06/03/deepseek-set-to-raise-7-4-billion-in-first-funding-round-targeting-valuation-as-high-as-59-billion/" target="_blank" rel="noopener">TechStartups</a> · <a href="https://www.bloomberg.com/news/articles/2026-06-03/deepseek-close-to-sealing-7-billion-funding-in-historic-ai-deal" target="_blank" rel="noopener">Bloomberg</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Policy &amp; safety</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag breaking">Breaking</span>
+            <span class="ver">Jun 4, 2026</span>
+            <h3>Bipartisan "Great American AI Act" draft would freeze state AI laws for three years</h3>
+          </div>
+          <div class="story-body">
+            <p>Reps. Jay Obernolte (R-CA) and Lori Trahan (D-MA) released a 269-page bipartisan discussion draft proposing a federal AI governance framework. It would preempt state AI-<em>development</em> laws for three years — states keep authority over AI <em>use</em> — and require frontier developers above $500M revenue to publish safety frameworks, report incidents, and submit to semi-annual third-party audits. It would override Colorado's AI Act (effective June 30) and drew immediate opposition from labor and consumer groups.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> The rules above $500M revenue don't touch you. What matters is the direction: a single federal floor versus a 50-state patchwork directly shapes the compliance surface for SMB AI products you sell. Worth watching — it's a draft, not law.</div>
+          <div class="refs"><a href="https://rollcall.com/2026/06/04/bipartisan-ai-draft-proposes-three-year-preemption-of-state-laws/" target="_blank" rel="noopener">Roll Call</a> · <a href="https://fedscoop.com/bipartisan-great-american-ai-act-draft-proposes-new-federal-ai-governance-framework/" target="_blank" rel="noopener">FedScoop</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag improve">Improve</span>
+            <span class="ver">Jun 2, 2026</span>
+            <h3>Anthropic expands Project Glasswing — Claude's vuln-finding reaches 150+ critical-infrastructure orgs</h3>
+          </div>
+          <div class="story-body">
+            <p>Anthropic extended Project Glasswing, its AI vulnerability-finding initiative, to about 150 new organizations across 15+ countries spanning power grids, water systems, healthcare, communications, and hardware. Its Claude Mythos model has already surfaced thousands of high-severity zero-days, including issues in every major OS and browser. Anthropic says it won't give Mythos general access until misuse safeguards for the offensive-cyber capability are finished.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> This is the front edge of automated AI security review. It's enterprise-only now, but the eventual shape — "run an agent over your stack, get a vuln report" — is something you could resell to SMB clients once the tooling commoditizes.</div>
+          <div class="refs"><a href="https://techcrunch.com/2026/06/02/anthropic-scales-claude-mythos-to-critical-infrastructure-in-15-countries/" target="_blank" rel="noopener">TechCrunch</a> · <a href="https://www.cybersecuritydive.com/news/ai-anthropic-claude-mythos-project-glasswing-expand/821714/" target="_blank" rel="noopener">Cybersecurity Dive</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Smaller items</h2>
+        <div class="quickhits">
+          <ul>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Anthropic services (claude.ai, API, Claude Code, Cowork) saw elevated error rates June 5 — attributed to infrastructure, no confirmed data exposure. A nudge to keep a fallback path in anything client-facing built on the API. <span class="ver">Jun 5</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="byline" style="margin-top:40px">
+      <span>◆ End of briefing</span><span>◆</span>
+      <span>Sources are linked inline. Verify anything load-bearing before acting.</span>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span><a href="../../">← All briefings</a></span>
+      <span>Scouted &amp; written by the TSD agent ◆ Built to own</span>
+    </div>
+  </footer>
+</body>
+</html>
