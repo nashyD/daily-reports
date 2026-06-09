@@ -37,8 +37,9 @@ must name a **first customer or first action he can take this week**.
 
 ## Steps
 1. `git pull --rebase origin main`.
-2. Today's date: `date -u +%F` (filename/report date), `date -u "+%A, %B %-d, %Y"` (long date).
-   If `reports/money-moves/<date>.html` exists, STOP.
+2. Today's date: `date +%F` (filename/report date), `date "+%A, %B %-d, %Y"` (long date).
+   Use LOCAL time (America/New_York), never UTC — an evening catch-up run files under
+   today's local date. If `reports/money-moves/<date>.html` exists, STOP.
 3. Read `profile.local.md` and today's other reports; run several web searches to widen.
 4. Pick **5–7 opportunities**, ranked by FIT to the profile. Choose the single best as the
    "Best bet". Each opportunity needs: the shift (with a real source link), "Why you", a

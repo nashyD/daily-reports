@@ -21,7 +21,8 @@ HTML briefing into the repo. CI handles indexing and deploy.
    change build throughput, code quality, agent/automation capability, or what he can
    sell. Demote pure internal/infra fixes to the "smaller changes" list.
 4. Copy `templates/report-template.html` to
-   `reports/claude-changelog/<YYYY-MM-DD>.html` (today's date, UTC).
+   `reports/claude-changelog/<YYYY-MM-DD>.html` (today's date, LOCAL America/New_York —
+   never UTC; an evening catch-up run files under today's local date).
 5. Fill every `{{TOKEN}}`. Keep all `<meta name="report:*">` tags accurate — CI reads
    them. 4–6 top signals; group the rest into 2–4 story groups; minor items go in the
    quick-hits list.

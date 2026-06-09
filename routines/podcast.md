@@ -14,7 +14,7 @@ Gemini multi-speaker TTS, and publish it to the podcast feed.
 
 ## Steps
 1. `git pull --rebase origin main`.
-2. Today's date: `date -u +%F`. If `audio/<date>.mp3` already exists, STOP (already made).
+2. Today's date: `date +%F` (LOCAL America/New_York — never UTC; an evening catch-up run files under today's local date). If `audio/<date>.mp3` already exists, STOP (already made).
 3. Read today's report files: `reports/*/<date>.html` (claude-changelog, general-ai,
    general-tech, america — whichever exist for today). Pull out the top 2–3 items from each.
 4. **Write the script** to a temp file (e.g. `/tmp/tsd-daily-<date>.txt`). Two hosts,
