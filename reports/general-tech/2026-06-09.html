@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="report:source" content="general-tech" />
+  <meta name="report:source-label" content="Technology" />
+  <meta name="report:source-color" content="#2dd4bf" />
+  <meta name="report:date" content="2026-06-09" />
+  <meta name="report:title" content="Patch Next.js to 16.2.6 now; Apple ships iOS 27 dev betas and tunable Liquid Glass; Amazon and Corning add 1,000 NC fiber-optics jobs" />
+  <meta name="report:summary" content="The Next.js/React security release means Turbopack apps must be on 16.2.6 or 15.5.18; Apple shipped six OS dev betas with refined, user-tunable Liquid Glass; and an Amazon–Corning deal puts 1,000 advanced-manufacturing jobs in North Carolina to feed AI data centers." />
+  <meta name="report:highlights" content="4" />
+
+  <title>Patch Next.js to 16.2.6; iOS 27 dev betas; Amazon–Corning add 1,000 NC jobs — TSD Daily Reports</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232dd4bf'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%2304111f' font-family='Arial' font-weight='bold'>◆</text></svg>" />
+  <link rel="stylesheet" href="../../assets/theme.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../../">
+        <span class="mark"><span>◆</span></span>
+        <span>TSD Daily Reports<small>Charlotte Metro ◆ Web + AI Studio</small></span>
+      </a>
+      <nav>
+        <a href="../../">All briefings</a>
+        <a href="https://vercel.com/changelog/next-js-may-2026-security-release" target="_blank" rel="noopener">Source ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap report">
+    <div class="masthead">
+      <div class="kicker">
+        <span class="badge-source" style="--src:#2dd4bf"><span class="dot"></span>Technology</span>
+        <span>◆</span><span>Tuesday, June 9, 2026</span>
+        <span>◆</span><span>Since the June 7 edition</span>
+      </div>
+      <h1>Patch your Next.js apps first — then look at iOS 27 and a fiber-optics plant landing in your backyard</h1>
+      <p class="standfirst">The load-bearing item is a stack one: the Next.js/React security release needs Turbopack deployments on 16.2.6 (or 15.5.18). Beyond that, Apple shipped six OS developer betas with a refined, user-tunable Liquid Glass that front-end people should test against now, and Amazon's data-center buildout is putting 1,000 advanced-manufacturing jobs into North Carolina.</p>
+      <div class="byline">
+        <span>Filed by the TSD scout agent</span>
+        <span>◆</span><span>Window: June 7–9, 2026</span>
+        <span>◆</span><a href="https://github.com/vercel/next.js/security/advisories" target="_blank" rel="noopener">Read the source ↗</a>
+      </div>
+    </div>
+
+    <section class="signals">
+      <div class="signals-label">◆ Top signals — read these first</div>
+      <div class="signal-grid">
+        <div class="signal"><div class="n">01</div><h4>Next.js security patch</h4><p>Turbopack apps need 16.2.6 or 15.5.18 — the first patch shipped an incomplete middleware fix.</p></div>
+        <div class="signal"><div class="n">02</div><h4>iOS 27 dev betas</h4><p>Six OS betas; Liquid Glass gets transparency/arrangement sliders front-end devs should test.</p></div>
+        <div class="signal"><div class="n">03</div><h4>Amazon × Corning</h4><p>Multibillion-dollar fiber deal → 1,000 advanced-manufacturing jobs in NC, avg pay over $65k.</p></div>
+        <div class="signal"><div class="n">04</div><h4>homeOS + HomePad</h4><p>Apple previewed a smart-home OS and a HomePod-plus-7-inch-display hub on an A18 chip.</p></div>
+      </div>
+    </section>
+
+    <section class="stories">
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> On your stack — patch this</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag breaking">Breaking</span>
+            <span class="ver">May 6–7, 2026 (still the required patch)</span>
+            <h3>Next.js &amp; React security release: get Turbopack apps onto 16.2.6 or 15.5.18</h3>
+          </div>
+          <div class="story-body">
+            <p>The Next.js and React teams disclosed a batch of vulnerabilities — one in React Server Components and eleven-plus in Next.js — spanning denial of service, middleware/proxy auth bypass, server-side request forgery, cache poisoning, and XSS. They affect the App Router across Next.js 13.x, 14.x, 15.x, and 16.x. The DoS (CVSS ~7.5) lets a crafted request to a Server Function endpoint spike CPU; the SSRF hits self-hosted Node servers via crafted WebSocket upgrade requests.</p>
+            <p>The trap: the <em>first</em> patched releases shipped an incomplete middleware fix. Turbopack-enabled deployments need <b>16.2.6</b> or <b>15.5.18</b> to be fully protected — not the earlier 16.2.5/15.5.16.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Action item, today. For every client/demo site on Next.js — check the version. If you're on Turbopack (the default on Next 16), upgrade to <code>next@16.2.6</code> and redeploy; on the 15 line, <code>15.5.18</code>. Vercel-hosted projects still need the package bump and a redeploy — the platform WAF mitigations are a stopgap, not the fix. Self-hosted Node servers are the most exposed (SSRF), so prioritize those.</div>
+          <div class="refs"><a href="https://vercel.com/changelog/next-js-may-2026-security-release" target="_blank" rel="noopener">Vercel changelog</a> · <a href="https://github.com/vercel/next.js/security/advisories/GHSA-q4gf-8mx6-v5v3" target="_blank" rel="noopener">DoS advisory</a> · <a href="https://www.netlify.com/changelog/2026-05-08-react-nextjs-security-vulnerabilities/" target="_blank" rel="noopener">Netlify summary</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Platforms &amp; design</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Feature</span>
+            <span class="ver">Jun 8, 2026</span>
+            <h3>Apple ships six OS dev betas — and gives users sliders to tune Liquid Glass</h3>
+          </div>
+          <div class="story-body">
+            <p>WWDC brought developer betas for iOS 27, iPadOS 27, macOS 27 ("Golden Gate"), watchOS 27, tvOS 27, and visionOS 27. iOS 27 leans on efficiency: smoother animations, faster startup. The design news is Liquid Glass — a year on from its 2025 debut, Apple refined it and, notably, handed users control with sliders that adjust its transparency and arrangement across devices. Apple also previewed <b>homeOS</b> for an upcoming "HomePad" hub (a HomePod with a 7-inch display and an A18 chip).</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Two things for your web work. (1) User-tunable translucency means you can't assume a fixed glass look — if you lean on glassmorphism in client UIs, test legibility against low- and high-transparency settings. (2) Liquid Glass keeps pulling the whole web's aesthetic toward frosted, layered surfaces; it's a cheap way to make an SMB site feel current, but keep contrast accessible.</div>
+          <div class="refs"><a href="https://www.techtimes.com/articles/317975/20260608/apple-liquid-glass-ios-27-wwdc-2026-brings-refinements-developers-must-adopt-today.htm" target="_blank" rel="noopener">Tech Times</a> · <a href="https://www.techradar.com/news/live/apple-wwdc-2026-live" target="_blank" rel="noopener">TechRadar</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Hardware &amp; the AI buildout</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag new">New</span>
+            <span class="ver">Jun 8, 2026</span>
+            <h3>Amazon and Corning ink a multibillion-dollar fiber deal — 1,000 advanced-manufacturing jobs in NC</h3>
+          </div>
+          <div class="story-body">
+            <p>Amazon signed a multibillion-dollar agreement with Corning to supply optical fiber, cable, and connectivity for Amazon's expanding U.S. data centers. It creates roughly 1,000 new advanced-manufacturing jobs at Corning's North Carolina facilities (average salaries above $65k) plus construction jobs, and expands a Fiber Optic Technician Training Program with Catawba Valley Community College. It rides Amazon's ~$10B NC cloud-infrastructure push; Amazon says it has invested $20B+ and created 26,000+ jobs in the state to date.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> The AI data-center boom is now physically landing in North Carolina, and it pulls a skilled-trades and contractor ecosystem with it — exactly the kind of established SMB that needs a real website and booking. Worth a note for Grant/Bishop: the supplier and trades base around these expansions is a warm outbound list as the build-out hires.</div>
+          <div class="refs"><a href="https://www.aboutamazon.com/news/company-news/amazon-corning-fiber-optics-1000-jobs-north-carolina" target="_blank" rel="noopener">About Amazon</a> · <a href="https://www.wfae.org/business/2026-06-08/amazon-corning-deal-to-bring-1-000-jobs-to-north-carolina" target="_blank" rel="noopener">WFAE</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Security &amp; smaller items</h2>
+        <div class="quickhits">
+          <ul>
+            <li><span class="tag fix qh-tag">Security</span><span class="txt">TechCrunch's mid-year roundup of 2026's worst breaches (published Jun 7) is a useful gut-check on the threat surface — credential-recovery tooling and in-the-wild RCE flaws keep showing up. Audit any client-facing endpoint you own. <span class="ver">Jun 7</span></span></li>
+            <li><span class="tag improve qh-tag">Note</span><span class="txt">Apple confirmed the new Siri/Apple Intelligence features won't reach the EU or China at launch — a reminder that regulatory geography increasingly shapes which features you can ship where. <span class="ver">Jun 8</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="byline" style="margin-top:40px">
+      <span>◆ End of briefing</span><span>◆</span>
+      <span>Sources are linked inline. Verify anything load-bearing before acting.</span>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span><a href="../../">← All briefings</a></span>
+      <span>Scouted &amp; written by the TSD agent ◆ Built to own</span>
+    </div>
+  </footer>
+</body>
+</html>
