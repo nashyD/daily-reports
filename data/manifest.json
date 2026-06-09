@@ -1,5 +1,15 @@
 [
   {
+    "source": "claude-changelog",
+    "sourceLabel": "Claude Code Changelog",
+    "sourceColor": "#4cc4ff",
+    "date": "2026-06-09",
+    "title": "2.1.169 lands: /cd, safe-mode, and a switch to mute bundled skills",
+    "summary": "A big release after a two-day quiet patch run: mid-session directory switching that keeps the prompt cache, a safe-mode boot for bisecting broken customizations, a toggle to hide bundled skills from the model, plus macOS speed fixes and background-agent env corrections.",
+    "highlights": 5,
+    "path": "reports/claude-changelog/2026-06-09.html"
+  },
+  {
     "source": "america",
     "sourceLabel": "America",
     "sourceColor": "#f59e0b",

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== Manifest metadata — required, keep accurate ===== -->
+  <meta name="report:source" content="claude-changelog" />
+  <meta name="report:source-label" content="Claude Code Changelog" />
+  <meta name="report:source-color" content="#4cc4ff" />
+  <meta name="report:date" content="2026-06-09" />
+  <meta name="report:title" content="2.1.169 lands: /cd, safe-mode, and a switch to mute bundled skills" />
+  <meta name="report:summary" content="A big release after a two-day quiet patch run: mid-session directory switching that keeps the prompt cache, a safe-mode boot for bisecting broken customizations, a toggle to hide bundled skills from the model, plus macOS speed fixes and background-agent env corrections." />
+  <meta name="report:highlights" content="5" />
+
+  <title>2.1.169 lands: /cd, safe-mode, and a switch to mute bundled skills — TSD Daily Reports</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234cc4ff'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%2304111f' font-family='Arial' font-weight='bold'>◆</text></svg>" />
+  <link rel="stylesheet" href="../../assets/theme.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../../">
+        <span class="mark"><span>◆</span></span>
+        <span>TSD Daily Reports<small>Charlotte Metro ◆ Web + AI Studio</small></span>
+      </a>
+      <nav>
+        <a href="../../">All briefings</a>
+        <a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Source ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap report">
+    <div class="masthead">
+      <div class="kicker">
+        <span class="badge-source" style="--src:#4cc4ff"><span class="dot"></span>Claude Code Changelog</span>
+        <span>◆</span><span>Tuesday, June 9, 2026</span>
+        <span>◆</span><span>One release since the June 7 briefing</span>
+      </div>
+      <h1>2.1.169 is a real release, not another bug-fix patch</h1>
+      <p class="standfirst">After 2.1.165–2.1.168 shipped almost nothing but reliability fixes, 2.1.169 brings three things worth changing your habits for: a <code>/cd</code> command that moves a session between repos without nuking the prompt cache, a <code>--safe-mode</code> boot that disables every customization at once, and a setting to hide bundled skills from the model. The rest is a long tail of agent, security, and macOS fixes.</p>
+      <div class="byline">
+        <span>Filed by the TSD scout agent</span>
+        <span>◆</span><span>Covers v2.1.169 (June 8, 2026)</span>
+        <span>◆</span><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Read the source ↗</a>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num">1</div><div class="lbl">Release in window</div></div>
+      <div class="stat"><div class="num">5</div><div class="lbl">Top signals</div></div>
+      <div class="stat"><div class="num">30+</div><div class="lbl">Adds &amp; fixes in 2.1.169</div></div>
+    </div>
+
+    <!-- ===== TOP SIGNALS ===== -->
+    <section class="signals">
+      <div class="signals-label">◆ Top signals — read these first</div>
+      <div class="signal-grid">
+        <div class="signal"><div class="n">01</div><h4>/cd switches repos, cache intact</h4><p>Move a live session to a new working directory without breaking the prompt cache mid-session.</p></div>
+        <div class="signal"><div class="n">02</div><h4>--safe-mode for bisecting breakage</h4><p>Boot with CLAUDE.md, plugins, skills, hooks, and MCP all off to find what's broken.</p></div>
+        <div class="signal"><div class="n">03</div><h4>Hide bundled skills from the model</h4><p>New disableBundledSkills setting strips built-in skills, workflows, and slash commands from context.</p></div>
+        <div class="signal"><div class="n">04</div><h4>macOS gets faster</h4><p>Killed a 30–50ms per-turn stall for claude.ai logins and cut CPU during streaming.</p></div>
+        <div class="signal"><div class="n">05</div><h4>Background agents respect your env again</h4><p>Dispatched agents now honor project ANTHROPIC_MODEL and keep their flags across retire→wake.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== STORIES ===== -->
+    <section class="stories">
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Multi-repo workflow</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag new">New</span>
+            <span class="ver">2.1.169</span>
+            <h3>/cd moves a session to a new directory without breaking the cache</h3>
+          </div>
+          <div class="story-body">
+            <p>The new <code>/cd</code> command repoints the current session at another working directory and keeps the prompt cache warm, so you don't eat a full cold context re-read just to cross a repo boundary.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Your days hop between repos — tsd-modernization-app, praxis, daily-reports, gallantrenters. Until now that meant a fresh <code>claude</code> per repo or a cache-busting restart. Use <code>/cd</code> to carry context across, e.g. from the sales-dashboard work into the portal-passkeys repo, without paying the cache miss each time.</p>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Claude Code Changelog · 2.1.169</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag improve">Improve</span>
+            <span class="ver">2.1.169</span>
+            <h3>/workflows opens mid-turn, and the CLAUDE.md length warning scales with the model</h3>
+          </div>
+          <div class="story-body">
+            <p><code>/workflows</code> now opens immediately even while a turn is running. Separately, the "CLAUDE.md is too long" warning threshold now scales with the model's context window instead of a fixed line count.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> You run a large auto-memory index (TSD, Praxis, Statefarm, daily-reports, advisor projects). On the 1M-context Opus build that warning should stop nagging about a memory file that's actually fine for the window you're using.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Claude Code Changelog · 2.1.169</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Debugging your own setup</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag new">New</span>
+            <span class="ver">2.1.169</span>
+            <h3>--safe-mode and disableBundledSkills give you two new control surfaces</h3>
+          </div>
+          <div class="story-body">
+            <p><code>--safe-mode</code> (or <code>CLAUDE_CODE_SAFE_MODE</code>) starts Claude Code with all customizations disabled at once — CLAUDE.md, plugins, skills, hooks, MCP servers — for troubleshooting. Separately, the new <code>disableBundledSkills</code> setting (and <code>CLAUDE_CODE_DISABLE_BUNDLED_SKILLS</code>) hides bundled skills, workflows, and built-in slash commands from the model.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Your environment is heavily customized — dozens of advisor skills, scheduled tasks, MCP servers, a big memory layer. When something misbehaves, <code>--safe-mode</code> is the one-flag bisect: does it still break with everything off? And <code>disableBundledSkills</code> trims the huge built-in skill/command menu out of the model's context so it isn't distracted by skills you never use on a given task.</p>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Claude Code Changelog · 2.1.169</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Agents &amp; background reliability</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag fix">Fix</span>
+            <span class="ver">2.1.169</span>
+            <h3>Background agents stop ignoring your project env and flags</h3>
+          </div>
+          <div class="story-body">
+            <p>Background agents dispatched onto a pre-warmed worker were ignoring project-level settings <code>env</code> values like <code>ANTHROPIC_MODEL</code>; that's fixed. They also now preserve <code>--ide</code>, <code>--chrome</code>, <code>--bare</code>, <code>--remote-control</code> and other flags across retire→wake, and are told upfront that shared-checkout edits are blocked until they enter a worktree. <code>claude agents --json</code> no longer omits blocked and just-dispatched sessions, gained <code>--all</code> for completed sessions, and added <code>id</code> and <code>state</code> fields.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Your daily scout reports and any background dispatch you lean on will now actually run on the model you pinned in settings, instead of silently booting on the daemon's default. If you script around <code>claude agents --json</code>, the new <code>id</code>/<code>state</code> fields make status checks reliable.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Claude Code Changelog · 2.1.169</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag fix">Fix</span>
+            <span class="ver">2.1.169</span>
+            <h3>Stale permission prompts no longer haunt resumed remote sessions</h3>
+          </div>
+          <div class="story-body">
+            <p>Reattaching to a remote session whose worker had died while waiting on a prompt used to resurface the same stale permission and dialog prompts every time. Remote Control also no longer gets stuck on "reconnecting" when an OAuth token refresh lands during a resume.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> If you drive longer-running sessions from your phone or a second machine, reattaching is less likely to dump you into a pile of dead prompts or a hung reconnect.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Claude Code Changelog · 2.1.169</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Security &amp; enterprise settings</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag fix">Fix</span>
+            <span class="ver">2.1.169</span>
+            <h3>Untrusted project settings can no longer set OTEL client-cert paths silently</h3>
+          </div>
+          <div class="story-body">
+            <p>A project's untrusted settings could previously set OpenTelemetry client-certificate paths without a trust confirmation. That's now gated. Enterprise managed MCP policies (<code>allowedMcpServers</code>/<code>deniedMcpServers</code>) that weren't being enforced on reconnect, on IDE-typed configs, or before remote settings loaded are now enforced; and remote-managed settings with one invalid entry apply their remaining valid policies instead of silently dropping the whole payload.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> This is the same class of issue your June fleet security review chased — config from a cloned repo quietly changing where credentials or telemetry point. Worth noting as a reason to keep Claude Code current across the machines you run client work on.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Claude Code Changelog · 2.1.169</a></div>
+        </article>
+      </div>
+
+      <!-- Minor items as quick hits -->
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Fixes &amp; smaller changes</h2>
+        <div class="quickhits">
+          <ul>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Up/Down arrows now walk through each wrapped visual row of a long input before jumping to command history <span class="ver">2.1.169</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Footer hints (e.g. "esc to interrupt") now show even with a custom statusline <span class="ver">2.1.169</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt"><code>claude -p</code> no longer slow/hanging on Windows during the slash-command scan (2.1.161 regression) <span class="ver">2.1.169</span></span></li>
+            <li><span class="tag improve qh-tag">Improve</span><span class="txt">Lower CPU while responses stream and during spinner animations <span class="ver">2.1.169</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Restored a 5-minute idle timeout on Vertex/Foundry so a stalled stream aborts; opt out with <code>API_FORCE_IDLE_TIMEOUT=0</code> <span class="ver">2.1.169</span></span></li>
+            <li><span class="tag improve qh-tag">Improve</span><span class="txt"><code>TaskCreate</code> repairs malformed input and includes the schema in validation errors for unloaded tools <span class="ver">2.1.169</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Plugin <code>.in_use</code> PID locks no longer accumulate; stale markers swept once a day <span class="ver">2.1.169</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Agents view no longer leaves a garbled frame after navigating back on WSL in Windows Terminal <span class="ver">2.1.169</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Windows: no more spurious MCPB plugin cache re-extraction, and the GitHub Credential Manager popup at startup is gone <span class="ver">2.1.169</span></span></li>
+            <li><span class="tag improve qh-tag">Improve</span><span class="txt">Better color contrast for skill tags in the slash-command menu; clearer error when an org has disabled API-key auth <span class="ver">2.1.169</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="byline" style="margin-top:40px">
+      <span>◆ End of briefing</span><span>◆</span>
+      <span>Sources are linked inline. Verify anything load-bearing before acting.</span>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span><a href="../../">← All briefings</a></span>
+      <span>Scouted &amp; written by the TSD agent ◆ Built to own</span>
+    </div>
+  </footer>
+</body>
+</html>
