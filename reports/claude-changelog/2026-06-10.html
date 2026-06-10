@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== Manifest metadata — required, keep accurate ===== -->
+  <meta name="report:source" content="claude-changelog" />
+  <meta name="report:source-label" content="Claude Code Changelog" />
+  <meta name="report:source-color" content="#4cc4ff" />
+  <meta name="report:date" content="2026-06-10" />
+  <meta name="report:title" content="Claude Fable 5 ships to general availability in Claude Code 2.1.170" />
+  <meta name="report:summary" content="A one-release window: version 2.1.170 makes Fable 5 — a Mythos-class model Anthropic calls its most capable ever released for general use — selectable in Claude Code, alongside a fix for VS Code terminal sessions silently dropping their transcripts." />
+  <meta name="report:highlights" content="2" />
+
+  <title>Claude Fable 5 ships to general availability in Claude Code 2.1.170 — TSD Daily Reports</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234cc4ff'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%2304111f' font-family='Arial' font-weight='bold'>◆</text></svg>" />
+  <link rel="stylesheet" href="../../assets/theme.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../../">
+        <span class="mark"><span>◆</span></span>
+        <span>TSD Daily Reports<small>Charlotte Metro ◆ Web + AI Studio</small></span>
+      </a>
+      <nav>
+        <a href="../../">All briefings</a>
+        <a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Source ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap report">
+    <div class="masthead">
+      <div class="kicker">
+        <span class="badge-source" style="--src:#4cc4ff"><span class="dot"></span>Claude Code Changelog</span>
+        <span>◆</span><span>Wednesday, June 10, 2026</span>
+        <span>◆</span><span>1 release ◆ 2.1.170</span>
+      </div>
+      <h1>Fable 5 lands in Claude Code. One release, one big thing.</h1>
+      <p class="standfirst">Since the last briefing only one version shipped — 2.1.170 — and it does one thing that matters: it gives Claude Code access to Claude Fable 5, which Anthropic describes as the most capable model it has ever released for general use. The same release fixes a quiet data-loss bug where sessions started from the VS Code terminal weren't saving their transcripts.</p>
+      <div class="byline">
+        <span>Filed by the TSD scout agent</span>
+        <span>◆</span><span>Window: since the 2.1.169 briefing (Jun 8)</span>
+        <span>◆</span><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Read the source ↗</a>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num">2.1.170</div><div class="lbl">Version that unlocks it</div></div>
+      <div class="stat"><div class="num">Fable 5</div><div class="lbl">New flagship model</div></div>
+      <div class="stat"><div class="num">1</div><div class="lbl">Data-loss fix you'll want</div></div>
+    </div>
+
+    <!-- ===== TOP SIGNALS ===== -->
+    <section class="signals">
+      <div class="signals-label">◆ Top signals — read these first</div>
+      <div class="signal-grid">
+        <div class="signal"><div class="n">01</div><h4>Fable 5 is now selectable</h4><p>Update to 2.1.170 and you can point a session at <code>claude-fable-5</code> — Anthropic's most capable generally-available model to date.</p></div>
+        <div class="signal"><div class="n">02</div><h4>VS Code terminal transcript fix</h4><p>Sessions launched from the VS Code integrated terminal were silently not saving transcripts or showing in <code>--resume</code>. Fixed in 2.1.170.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== STORIES ===== -->
+    <section class="stories">
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> The model</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag new">New</span>
+            <span class="ver">2.1.170</span>
+            <h3>Claude Fable 5 is generally available — update to get it</h3>
+          </div>
+          <div class="story-body">
+            <p>Anthropic shipped Claude Fable 5, a "Mythos-class" model it has made safe for general use. The changelog's claim is direct: "Fable's capabilities exceed those of any model we've ever made generally available." Access is gated on the client — you need Claude Code 2.1.170 to select it.</p>
+            <p>No benchmark numbers or pricing are in the changelog; the linked announcement is the place to confirm cost and limits before you lean on it. Treat the "most capable ever" line as Anthropic's framing until you've run it on your own work.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> You're running Opus 4.8 day to day and you've already been handing the hairier Praxis Field and roadmap work to Fable 5. Update to 2.1.170 so that handoff is a model switch inside one client instead of context-juggling. Before you make it your default driver, check the announcement for the price-per-token — a "most capable ever" model is the kind of thing you reach for on a gnarly Bisque/Praxis problem, not on every routine edit. Run it head-to-head on one real task this week and decide where it earns its cost.</div>
+          <div class="refs"><a href="https://www.anthropic.com/news/claude-fable-5-mythos-5" target="_blank" rel="noopener">Anthropic — Claude Fable 5 announcement ↗</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> The fix that could have cost you history</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag fix">Fix</span>
+            <span class="ver">2.1.170</span>
+            <h3>VS Code terminal sessions were silently dropping their transcripts</h3>
+          </div>
+          <div class="story-body">
+            <p>Sessions started from the VS Code integrated terminal — or any shell that inherited Claude Code's environment variables — weren't saving transcripts, and so never showed up under <code>--resume</code>. 2.1.170 fixes it.</p>
+            <p>This is the kind of bug you don't notice until you go looking for a session that should be there and isn't.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> You launch Praxis, Praxis Field, and the TSD apps straight from VS Code (your launch.json configs). If you've been on a build between the regression and now, some of those sessions may not be resumable. Update, and don't count on <code>--resume</code> recovering anything from before the patch — if there's a session you were planning to pick back up, check it exists now rather than assuming.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Claude Code changelog — 2.1.170 ↗</a></div>
+        </article>
+      </div>
+
+    </section>
+
+    <div class="byline" style="margin-top:40px">
+      <span>◆ End of briefing</span><span>◆</span>
+      <span>Sources are linked inline. Verify anything load-bearing — pricing and limits especially — before acting.</span>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span><a href="../../">← All briefings</a></span>
+      <span>Scouted &amp; written by the TSD agent ◆ Built to own</span>
+    </div>
+  </footer>
+</body>
+</html>
