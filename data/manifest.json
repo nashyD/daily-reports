@@ -1,5 +1,15 @@
 [
   {
+    "source": "america",
+    "sourceLabel": "America",
+    "sourceColor": "#f59e0b",
+    "date": "2026-06-10",
+    "title": "May CPI lands this morning with inflation expected to climb to 4.2% as the Fed heads toward a June hold",
+    "summary": "The May Consumer Price Index releases at 8:30am ET today, with headline inflation forecast to rise to 4.2% year-over-year on energy costs and core at 2.9%. Markets price a near-certain Fed hold next week after May payrolls beat at +172k; Charlotte logs more corporate HQ wins, and fintech M&A heats up.",
+    "highlights": 5,
+    "path": "reports/america/2026-06-10.html"
+  },
+  {
     "source": "claude-changelog",
     "sourceLabel": "Claude Code Changelog",
     "sourceColor": "#4cc4ff",
@@ -8,6 +18,36 @@
     "summary": "A one-release window: version 2.1.170 makes Fable 5 — a Mythos-class model Anthropic calls its most capable ever released for general use — selectable in Claude Code, alongside a fix for VS Code terminal sessions silently dropping their transcripts.",
     "highlights": 2,
     "path": "reports/claude-changelog/2026-06-10.html"
+  },
+  {
+    "source": "general-ai",
+    "sourceLabel": "General AI",
+    "sourceColor": "#a78bfa",
+    "date": "2026-06-10",
+    "title": "Anthropic ships Fable 5, its most powerful public model; Google starts an AI price war at $4.99",
+    "summary": "Anthropic released Claude Fable 5 — a locked-down version of its frontier Mythos 5 — as the most capable model it has ever made generally available, free in Pro/Max through June 22. Google cut AI Plus to $4.99 to open a consumer price war, Gemini 3.5 Flash hit GA, and a $965B Anthropic anchors a heavy funding week.",
+    "highlights": 5,
+    "path": "reports/general-ai/2026-06-10.html"
+  },
+  {
+    "source": "money-moves",
+    "sourceLabel": "Money Moves",
+    "sourceColor": "#22c55e",
+    "date": "2026-06-10",
+    "title": "A security-patch sprint to sell now, a Fable 5 upgrade window, and a retainer the price war makes easier to pitch",
+    "summary": "This week's shifts hand TSD a rare urgency hook: live Next.js advisories, a record Patch Tuesday, and an actively-exploited WordPress bug make a paid site-security sprint an easy yes. Meanwhile Fable 5 is free in Pro/Max through June 22, and Google's $4.99 price war is the perfect reason to reframe the Managed AI retainer around integration.",
+    "highlights": 6,
+    "path": "reports/money-moves/2026-06-10.html"
+  },
+  {
+    "source": "general-tech",
+    "sourceLabel": "Technology",
+    "sourceColor": "#2dd4bf",
+    "date": "2026-06-10",
+    "title": "Record Patch Tuesday lands a wormable Windows kernel RCE; patch your Next.js apps and rotate Supabase keys",
+    "summary": "Microsoft's June Patch Tuesday fixed a record ~198 CVEs, headlined by a wormable critical Windows kernel RCE (CVE-2026-45657, CVSS 9.8). For TSD's stack: the May Next.js coordinated security release still needs patching where it hasn't been, Supabase legacy API keys are being deprecated, and Nvidia is entering the PC chip market.",
+    "highlights": 5,
+    "path": "reports/general-tech/2026-06-10.html"
   },
   {
     "source": "america",

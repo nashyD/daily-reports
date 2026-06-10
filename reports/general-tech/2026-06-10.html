@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="report:source" content="general-tech" />
+  <meta name="report:source-label" content="Technology" />
+  <meta name="report:source-color" content="#2dd4bf" />
+  <meta name="report:date" content="2026-06-10" />
+  <meta name="report:title" content="Record Patch Tuesday lands a wormable Windows kernel RCE; patch your Next.js apps and rotate Supabase keys" />
+  <meta name="report:summary" content="Microsoft's June Patch Tuesday fixed a record ~198 CVEs, headlined by a wormable critical Windows kernel RCE (CVE-2026-45657, CVSS 9.8). For TSD's stack: the May Next.js coordinated security release still needs patching where it hasn't been, Supabase legacy API keys are being deprecated, and Nvidia is entering the PC chip market." />
+  <meta name="report:highlights" content="5" />
+
+  <title>Wormable Windows kernel RCE; patch Next.js, rotate Supabase keys — TSD Daily Reports</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232dd4bf'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%2304111f' font-family='Arial' font-weight='bold'>◆</text></svg>" />
+  <link rel="stylesheet" href="../../assets/theme.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../../">
+        <span class="mark"><span>◆</span></span>
+        <span>TSD Daily Reports<small>Charlotte Metro ◆ Web + AI Studio</small></span>
+      </a>
+      <nav>
+        <a href="../../">All briefings</a>
+        <a href="https://www.zerodayinitiative.com/blog/2026/6/9/the-june-2026-security-update-review" target="_blank" rel="noopener">Source ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap report">
+    <div class="masthead">
+      <div class="kicker">
+        <span class="badge-source" style="--src:#2dd4bf"><span class="dot"></span>Technology</span>
+        <span>◆</span><span>Wednesday, June 10, 2026</span>
+        <span>◆</span><span>Since the June 9 edition</span>
+      </div>
+      <h1>A record Patch Tuesday lands a wormable Windows kernel RCE — and three patch jobs sit on TSD's own stack</h1>
+      <p class="standfirst">Microsoft's June update fixed roughly 198 CVEs, the headline being a critical, wormable Windows kernel remote-code-execution bug rated 9.8. The bigger to-do for a solo studio is closer to home: confirm your Next.js apps carry the May coordinated security patches, plan the Supabase legacy-key migration, and note Nvidia's first move into PC chips.</p>
+      <div class="byline">
+        <span>Filed by the TSD scout agent</span>
+        <span>◆</span><span>Window: June 9–10, 2026</span>
+        <span>◆</span><a href="https://www.tenable.com/blog/microsofts-june-2026-patch-tuesday-addresses-198-cves-cve-2026-49160-cve-2026-50507" target="_blank" rel="noopener">Read the source ↗</a>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num">~198</div><div class="lbl">CVEs in June Patch Tuesday</div></div>
+      <div class="stat"><div class="num">9.8</div><div class="lbl">CVSS of the wormable kernel RCE</div></div>
+      <div class="stat"><div class="num">13</div><div class="lbl">Next.js advisories in the May release</div></div>
+    </div>
+
+    <section class="signals">
+      <div class="signals-label">◆ Top signals — read these first</div>
+      <div class="signal-grid">
+        <div class="signal"><div class="n">01</div><h4>Wormable kernel RCE</h4><p>CVE-2026-45657: a network, no-auth, no-interaction Windows kernel use-after-free rated 9.8.</p></div>
+        <div class="signal"><div class="n">02</div><h4>Record patch volume</h4><p>~198 CVEs this Patch Tuesday — 32 critical — across Windows, Office, Azure, Exchange, .NET.</p></div>
+        <div class="signal"><div class="n">03</div><h4>Patch your Next.js</h4><p>The May coordinated release fixed 13 advisories; upgrading is the only complete mitigation.</p></div>
+        <div class="signal"><div class="n">04</div><h4>Supabase key sunset</h4><p>Legacy API keys deprecate by end of 2026 — move to sb_publishable_ / sb_secret_ keys.</p></div>
+        <div class="signal"><div class="n">05</div><h4>Nvidia enters PCs</h4><p>The Arm-based RTX Spark superchip ships this fall in laptops from Dell, HP, Lenovo, and more.</p></div>
+      </div>
+    </section>
+
+    <section class="stories">
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Patch first</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag breaking">Critical</span>
+            <span class="ver">Jun 9, 2026</span>
+            <h3>Wormable Windows kernel RCE headlines a record-volume Patch Tuesday</h3>
+          </div>
+          <div class="story-body">
+            <p>Microsoft's June 2026 Patch Tuesday addressed on the order of 198 CVEs (32 critical, the rest important), one of its largest single releases on record across Windows, Office, Edge, Azure, .NET, Visual Studio, Exchange, Hy-V, Secure Boot, and BitLocker. The standout is <b>CVE-2026-45657</b>, a use-after-free in the Windows kernel's TCP/IP handling that allows unauthenticated remote code execution over the network with no user interaction — a CVSS 9.8 that analysts flag as wormable. It was not publicly disclosed or known to be exploited at publication, but the profile is exactly what gets weaponized fast.</p>
+            <p>Separately, attackers are actively exploiting <b>CVE-2026-3300</b> in Everest Forms Pro, a WordPress plugin, via PHP eval() injection for unauthenticated RCE; and a Cisco SD-WAN 0-day (CVE-2026-20245) reported June 5 had no patch at disclosure.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Your dev Mac and any Windows machine you touch should take the June updates now — a wormable kernel bug is the kind that spreads without anyone clicking anything. More relevant to client work: if any TSD or client site runs <b>WordPress with Everest Forms</b>, that one is being exploited in the wild right now — check and patch or pull the plugin today. Most TSD builds are Next.js, so the WordPress bugs likely don't touch you, but confirm rather than assume for inherited client sites.</div>
+          <div class="refs"><a href="https://www.zerodayinitiative.com/blog/2026/6/9/the-june-2026-security-update-review" target="_blank" rel="noopener">Zero Day Initiative</a> · <a href="https://www.tenable.com/blog/microsofts-june-2026-patch-tuesday-addresses-198-cves-cve-2026-49160-cve-2026-50507" target="_blank" rel="noopener">Tenable</a> · <a href="https://windowsforum.com/threads/cve-2026-45657-critical-windows-kernel-rce-patch-guide-june-2026.424340/" target="_blank" rel="noopener">CVE-2026-45657 detail</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> On TSD's own stack</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag fix">Fix</span>
+            <span class="ver">May 2026</span>
+            <h3>Next.js coordinated security release: 13 advisories, patching is the only full fix</h3>
+          </div>
+          <div class="story-body">
+            <p>Vercel's May 2026 coordinated Next.js security release fixed 13 advisories spanning denial of service (including connection exhaustion in apps using Cache Components), middleware/proxy bypass in App Router apps via segment-prefetch and dynamic route-parameter injection, server-side request forgery via WebSocket upgrades, cache poisoning, and XSS. One tracks an upstream React Server Components issue (CVE-2026-23870). Vercel stated it did not ship WAF rules for this batch — these cannot be reliably blocked at the edge, so <b>upgrading is the only complete mitigation</b>. A June 16.2 backport followed with stability and bug fixes (hydration, router, cache-tag encoding, server actions, Turbopack, FormData).</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Direct action item. Audit every live TSD and client Next.js app — tsd-modernization-app, the State Farm renters funnel, Bisque/Clay, AB Carter, Cake Me Away, Praxis — and confirm each is on a patched Next.js. The middleware/proxy-bypass advisories matter most for any app gating routes (auth, the client portal, the sales dashboard). Since these can't be WAF'd, a redeploy on a patched version is the fix. If you patched in May, just verify; if any app has been quiet since, bump it.</div>
+          <div class="refs"><a href="https://vercel.com/changelog/next-js-may-2026-security-release" target="_blank" rel="noopener">Vercel changelog</a> · <a href="https://github.com/vercel/next.js/security/advisories" target="_blank" rel="noopener">Next.js advisories</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag improve">Migrate</span>
+            <span class="ver">2026</span>
+            <h3>Supabase is deprecating legacy API keys — move to publishable / secret keys</h3>
+          </div>
+          <div class="story-body">
+            <p>Supabase's legacy <code>anon</code> and <code>service_role</code> API keys are being deprecated by the end of 2026 in favor of the new publishable (<code>sb_publishable_…</code>) and secret (<code>sb_secret_…</code>) key format. It is a planned migration, not an emergency, but every Supabase-backed app needs the swap before the deadline. Vercel's Supabase integration has also tightened: multiple Vercel projects can connect to one Supabase project, and auth redirect URIs now auto-sync to your main and preview deployment domains via deployment webhooks.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Put the key migration on the calendar now rather than getting surprised by a breakage in Q4. Any TSD app on Supabase (the portal, the sales dashboard) should plan to rotate to the new key format and update Vercel env vars. The auto-syncing redirect URIs are a quiet win — fewer manual auth-URL fixes when you spin up preview deploys. (You already learned the RP-origin lesson on the portal passkeys; same discipline applies here.)</div>
+          <div class="refs"><a href="https://supabase.com/blog/using-supabase-with-vercel" target="_blank" rel="noopener">Supabase × Vercel</a> · <a href="https://supabase.com/docs/guides/getting-started/quickstarts/nextjs" target="_blank" rel="noopener">Supabase docs</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Hardware</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag new">New</span>
+            <span class="ver">Early Jun 2026</span>
+            <h3>Nvidia enters the PC chip market with the Arm-based RTX Spark</h3>
+          </div>
+          <div class="story-body">
+            <p>Nvidia is making its first move into consumer PC processors with the RTX Spark, an Arm-based superchip pairing a Blackwell RTX GPU with a Grace CPU, unveiled by Jensen Huang at Computex. It debuts this fall in Windows laptops from Microsoft, Dell, HP, ASUS, Lenovo, and MSI, taking direct aim at Apple Silicon and Qualcomm in the Arm-PC segment. Related: Apple's overhauled Gemini-powered Siri will reportedly run on Nvidia Blackwell B200 chips accessed via Google Cloud.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> No immediate impact on what you ship, but the Arm-PC shift is worth tracking for two reasons: more capable on-device compute eventually means more local AI inference (cheaper concierge/receptionist features that don't hit an API), and a new dominant laptop architecture changes how you test client sites for performance. Nothing to act on; just know the desktop is moving to Arm.</div>
+          <div class="refs"><a href="https://www.cnbc.com/2026/05/31/nvidias-new-chip-to-power-fresh-line-of-windows-laptops-by-dell-hp.html" target="_blank" rel="noopener">CNBC</a> · <a href="https://9to5mac.com/2026/06/03/report-details-apples-plan-to-use-nvidia-chips-for-the-gemini-powered-siri/" target="_blank" rel="noopener">9to5Mac</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Quick hits</h2>
+        <div class="quickhits">
+          <ul>
+            <li><span class="tag breaking qh-tag">Exploited</span><span class="txt">Cisco SD-WAN 0-day <b>CVE-2026-20245</b> was being exploited with no patch available at June 5 disclosure — relevant only if a client runs Cisco SD-WAN gear. <span class="ver">Jun 5</span></span></li>
+            <li><span class="tag improve qh-tag">Update</span><span class="txt">Next.js shipped a <b>16.2 backport</b> in June with hydration, router, cache-tag, and Turbopack fixes — a safe, low-risk bump for current apps. <span class="ver">Jun 2026</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Vercel now blocks new deployments of known-vulnerable Next.js versions by default — a backstop, but don't rely on it in place of upgrading. <span class="ver">2026</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="byline" style="margin-top:40px">
+      <span>◆ End of briefing</span><span>◆</span>
+      <span>Sources are linked inline. Verify anything load-bearing before acting.</span>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span><a href="../../">← All briefings</a></span>
+      <span>Scouted &amp; written by the TSD agent ◆ Built to own</span>
+    </div>
+  </footer>
+</body>
+</html>
