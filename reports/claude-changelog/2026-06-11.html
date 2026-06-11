@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== Manifest metadata — required, keep accurate ===== -->
+  <meta name="report:source" content="claude-changelog" />
+  <meta name="report:source-label" content="Claude Code Changelog" />
+  <meta name="report:source-color" content="#4cc4ff" />
+  <meta name="report:date" content="2026-06-11" />
+  <meta name="report:title" content="Sub-agents can now spawn sub-agents five levels deep, and 1M-context sessions stop getting stuck" />
+  <meta name="report:summary" content="Two releases since the last briefing: 2.1.172 lets sub-agents spawn their own sub-agents up to five levels deep, auto-recovers 1M-context sessions that ran out of credits, isolates background-agent settings per directory, and trims idle CPU; 2.1.173 normalizes the Fable 5 [1m] suffix Nash's own model ID carries." />
+  <meta name="report:highlights" content="6" />
+
+  <title>Sub-agents can now spawn sub-agents five levels deep, and 1M-context sessions stop getting stuck — TSD Daily Reports</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234cc4ff'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%2304111f' font-family='Arial' font-weight='bold'>◆</text></svg>" />
+  <link rel="stylesheet" href="../../assets/theme.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../../">
+        <span class="mark"><span>◆</span></span>
+        <span>TSD Daily Reports<small>Charlotte Metro ◆ Web + AI Studio</small></span>
+      </a>
+      <nav>
+        <a href="../../">All briefings</a>
+        <a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Source ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap report">
+    <div class="masthead">
+      <div class="kicker">
+        <span class="badge-source" style="--src:#4cc4ff"><span class="dot"></span>Claude Code Changelog</span>
+        <span>◆</span><span>Thursday, June 11, 2026</span>
+        <span>◆</span><span>Versions 2.1.172 – 2.1.173</span>
+      </div>
+      <h1>Sub-agents can now spawn sub-agents. And the 1M-context stuck-session trap is gone.</h1>
+      <p class="standfirst">Two releases landed since the Fable 5 briefing. 2.1.172 is a large one: sub-agents can now nest their own sub-agents up to five levels deep, sessions on 1M context that run out of usage credits auto-compact instead of locking up, and background agents stop reading the wrong directory's settings when dispatched onto a pre-warmed worker. 2.1.173 is small but lands on you directly — it strips the redundant <code>[1m]</code> suffix from Fable 5 model IDs, the exact shape your own model string carries.</p>
+      <div class="byline">
+        <span>Filed by the TSD scout agent</span>
+        <span>◆</span><span>Window: since the June 10 briefing (2.1.170)</span>
+        <span>◆</span><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Read the source ↗</a>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num">5</div><div class="lbl">Sub-agent nesting depth (levels)</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">Releases in this window</div></div>
+      <div class="stat"><div class="num">2.1.173</div><div class="lbl">Latest version</div></div>
+    </div>
+
+    <!-- ===== TOP SIGNALS ===== -->
+    <section class="signals">
+      <div class="signals-label">◆ Top signals — read these first</div>
+      <div class="signal-grid">
+        <div class="signal"><div class="n">01</div><h4>Sub-agents spawn sub-agents</h4><p>Up to five levels deep — orchestration can now branch on its own instead of flat fan-out.</p></div>
+        <div class="signal"><div class="n">02</div><h4>1M-context sessions self-rescue</h4><p>Out of credits on a 1M session no longer means a permanently stuck session; it auto-compacts back under the standard limit.</p></div>
+        <div class="signal"><div class="n">03</div><h4>Background agents stop cross-reading settings</h4><p>A pre-warmed worker no longer inherits another repo's <code>.mcp.json</code> approvals and trust — a real correctness fix for multi-repo work.</p></div>
+        <div class="signal"><div class="n">04</div><h4>Idle CPU and long-conversation cost trimmed</h4><p>Fewer redundant transforms while streaming; the <code>/goal</code> chip and parallel subagents stop re-rendering the terminal for nothing.</p></div>
+        <div class="signal"><div class="n">05</div><h4>Fable 5 <code>[1m]</code> suffix normalized</h4><p>The redundant suffix on Fable 5 IDs is now stripped automatically — Fable 5 ships 1M context by default.</p></div>
+        <div class="signal"><div class="n">06</div><h4><code>/code-review ultra</code> survives a logged-out state</h4><p>The ultra option stays visible when you're not signed in to claude.ai, with a note that it needs an account.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== STORIES ===== -->
+    <section class="stories">
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Agents and automation</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Feature</span>
+            <span class="ver">2.1.172</span>
+            <h3>Sub-agents can spawn their own sub-agents, up to 5 levels deep</h3>
+          </div>
+          <div class="story-body">
+            <p>Until now an agent could fan out to a flat layer of workers. As of 2.1.172 a sub-agent can itself dispatch sub-agents, and so on, five levels down. That turns orchestration from "one boss, many workers" into a real tree — a coordinator can split a job, hand each branch to a lead, and let that lead break its branch down further.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Your bigger jobs — a full audit across the Bisque / Studio C / Sonderwerks repos, or a multi-file migration — can now be expressed as a tree instead of one giant flat fan-out you babysit. Use it deliberately: nesting multiplies token spend fast, so cap depth to the job and lean on it for genuinely hierarchical work, not every task.</p></div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Claude Code changelog — 2.1.172</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag fix">Fix</span>
+            <span class="ver">2.1.172</span>
+            <h3>Background agents no longer read the wrong directory's project settings</h3>
+          </div>
+          <div class="story-body">
+            <p>When a background agent was dispatched onto a pre-warmed worker, it could read a different directory's project settings — <code>.mcp.json</code> approvals, trust state — instead of the project it was actually working in. 2.1.172 fixes that, along with a background sub-agent staying stuck as "active" after a nested agent it spawned was stopped, and background-session attach failing with EAUTH for sessions started on an older version after the daemon auto-updated.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> This is the one to care about if you run background agents across multiple client repos in a sitting. The old behavior meant a worker warmed in one repo could silently carry another repo's MCP approvals — a quiet trust leak. Update before your next multi-repo background run.</p></div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Claude Code changelog — 2.1.172</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Your daily driver — models and context</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag fix">Fix</span>
+            <span class="ver">2.1.172</span>
+            <h3>1M-context sessions without credits auto-compact instead of locking up</h3>
+          </div>
+          <div class="story-body">
+            <p>A session running 1M context that ran out of usage credits used to get permanently stuck — no recovery short of abandoning it. Now the session automatically compacts back under the standard context limit and keeps going. The same release also fixed model IDs picking up a doubled suffix like <code>[1M][1m]</code> when <code>ANTHROPIC_DEFAULT_OPUS_MODEL</code> already carried one, and restored Opus/Sonnet 1M rows in the <code>/model</code> picker for orgs using version-specific IDs.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> You run Opus 4.8 on 1M context as your default. This is the failure mode that could have eaten a long working session mid-task. After updating, a credit ceiling degrades gracefully instead of bricking the session.</p></div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Claude Code changelog — 2.1.172</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag fix">Fix</span>
+            <span class="ver">2.1.173</span>
+            <h3>Fable 5 <code>[1m]</code> suffix is now stripped automatically</h3>
+          </div>
+          <div class="story-body">
+            <p>Fable 5 includes 1M context by default, so model names carrying a <code>[1m]</code> suffix were redundant. 2.1.173 normalizes them — the suffix is stripped rather than treated as a distinct, possibly unrecognized model string. The same patch quiets a spurious "sandbox dependencies missing" startup warning on Windows.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Minor housekeeping that happens to touch your exact setup — your model ID surfaces as <code>claude-opus-4-8[1m]</code>, the same suffix pattern. If you ever pin Fable 5 in a script or settings file, you can drop the suffix and trust it resolves cleanly.</p></div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Claude Code changelog — 2.1.173</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Performance, footprint, and review</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag improve">Improve</span>
+            <span class="ver">2.1.172</span>
+            <h3>Long conversations stream cheaper; idle CPU drops</h3>
+          </div>
+          <div class="story-body">
+            <p>2.1.172 removes redundant message normalization and skips full message-history transforms when streaming tool-use state hasn't changed — a direct win in long sessions. Idle cost is down too: the <code>/goal</code> status chip no longer repaints the terminal at 5 Hz while idle, parallel subagents trigger fewer re-renders, and Claude in Chrome now loads its browser tools in one batched call instead of one per tool.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> You live in long, agent-heavy sessions. These are the kind of changes you feel as a quieter fan and a more responsive terminal during big builds rather than a headline feature. No action — just update and benefit.</p></div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Claude Code changelog — 2.1.172</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag improve">Improve</span>
+            <span class="ver">2.1.172</span>
+            <h3><code>/code-review ultra</code> stays available when logged out; WebFetch wildcard rules fixed</h3>
+          </div>
+          <div class="story-body">
+            <p><code>/code-review</code> now keeps the <code>ultra</code> option visible even when you're not signed in to claude.ai, with an explanation that the cloud review needs an account. Separately, <code>WebFetch(domain:*.example.com)</code> wildcard rules never matched subdomains in allow/deny/ask position, and file rules with mid-pattern wildcards like <code>Read(secrets-*/config.json)</code> were rejected at startup — both fixed.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> You use <code>/code-review ultra</code> on branches before merge — it no longer vanishes from the menu if your claude.ai session lapsed; it tells you to sign in. And if you ever wrote a wildcard WebFetch or file-permission rule that "wasn't working," this is why — they match now.</p></div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Claude Code changelog — 2.1.172</a></div>
+        </article>
+      </div>
+
+      <!-- Minor items as quick hits -->
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Fixes &amp; smaller changes</h2>
+        <div class="quickhits">
+          <ul>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Repeating "an image could not be processed and was removed" error when a conversation had multiple images <span class="ver">2.1.172</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Agents view leaving a session under "Working" with a spinner for up to 30s after the worker had replied <span class="ver">2.1.172</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Memory recall not finding mounted team memory stores (<code>CLAUDE_MEMORY_STORES</code>) in remote sessions <span class="ver">2.1.172</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Up-arrow history showing the main agent's prompts while a subagent chat tab was open <span class="ver">2.1.172</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Workflow validation rejecting scripts that merely mention <code>Date.now()</code>/<code>Math.random()</code> in strings or comments <span class="ver">2.1.172</span></span></li>
+            <li><span class="tag feature qh-tag">New</span><span class="txt">Search bar when browsing a marketplace's plugins in <code>/plugin</code> <span class="ver">2.1.172</span></span></li>
+            <li><span class="tag improve qh-tag">Improve</span><span class="txt">Amazon Bedrock reads the AWS region from <code>~/.aws</code> when <code>AWS_REGION</code> is unset; <code>/status</code> shows the source <span class="ver">2.1.172</span></span></li>
+            <li><span class="tag improve qh-tag">Improve</span><span class="txt">Added <code>model</code> attribute to the <code>claude_code.lines_of_code.count</code> OTEL metric <span class="ver">2.1.172</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">[VSCode] PowerShell tool calls rendering as raw JSON instead of a proper command/permission dialog; ANSI codes now stripped from shell output <span class="ver">2.1.172</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Spurious "sandbox dependencies missing" startup warning on Windows when sandbox was enabled <span class="ver">2.1.173</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="byline" style="margin-top:40px">
+      <span>◆ End of briefing</span><span>◆</span>
+      <span>Sources are linked inline. Verify anything load-bearing before acting.</span>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span><a href="../../">← All briefings</a></span>
+      <span>Scouted &amp; written by the TSD agent ◆ Built to own</span>
+    </div>
+  </footer>
+</body>
+</html>

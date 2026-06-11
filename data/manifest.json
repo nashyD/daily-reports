@@ -1,5 +1,15 @@
 [
   {
+    "source": "claude-changelog",
+    "sourceLabel": "Claude Code Changelog",
+    "sourceColor": "#4cc4ff",
+    "date": "2026-06-11",
+    "title": "Sub-agents can now spawn sub-agents five levels deep, and 1M-context sessions stop getting stuck",
+    "summary": "Two releases since the last briefing: 2.1.172 lets sub-agents spawn their own sub-agents up to five levels deep, auto-recovers 1M-context sessions that ran out of credits, isolates background-agent settings per directory, and trims idle CPU; 2.1.173 normalizes the Fable 5 [1m] suffix Nash's own model ID carries.",
+    "highlights": 6,
+    "path": "reports/claude-changelog/2026-06-11.html"
+  },
+  {
     "source": "america",
     "sourceLabel": "America",
     "sourceColor": "#f59e0b",
