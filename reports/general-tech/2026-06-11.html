@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="report:source" content="general-tech" />
+  <meta name="report:source-label" content="Technology" />
+  <meta name="report:source-color" content="#2dd4bf" />
+  <meta name="report:date" content="2026-06-11" />
+  <meta name="report:title" content="Supabase raises $500M at $10.5B and flips self-hosted Postgres to v17 next week; GitHub Copilot goes agent-native; a 1.2B-record leak surfaces" />
+  <meta name="report:summary" content="Supabase closed a $500M Series F at a $10.5B valuation and is moving its default self-hosted database image to Postgres 17 the week of June 15 — a heads-up if you self-host. GitHub Copilot's desktop app opened to all paid users with cloud agent sessions, a new Microsoft Defender zero-day dropped right after Patch Tuesday, and a 1.2-billion-record identity leak surfaced." />
+  <meta name="report:highlights" content="5" />
+
+  <title>Supabase $500M + Postgres 17 default; Copilot goes agent-native — TSD Daily Reports</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232dd4bf'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%2304111f' font-family='Arial' font-weight='bold'>◆</text></svg>" />
+  <link rel="stylesheet" href="../../assets/theme.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../../">
+        <span class="mark"><span>◆</span></span>
+        <span>TSD Daily Reports<small>Charlotte Metro ◆ Web + AI Studio</small></span>
+      </a>
+      <nav>
+        <a href="../../">All briefings</a>
+        <a href="https://supabase.com/blog/supabase-series-f" target="_blank" rel="noopener">Source ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap report">
+    <div class="masthead">
+      <div class="kicker">
+        <span class="badge-source" style="--src:#2dd4bf"><span class="dot"></span>Technology</span>
+        <span>◆</span><span>Thursday, June 11, 2026</span>
+        <span>◆</span><span>Since the June 10 edition</span>
+      </div>
+      <h1>Supabase raises $500M at $10.5B and flips self-hosted Postgres to v17 next week, while GitHub Copilot goes agent-native</h1>
+      <p class="standfirst">Supabase — squarely on your stack — closed a $500M Series F at a $10.5B valuation and is changing its default self-hosted database image to Postgres 17 the week of June 15, which matters if you run your own Supabase. Meanwhile GitHub Copilot's desktop app opened to all paid users with cloud agent sessions, and security teams had a heavy week: a Defender zero-day landed right after a record Patch Tuesday, and a 1.2-billion-record identity leak surfaced.</p>
+      <div class="byline">
+        <span>Filed by the TSD scout agent</span>
+        <span>◆</span><span>Window: June 10–11, 2026 (plus week context)</span>
+        <span>◆</span><a href="https://techcrunch.com/2026/06/05/supabase-doubles-valuation-to-10b-in-8-months/" target="_blank" rel="noopener">Read the source ↗</a>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num">$10.5B</div><div class="lbl">Supabase post-money (doubled in 8 mo)</div></div>
+      <div class="stat"><div class="num">PG 17</div><div class="lbl">New self-hosted default, week of Jun 15</div></div>
+      <div class="stat"><div class="num">~208</div><div class="lbl">CVEs in June Patch Tuesday</div></div>
+    </div>
+
+    <section class="signals">
+      <div class="signals-label">◆ Top signals — read these first</div>
+      <div class="signal-grid">
+        <div class="signal"><div class="n">01</div><h4>Supabase at $10.5B</h4><p>$500M Series F led by GIC; Stripe and Salesforce Ventures in. Total raised tops $1B; valuation doubled in 8 months.</p></div>
+        <div class="signal"><div class="n">02</div><h4>Self-hosted → Postgres 17</h4><p>The default Docker image flips to PG 17 the week of June 15. Pin or test your migration if you self-host.</p></div>
+        <div class="signal"><div class="n">03</div><h4>Free-tier email lockdown</h4><p>Since June 3, new free-tier projects can't edit auth email templates — a gotcha for client work.</p></div>
+        <div class="signal"><div class="n">04</div><h4>Copilot goes agent-native</h4><p>Desktop app opens to all paid users; cloud agents can spin up issues + PRs from the IDE. Opus 4.8 is now a model option.</p></div>
+        <div class="signal"><div class="n">05</div><h4>Patch, then patch again</h4><p>A new "RoguePlanet" Defender zero-day dropped hours after a record ~208-CVE Patch Tuesday.</p></div>
+      </div>
+    </section>
+
+    <section class="stories">
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Your stack</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Funding</span>
+            <span class="ver">Jun 4–5, 2026</span>
+            <h3>Supabase raises $500M at a $10.5B valuation — and changes the self-hosted Postgres default next week</h3>
+          </div>
+          <div class="story-body">
+            <p>Supabase announced a $500M Series F at a $10.5B post-money valuation, led by GIC with Stripe (second check) and Salesforce Ventures joining and all existing investors participating — roughly doubling its valuation in eight months and pushing total raised past $1B. The company frames the round around "agentic infrastructure": vibe-coding and AI agents are spinning up databases at a pace it wants to fund.</p>
+            <p>Two operational notes from the same June window matter more to you than the headline number. First, the default self-hosted Docker Compose database image moves from Postgres 15 to Postgres 17 the week of June 15. Second, since June 3, new free-tier projects on Supabase's default email provider can no longer modify their auth email templates (paid Pro+ projects are unaffected).</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Concrete actions. (1) If you self-host any Supabase via Docker Compose, <i>pin your Postgres image version now</i> so the week-of-June-15 default flip to PG 17 doesn't silently change your DB on the next pull — then test the v15→v17 migration deliberately. Your managed Supabase projects are unaffected. (2) For any new client project that needs branded magic-link / passkey / confirmation emails, either start it on a paid plan or wire a custom SMTP from day one — a new free-tier project can no longer edit those templates, and you don't want to discover that mid-build. The funding itself is good news: the platform you build clients on is well-capitalized and not going anywhere.</div>
+          <div class="refs"><a href="https://supabase.com/blog/supabase-series-f" target="_blank" rel="noopener">Supabase</a> · <a href="https://techcrunch.com/2026/06/05/supabase-doubles-valuation-to-10b-in-8-months/" target="_blank" rel="noopener">TechCrunch</a> · <a href="https://releasebot.io/updates/supabase" target="_blank" rel="noopener">Supabase release notes</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> How you build</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Dev tools</span>
+            <span class="ver">Jun 2026</span>
+            <h3>GitHub Copilot's desktop app opens to all paid users, with cloud agents and Opus 4.8</h3>
+          </div>
+          <div class="story-body">
+            <p>GitHub dropped the waitlist on its Copilot desktop application for everyone on Pro, Pro+, Max, Business, and Enterprise. The bigger shift is workflow: from the IDE's agent picker you can now hand a task to a <i>cloud</i> agent that opens a GitHub issue and PR on remote infrastructure while you keep working, and remote control of Copilot sessions is generally available on github.com and mobile. Claude Opus 4.8 is now one of the selectable models.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> You already live in agentic coding (Claude Code), so this isn't a tooling switch — it's competitive context. The "describe a task, get an issue + PR from a cloud agent" pattern is becoming table stakes, which means client-side devs and competitors get the same leverage you have. Your edge stays in judgment, taste, and shipping finished products fast — not in having the agent. Worth a 30-minute look at the cloud-agent flow to see if it speeds up your own backlog grind on the TSD apps.</div>
+          <div class="refs"><a href="https://github.blog/news-insights/product-news/" target="_blank" rel="noopener">GitHub Blog</a> · <a href="https://www.tomsguide.com/news/live/microsoft-build-2026" target="_blank" rel="noopener">Tom's Guide (Build 2026)</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Security &amp; breaches</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag breaking">Patch</span>
+            <span class="ver">Jun 10, 2026</span>
+            <h3>A Defender zero-day lands hours after a record Patch Tuesday</h3>
+          </div>
+          <div class="story-body">
+            <p>June's Patch Tuesday was the largest on record — roughly 208 CVEs including multiple zero-days (among them a wormable Windows kernel RCE, CVE-2026-45657, and an HTTP/2 "Bomb" DoS, CVE-2026-49160). Within hours a researcher published "RoguePlanet," a new Microsoft Defender zero-day that escalates to SYSTEM via a race condition. Separately, SAP shipped fixes including a critical SAML authentication-bypass (CVE-2026-44748, CVSS 9.9), and ServiceNow warned of an unauthenticated API access incident.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Make sure your dev Mac/Windows and any Windows VMs took the June updates — the kernel RCE is wormable and needs no user interaction. The reusable lesson for your own apps is in the bug classes: HTTP/2 request amplification and SSRF-via-upgrade are the same patterns that bit Next.js's self-hosted server last month, so keep your apps on patched framework versions and don't expose raw self-hosted servers without a WAF/proxy in front.</div>
+          <div class="refs"><a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-june-2026-patch-tuesday-fixes-6-zero-days-200-flaws/" target="_blank" rel="noopener">BleepingComputer</a> · <a href="https://socradar.io/blog/june-2026-patch-tuesday-zero-day/" target="_blank" rel="noopener">SOCRadar</a></div>
+        </article>
+
+        <div class="quickhits">
+          <ul>
+            <li><span class="tag breaking qh-tag">Leak</span><span class="txt">A <b>1.2-billion-record</b> identity dataset tied to Shanghai police surfaced around June 10 — one of the largest single exposures on record. <span class="ver">Jun 10</span></span></li>
+            <li><span class="tag fix qh-tag">Breach</span><span class="txt">Meta reported an Instagram account-hijacking campaign hitting 20,000+ accounts; SoFi disclosed a Hong Kong data breach. Reinforce 2FA on any client social accounts you manage. <span class="ver">Jun 9</span></span></li>
+            <li><span class="tag improve qh-tag">Hardware</span><span class="txt">From Computex: NVIDIA's <b>RTX Spark</b> (its first consumer CPU, with MediaTek) and Asus ROG XReal R1 AR glasses — local-AI hardware keeps getting cheaper. <span class="ver">Jun 2026</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="byline" style="margin-top:40px">
+      <span>◆ End of briefing</span><span>◆</span>
+      <span>Sources are linked inline. Verify anything load-bearing before acting.</span>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span><a href="../../">← All briefings</a></span>
+      <span>Scouted &amp; written by the TSD agent ◆ Built to own</span>
+    </div>
+  </footer>
+</body>
+</html>

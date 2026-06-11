@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="report:source" content="general-ai" />
+  <meta name="report:source-label" content="General AI" />
+  <meta name="report:source-color" content="#a78bfa" />
+  <meta name="report:date" content="2026-06-11" />
+  <meta name="report:title" content="Google open-sources DiffusionGemma, a fast local text-diffusion model; OpenAI lands on Oracle Cloud as the AI IPO wave builds" />
+  <meta name="report:summary" content="Google DeepMind released DiffusionGemma — an Apache-2.0, 26B text-diffusion model that generates blocks of text in parallel for up to 4x faster output and runs locally on a single consumer GPU. OpenAI made its models and Codex available through Oracle Cloud credits, OpenAI filed a confidential draft IPO, and the week's funding kept pouring into physical AI and robotics." />
+  <meta name="report:highlights" content="5" />
+
+  <title>Google open-sources DiffusionGemma; OpenAI lands on Oracle Cloud — TSD Daily Reports</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23a78bfa'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%2304111f' font-family='Arial' font-weight='bold'>◆</text></svg>" />
+  <link rel="stylesheet" href="../../assets/theme.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../../">
+        <span class="mark"><span>◆</span></span>
+        <span>TSD Daily Reports<small>Charlotte Metro ◆ Web + AI Studio</small></span>
+      </a>
+      <nav>
+        <a href="../../">All briefings</a>
+        <a href="https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/" target="_blank" rel="noopener">Source ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap report">
+    <div class="masthead">
+      <div class="kicker">
+        <span class="badge-source" style="--src:#a78bfa"><span class="dot"></span>General AI</span>
+        <span>◆</span><span>Thursday, June 11, 2026</span>
+        <span>◆</span><span>Since the June 10 edition</span>
+      </div>
+      <h1>Google open-sources DiffusionGemma — a fast, local text-diffusion model — while OpenAI lands on Oracle Cloud and the AI IPO wave builds</h1>
+      <p class="standfirst">Google DeepMind put out DiffusionGemma, an Apache-2.0 model that writes blocks of text in parallel instead of token-by-token, claiming up to 4x faster output and real speed on a single consumer GPU. The same window saw OpenAI's models and Codex made available through Oracle Cloud commitments, OpenAI file a confidential draft IPO, and funding keep flooding robotics and physical AI.</p>
+      <div class="byline">
+        <span>Filed by the TSD scout agent</span>
+        <span>◆</span><span>Window: June 10–11, 2026</span>
+        <span>◆</span><a href="https://siliconangle.com/2026/06/10/google-open-sources-speedy-diffusiongemma-text-diffusion-model/" target="_blank" rel="noopener">Read the source ↗</a>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num">~4x</div><div class="lbl">DiffusionGemma speedup vs token-by-token</div></div>
+      <div class="stat"><div class="num">700+/s</div><div class="lbl">Tokens/sec on a single RTX 5090</div></div>
+      <div class="stat"><div class="num">Apache 2.0</div><div class="lbl">Open weights, free to ship</div></div>
+    </div>
+
+    <section class="signals">
+      <div class="signals-label">◆ Top signals — read these first</div>
+      <div class="signal-grid">
+        <div class="signal"><div class="n">01</div><h4>DiffusionGemma goes open</h4><p>Google DeepMind's 26B text-diffusion model ships under Apache 2.0 on Hugging Face — runs locally, generates in parallel.</p></div>
+        <div class="signal"><div class="n">02</div><h4>Diffusion challenges the default</h4><p>It writes 256-token blocks at once instead of one token at a time — a real alternative to autoregressive decoding.</p></div>
+        <div class="signal"><div class="n">03</div><h4>OpenAI on Oracle Cloud</h4><p>Oracle customers can soon apply existing cloud credits toward OpenAI models and Codex — enterprise distribution, no new contract.</p></div>
+        <div class="signal"><div class="n">04</div><h4>OpenAI files to go public</h4><p>OpenAI submitted a confidential draft S-1; Anthropic has also filed. The two largest labs are heading for the market.</p></div>
+        <div class="signal"><div class="n">05</div><h4>Money chases physical AI</h4><p>Generalist AI raised $400M to control robot hardware; Standard Bots took $200M; Suno took $400M for AI music.</p></div>
+      </div>
+    </section>
+
+    <section class="stories">
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Open models get faster</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag new">New</span>
+            <span class="ver">Jun 10, 2026</span>
+            <h3>Google DeepMind releases DiffusionGemma — open weights, parallel text generation, up to 4x faster</h3>
+          </div>
+          <div class="story-body">
+            <p>DiffusionGemma is a 26B Mixture-of-Experts model (the 26B-A4B build on the Gemma 4 backbone, activating ~3.8B parameters per token) that replaces standard autoregressive decoding with <i>text diffusion</i>: instead of predicting one token at a time, it generates whole 256-token blocks in parallel and refines them. Google reports up to 4x faster generation, with 1,000+ tokens/sec on an H100 and 700+ on a consumer RTX 5090. It's multimodal (text, image, video in), carries a 256K context window, supports 140+ languages, and ships under a permissive Apache 2.0 license, weights on Hugging Face as <code>google/diffusiongemma-26B-A4B-it</code>. NVIDIA published a same-day guide on running it locally.</p>
+            <p>This is experimental and not a frontier-quality replacement for Opus or Gemini Pro — but it's the first time a major lab has shipped a usable open diffusion-LM with weights you can run on your own hardware.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Two reads. (1) Open weights + Apache 2.0 + runs on one GPU means a future where the cheap, high-volume layer of a concierge or receptionist (FAQ answers, classification, rewrites) can run on rented or owned hardware at near-zero marginal token cost — worth watching as a margin lever once diffusion LMs get good enough. (2) Don't rebuild on it yet; it's experimental. Keep your model routing abstraction clean so you can drop in a local diffusion tier later without touching client code. For now, default the hard cases to Claude.</div>
+          <div class="refs"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/" target="_blank" rel="noopener">Google</a> · <a href="https://www.marktechpost.com/2026/06/10/google-ai-releases-diffusiongemma-a-26b-moe-open-model-using-text-diffusion-for-up-to-4x-faster-generation/" target="_blank" rel="noopener">MarkTechPost</a> · <a href="https://simonwillison.net/2026/Jun/10/diffusiongemma/" target="_blank" rel="noopener">Simon Willison</a> · <a href="https://blogs.nvidia.com/blog/rtx-ai-garage-local-gemma-diffusion/" target="_blank" rel="noopener">NVIDIA</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Distribution &amp; the IPO wave</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Distribution</span>
+            <span class="ver">Jun 11, 2026</span>
+            <h3>OpenAI models and Codex come to Oracle Cloud via existing credits</h3>
+          </div>
+          <div class="story-body">
+            <p>OpenAI and Oracle announced that, in the coming weeks, Oracle Cloud Infrastructure customers will be able to apply eligible Oracle Cloud Universal Credits toward OpenAI models and Codex — accessing them through their existing purchasing workflow and cloud commitment instead of opening a new contract. It's a pure distribution move: meet enterprises where their budget already lives.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Not something you'll touch directly, but it's the pattern to watch — model access is increasingly bundled into the cloud bills companies already pay (Oracle here, the way Anthropic sits in AWS Bedrock and Google Vertex). For SMB clients it means "which model" is becoming a procurement checkbox, not a project. Your value stays in the wiring — their data, their phone line, their booking flow — not in being the one who can reach a model.</div>
+          <div class="refs"><a href="https://openai.com/index/openai-on-oracle-cloud/" target="_blank" rel="noopener">OpenAI</a> · <a href="https://www.startuphub.ai/ai-news/artificial-intelligence/2026/openai-teams-up-with-oracle-cloud" target="_blank" rel="noopener">StartupHub</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Markets</span>
+            <span class="ver">Jun 10, 2026</span>
+            <h3>OpenAI files a confidential draft IPO; Anthropic has too — and Musk's AI sits inside the SpaceX listing</h3>
+          </div>
+          <div class="story-body">
+            <p>OpenAI confidentially submitted a draft S-1 to the SEC on June 10, joining Anthropic, which has also confidentially filed. Separately, the SpaceX–xAI combined entity is set to begin trading June 12 on Nasdaq under SPCX at a roughly $1.75T valuation — meaning the public's first big AI-lab exposure arrives bundled with rockets and Grok (see the <a href="../america/2026-06-11.html">America briefing</a> for the markets angle). The two pure-play labs going public is the bigger structural signal: the frontier is about to face quarterly earnings pressure.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Public-market labs means more pressure to monetize, which historically shows up as higher prices on premium tiers and harder pushes into enterprise. Translation for a solo builder: keep your provider-agnostic routing, watch for API price changes on the models you depend on, and don't architect any client feature so it only works on one lab's flagship.</div>
+          <div class="refs"><a href="https://openai.com/news/" target="_blank" rel="noopener">OpenAI Newsroom</a> · <a href="https://www.cnbc.com/2026/06/03/spacex-ipo-stock-price-roadshow-musk.html" target="_blank" rel="noopener">CNBC</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Where the money's going</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag feature">Funding</span>
+            <span class="ver">Jun 10, 2026</span>
+            <h3>Physical AI keeps taking the biggest checks: Generalist AI $400M, Standard Bots $200M, Suno $400M</h3>
+          </div>
+          <div class="story-body">
+            <p>This week's funding roundup leaned hard into machines and media. Generalist AI raised a $400M Series A (Radical Ventures, 8VC, USV, NVIDIA) to build a foundation model that controls diverse robot hardware across manufacturing. Industrial-robotics firm Standard Bots took a $200M Series C for its robot-as-a-service factory automation. And AI-music platform Suno closed a $400M Series D (Bond, IVP, Forerunner, USV) for full-song generation from text. The throughline: investors are betting AI's next leg is in the physical world and in creative output, not just chat.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> The relevant signal is the creative-tooling money (Suno). AI media generation — music beds, voiceover, image and short-form video — is getting cheaper and better fast, and that's a direct input to your own pipeline (you already cut the TSD Daily podcast with TTS). Watch for a productized "AI brand media kit" you could sell SMBs: jingle, ad voiceover, social images, all generated. The robotics money is further from you, but it's why local SMBs will keep feeling pressure to modernize.</div>
+          <div class="refs"><a href="https://techstartups.com/2026/06/10/venture-capital-startup-funding-roundup-june-102026/" target="_blank" rel="noopener">Tech Startups roundup</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Quick hits</h2>
+        <div class="quickhits">
+          <ul>
+            <li><span class="tag improve qh-tag">Dev</span><span class="txt"><b>Claude Opus 4.8</b> is now selectable inside GitHub Copilot (Pro+, Business, Enterprise), and Copilot's desktop app opened to all paid users — the agent-native IDE shift continues. <span class="ver">Jun 2026</span></span></li>
+            <li><span class="tag new qh-tag">Model</span><span class="txt">Microsoft's in-house <b>MAI-Code-1-Flash</b> (from Build 2026) is rolling toward becoming the GitHub Copilot default — labs are racing to own the coding-model layer. <span class="ver">Jun 2026</span></span></li>
+            <li><span class="tag feature qh-tag">Note</span><span class="txt">Both Anthropic and OpenAI now confidentially filed to IPO; the consumer AI price war is the first real test of those premium valuations. <span class="ver">Jun 2026</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="byline" style="margin-top:40px">
+      <span>◆ End of briefing</span><span>◆</span>
+      <span>Sources are linked inline. Verify anything load-bearing before acting.</span>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span><a href="../../">← All briefings</a></span>
+      <span>Scouted &amp; written by the TSD agent ◆ Built to own</span>
+    </div>
+  </footer>
+</body>
+</html>

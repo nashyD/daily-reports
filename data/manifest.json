@@ -1,5 +1,15 @@
 [
   {
+    "source": "america",
+    "sourceLabel": "America",
+    "sourceColor": "#f59e0b",
+    "date": "2026-06-11",
+    "title": "May inflation hit 4.2%, a three-year high, on an energy spike; the Fed is set to hold; SpaceX–xAI prices the largest IPO ever",
+    "summary": "The May CPI came in at 4.2% year-over-year — the highest since April 2023 — driven mostly by energy as Middle East conflict pushed oil higher; core inflation stayed milder at 2.9%. Markets read it as in-line, leaving the Fed nearly certain to hold next week, while SpaceX's combined entity priced a record IPO set to trade June 12 and severe storms swept the central U.S.",
+    "highlights": 5,
+    "path": "reports/america/2026-06-11.html"
+  },
+  {
     "source": "claude-changelog",
     "sourceLabel": "Claude Code Changelog",
     "sourceColor": "#4cc4ff",
@@ -8,6 +18,36 @@
     "summary": "Two releases since the last briefing: 2.1.172 lets sub-agents spawn their own sub-agents up to five levels deep, auto-recovers 1M-context sessions that ran out of credits, isolates background-agent settings per directory, and trims idle CPU; 2.1.173 normalizes the Fable 5 [1m] suffix Nash's own model ID carries.",
     "highlights": 6,
     "path": "reports/claude-changelog/2026-06-11.html"
+  },
+  {
+    "source": "general-ai",
+    "sourceLabel": "General AI",
+    "sourceColor": "#a78bfa",
+    "date": "2026-06-11",
+    "title": "Google open-sources DiffusionGemma, a fast local text-diffusion model; OpenAI lands on Oracle Cloud as the AI IPO wave builds",
+    "summary": "Google DeepMind released DiffusionGemma — an Apache-2.0, 26B text-diffusion model that generates blocks of text in parallel for up to 4x faster output and runs locally on a single consumer GPU. OpenAI made its models and Codex available through Oracle Cloud credits, OpenAI filed a confidential draft IPO, and the week's funding kept pouring into physical AI and robotics.",
+    "highlights": 5,
+    "path": "reports/general-ai/2026-06-11.html"
+  },
+  {
+    "source": "money-moves",
+    "sourceLabel": "Money Moves",
+    "sourceColor": "#22c55e",
+    "date": "2026-06-11",
+    "title": "With inflation at a 3-year high and AI models becoming a procurement checkbox, sell TSD as a cost-cutter and own the wiring",
+    "summary": "Inflation hit 4.2% and energy is squeezing small-business margins, while model access keeps commoditizing — together they tell you to stop selling 'AI' and start selling labor-and-cost savings wired into a client's own systems. Six moves ranked by fit, led by repositioning the AI receptionist as a summer cost-cutter Grant and Bishop can sell this week.",
+    "highlights": 6,
+    "path": "reports/money-moves/2026-06-11.html"
+  },
+  {
+    "source": "general-tech",
+    "sourceLabel": "Technology",
+    "sourceColor": "#2dd4bf",
+    "date": "2026-06-11",
+    "title": "Supabase raises $500M at $10.5B and flips self-hosted Postgres to v17 next week; GitHub Copilot goes agent-native; a 1.2B-record leak surfaces",
+    "summary": "Supabase closed a $500M Series F at a $10.5B valuation and is moving its default self-hosted database image to Postgres 17 the week of June 15 — a heads-up if you self-host. GitHub Copilot's desktop app opened to all paid users with cloud agent sessions, a new Microsoft Defender zero-day dropped right after Patch Tuesday, and a 1.2-billion-record identity leak surfaced.",
+    "highlights": 5,
+    "path": "reports/general-tech/2026-06-11.html"
   },
   {
     "source": "america",
