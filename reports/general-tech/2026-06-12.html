@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== Manifest metadata — required, keep accurate ===== -->
+  <meta name="report:source" content="general-tech" />
+  <meta name="report:source-label" content="Technology" />
+  <meta name="report:source-color" content="#2dd4bf" />
+  <meta name="report:date" content="2026-06-12" />
+  <meta name="report:title" content="Next.js is on 16.2.9 — patch your sites; an npm supply-chain attack spreads; AI hiring climbs even as layoffs pile up" />
+  <meta name="report:summary" content="Next.js landed at 16.2.9 with backported security and stability fixes — update if you self-host or build on the App Router. A self-replicating npm supply-chain attack ('Miasma') compromised dozens of packages via a hijacked maintainer account, and an ICIMS report shows demand for AI-building roles accelerating against a wave of broad tech layoffs." />
+  <meta name="report:highlights" content="4" />
+
+  <title>Next.js is on 16.2.9 — patch your sites; an npm supply-chain attack spreads; AI hiring climbs even as layoffs pile up — TSD Daily Reports</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232dd4bf'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%23042f2a' font-family='Arial' font-weight='bold'>◆</text></svg>" />
+  <link rel="stylesheet" href="../../assets/theme.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../../">
+        <span class="mark"><span>◆</span></span>
+        <span>TSD Daily Reports<small>Charlotte Metro ◆ Web + AI Studio</small></span>
+      </a>
+      <nav>
+        <a href="../../">All briefings</a>
+        <a href="https://github.com/vercel/next.js/releases" target="_blank" rel="noopener">Source ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap report" style="--accent:#2dd4bf; --accent-2:#14b8a6; --accent-soft:rgba(45,212,191,0.12)">
+    <div class="masthead">
+      <div class="kicker">
+        <span class="badge-source" style="--src:#2dd4bf"><span class="dot"></span>Technology</span>
+        <span>◆</span><span>Friday, June 12, 2026</span>
+        <span>◆</span><span>Stack, security &amp; business ◆ June 11–12</span>
+      </div>
+      <h1>Update Next.js to 16.2.9, watch your npm tree, and read the labor market correctly: AI roles are hiring while the headline number cuts</h1>
+      <p class="standfirst">The stack item to act on today is a quiet one: Next.js is now on 16.2.9 with backported security and stability fixes. The threat to watch is a self-spreading npm supply-chain attack hitting dozens of packages, and the business signal is a split labor market — broad layoffs on top, accelerating demand for anyone who can build, run, or secure AI underneath.</p>
+      <div class="byline">
+        <span>Filed by the TSD scout agent</span>
+        <span>◆</span><span>What's new since the June 11 edition</span>
+        <span>◆</span><a href="https://github.com/vercel/next.js/releases" target="_blank" rel="noopener">Read the source ↗</a>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num">16.2.9</div><div class="lbl">Latest stable Next.js (Jun 9)</div></div>
+      <div class="stat"><div class="num">32+</div><div class="lbl">npm packages hit by the "Miasma" attack</div></div>
+      <div class="stat"><div class="num">~184K</div><div class="lbl">Tech workers cut in 2026 so far</div></div>
+    </div>
+
+    <!-- ===== TOP SIGNALS ===== -->
+    <section class="signals">
+      <div class="signals-label">◆ Top signals — read these first</div>
+      <div class="signal-grid">
+        <div class="signal"><div class="n">01</div><h4>Next.js 16.2.9 is current</h4><p>Backported security + stability fixes; the safe target if you're on the App Router or self-host.</p></div>
+        <div class="signal"><div class="n">02</div><h4>npm supply chain under attack again</h4><p>A self-replicating worm ("Miasma") rode a hijacked maintainer account into dozens of packages.</p></div>
+        <div class="signal"><div class="n">03</div><h4>The labor market is two markets</h4><p>~184K tech cuts in 2026, yet ICIMS data shows AI-building roles accelerating across sectors.</p></div>
+        <div class="signal"><div class="n">04</div><h4>Chip-startup money keeps running hot</h4><p>~$10.7B into semiconductor startups YTD; Cerebras IPO'd big, then gave back a third.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== STORIES ===== -->
+    <section class="stories">
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Your stack — patch this</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag fix">Patch</span>
+            <span class="ver">16.2.9 · Jun 9</span>
+            <h3>Next.js is now on 16.2.9 — a string of backported security and stability fixes</h3>
+          </div>
+          <div class="story-body">
+            <p>The latest stable Next.js is 16.2.9 (June 9), the tail end of a 16.2.x run that backported a security fix (see Vercel's CVE-2026-23869 summary) plus stability work: hydration corrections, router fixes, cache-tag encoding, FormData handling, and a styled-jsx race that could drop styles under concurrent rendering. The 16.2.8/16.2.9 releases were largely administrative — correcting npm dist-tags after a Trusted Publishing hiccup that briefly pointed <code>next@latest</code> at a prerelease.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Bump every client site to 16.2.9. The cache-tag and FormData fixes matter for the Supabase-backed forms and ISR pages TSD ships, and the dist-tag mess means a recent <code>npm i next@latest</code> could have pulled a prerelease — pin to 16.2.9 explicitly and redeploy. Roll it into a single "managed updates" pass across the portfolio rather than one client at a time.</p></div>
+          <div class="refs"><a href="https://github.com/vercel/next.js/releases" target="_blank" rel="noopener">Next.js releases</a> · <a href="https://vercel.com/changelog/summary-of-cve-2026-23869" target="_blank" rel="noopener">Vercel — CVE-2026-23869 summary</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Security</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag breaking">Supply chain</span>
+            <span class="ver">early June</span>
+            <h3>A self-spreading npm worm ("Miasma") compromised dozens of packages via a hijacked maintainer</h3>
+          </div>
+          <div class="story-body">
+            <p>A new supply-chain attack compromised at least 32 packages published under the <code>@redhat-cloud-services</code> npm namespace — cumulatively ~80,000 weekly downloads. The root cause was a compromised Red Hat employee GitHub account, used to push malicious orphan commits that bypassed code review entirely. The payload, dubbed "Miasma," is derived from the "Mini Shai-Hulud" malware open-sourced in May and carries the same self-replicating, credential-stealing tradecraft that has hit npm repeatedly this year.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> This is the recurring risk of a one-person shop that runs <code>npm install</code> daily. Lock it down: commit lockfiles, use <code>npm ci</code> (not <code>npm install</code>) in CI and on deploy, turn on Dependabot/audit alerts, and don't blindly bump to the newest version of a package the day it drops. A 10-minute hygiene pass now is cheaper than a stolen Vercel or Supabase token later.</p></div>
+          <div class="refs"><a href="https://unit42.paloaltonetworks.com/monitoring-npm-supply-chain-attacks/" target="_blank" rel="noopener">Unit 42 — npm threat landscape</a> · <a href="https://cybernews.com/security/npm-packages-with-millions-downloads-compromised/" target="_blank" rel="noopener">Cybernews — npm packages compromised</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> The business of tech</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag improve">Labor</span>
+            <span class="ver">Jun 11</span>
+            <h3>Layoffs keep piling up — but the demand is shifting to whoever can build the AI</h3>
+          </div>
+          <div class="story-body">
+            <p>2026 has logged 247 layoff events affecting ~183,966 workers (roughly 1,136 a day), with Oracle's 30,000 the largest single cut and Amdocs adding 2,900 in mid-June. Against that, ICIMS's June 11 Workforce Report says the headlines mask a surge: demand for roles that build, run, and secure AI systems is accelerating across sectors, not just at AI labs.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> This is the exact tailwind TSD sells into. Every SMB watching the layoff headlines also knows it needs AI capability it can't hire for. A "we are your AI team for $X/month" retainer is the offer that maps to this moment — and it's a clean line for Grant and Bishop to open a cold call with.</p></div>
+          <div class="refs"><a href="https://www.icims.com/company/newsroom/juneinsights2026/" target="_blank" rel="noopener">ICIMS Insights — June 2026 Workforce Report</a> · <a href="https://news.crunchbase.com/startups/tech-layoffs/" target="_blank" rel="noopener">Crunchbase — 2026 tech layoffs tracker</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag new">Semiconductors</span>
+            <span class="ver">2026 YTD</span>
+            <h3>Chip-startup funding is still sizzling — but the public market is more selective</h3>
+          </div>
+          <div class="story-body">
+            <p>Investors have poured roughly $10.7B into semiconductor startups so far in 2026 (seed through pre-IPO), on track to top last year, with megarounds dominating — about 51% of disclosed deals above $50M. The public-market read is cooler: Cerebras raised over $5B in its IPO last month and saw shares spike on day one, then drift down about a third from the initial close. The money still believes in the AI-compute buildout; it's getting pickier about price.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> No direct play, but it's the cost backdrop behind every AI feature TSD ships. Compute supply is expanding and competition for Nvidia alternatives is fierce — which over time pushes inference prices down. That's the macro reason the "self-hosted open-weight model" margin play (see today's AI brief) only gets more attractive.</p></div>
+          <div class="refs"><a href="https://news.crunchbase.com/semiconductors-and-5g/chip-startup-funding-2026-cerebras-matx-ayar-labs-ipos-nvda/" target="_blank" rel="noopener">Crunchbase — semiconductor startup funding 2026</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Quick hits</h2>
+        <div class="quickhits">
+          <ul>
+            <li><span class="tag new qh-tag">Markets</span><span class="txt">SpaceX began trading on the Nasdaq today (ticker SPCX) at $135, valuing it near $1.77T — the largest IPO on record. More in today's America brief. <span class="ver">Jun 12</span></span></li>
+            <li><span class="tag new qh-tag">Funding</span><span class="txt">Jeff Bezos's physical-AI startup Prometheus raised $12B at a $41B valuation to build an "artificial general engineer." See today's AI brief. <span class="ver">Jun 11</span></span></li>
+            <li><span class="tag fix qh-tag">Heads-up</span><span class="txt">Reminder from last month's coordinated Next.js security release: App Router Server Functions on 13–16 were exposed to a deserialization DoS (CVE-2026-23870). If a site is still on an older 16.x, the 16.2.9 bump closes it. <span class="ver">ongoing</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="byline" style="margin-top:40px">
+      <span>◆ End of briefing</span><span>◆</span>
+      <span>Sources are linked inline. Verify anything load-bearing before acting.</span>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span><a href="../../">← All briefings</a></span>
+      <span>Scouted &amp; written by the TSD agent ◆ Built to own</span>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,5 +1,15 @@
 [
   {
+    "source": "america",
+    "sourceLabel": "America",
+    "sourceColor": "#f59e0b",
+    "date": "2026-06-12",
+    "title": "SpaceX trades today in the largest IPO ever; wholesale prices jump to a three-year high; stocks rally on Mideast de-escalation as the Fed prepares to hold",
+    "summary": "SpaceX began trading on the Nasdaq today at $135 a share, a roughly $1.77 trillion valuation that makes it the largest IPO in history. May producer prices surged 1.1% for a 6.5% annual rate — the hottest since 2022 — while markets rallied June 11 on reports of a U.S.–Iran de-escalation, and the Fed is set to hold rates next week.",
+    "highlights": 4,
+    "path": "reports/america/2026-06-12.html"
+  },
+  {
     "source": "claude-changelog",
     "sourceLabel": "Claude Code Changelog",
     "sourceColor": "#4cc4ff",
@@ -8,6 +18,36 @@
     "summary": "Two patch releases, almost all fixes; the standout is a VSCode /usage breakdown that shows where your tokens actually go — cache misses, long context, subagents, per-skill and per-MCP.",
     "highlights": 4,
     "path": "reports/claude-changelog/2026-06-12.html"
+  },
+  {
+    "source": "general-ai",
+    "sourceLabel": "General AI",
+    "sourceColor": "#a78bfa",
+    "date": "2026-06-12",
+    "title": "Bezos's Prometheus raises $12B for a physical-world engineer; MiniMax ships a near-frontier open-weight coder as June's model wave loads",
+    "summary": "Jeff Bezos's physical-AI startup Prometheus raised $12B at a $41B valuation to build an 'artificial general engineer.' MiniMax M3 became the top open-weight coding model with a 1M-token context you can self-host, and the month's bigger model drops — Gemini 3.5 Pro and Claude Sonnet 4.8 — are still pending.",
+    "highlights": 3,
+    "path": "reports/general-ai/2026-06-12.html"
+  },
+  {
+    "source": "money-moves",
+    "sourceLabel": "Money Moves",
+    "sourceColor": "#22c55e",
+    "date": "2026-06-12",
+    "title": "The security wave is the cash: a managed patch-and-harden offer your existing clients will buy this week",
+    "summary": "A fresh Next.js release plus an active npm supply-chain attack hand TSD an obvious, urgent service to sell to clients it already has. Underneath it, open-weight models and June's incoming model wave set up fatter margins on managed-AI retainers.",
+    "highlights": 6,
+    "path": "reports/money-moves/2026-06-12.html"
+  },
+  {
+    "source": "general-tech",
+    "sourceLabel": "Technology",
+    "sourceColor": "#2dd4bf",
+    "date": "2026-06-12",
+    "title": "Next.js is on 16.2.9 — patch your sites; an npm supply-chain attack spreads; AI hiring climbs even as layoffs pile up",
+    "summary": "Next.js landed at 16.2.9 with backported security and stability fixes — update if you self-host or build on the App Router. A self-replicating npm supply-chain attack ('Miasma') compromised dozens of packages via a hijacked maintainer account, and an ICIMS report shows demand for AI-building roles accelerating against a wave of broad tech layoffs.",
+    "highlights": 4,
+    "path": "reports/general-tech/2026-06-12.html"
   },
   {
     "source": "america",
