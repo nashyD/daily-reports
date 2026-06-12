@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== Manifest metadata — required, keep accurate ===== -->
+  <meta name="report:source" content="claude-changelog" />
+  <meta name="report:source-label" content="Claude Code Changelog" />
+  <meta name="report:source-color" content="#4cc4ff" />
+  <meta name="report:date" content="2026-06-12" />
+  <meta name="report:title" content="A quiet fixes window — the one keeper is per-skill, per-agent usage attribution in /usage" />
+  <meta name="report:summary" content="Two patch releases, almost all fixes; the standout is a VSCode /usage breakdown that shows where your tokens actually go — cache misses, long context, subagents, per-skill and per-MCP." />
+  <meta name="report:highlights" content="4" />
+
+  <title>A quiet fixes window — the one keeper is per-skill, per-agent usage attribution in /usage — TSD Daily Reports</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234cc4ff'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%2304111f' font-family='Arial' font-weight='bold'>◆</text></svg>" />
+  <link rel="stylesheet" href="../../assets/theme.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../../">
+        <span class="mark"><span>◆</span></span>
+        <span>TSD Daily Reports<small>Charlotte Metro ◆ Web + AI Studio</small></span>
+      </a>
+      <nav>
+        <a href="../../">All briefings</a>
+        <a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Source ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap report">
+    <div class="masthead">
+      <div class="kicker">
+        <span class="badge-source" style="--src:#4cc4ff"><span class="dot"></span>Claude Code Changelog</span>
+        <span>◆</span><span>Friday, June 12, 2026</span>
+        <span>◆</span><span>Releases 2.1.174 – 2.1.175</span>
+      </div>
+      <h1>Quiet window: two patch releases, nearly all fixes</h1>
+      <p class="standfirst">Nothing big shipped since yesterday's sub-agent-depth and 1M-context work. The one item worth your attention is a new <code>/usage</code> attribution view that finally shows <em>where</em> your tokens go — cache misses, long context, subagents, and a per-skill / per-agent / per-MCP breakdown. The rest is model-picker cleanup and background-session plumbing.</p>
+      <div class="byline">
+        <span>Filed by the TSD scout agent</span>
+        <span>◆</span><span>Covers everything dated after the June 11 briefing (2.1.173)</span>
+        <span>◆</span><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Read the source ↗</a>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num">2</div><div class="lbl">Releases in window</div></div>
+      <div class="stat"><div class="num">4</div><div class="lbl">Worth reading</div></div>
+      <div class="stat"><div class="num">~85%</div><div class="lbl">Were bug fixes</div></div>
+    </div>
+
+    <!-- ===== TOP SIGNALS (4) ===== -->
+    <section class="signals">
+      <div class="signals-label">◆ Top signals — read these first</div>
+      <div class="signal-grid">
+        <div class="signal"><div class="n">01</div><h4>/usage now itemizes your spend</h4><p>VSCode breakdown: cache misses, long context, subagents, per-skill/agent/plugin/MCP, over 24h or 7d.</p></div>
+        <div class="signal"><div class="n">02</div><h4>Workflow subagents get attribution</h4><p>Each <code>agent()</code> in a Workflow now carries its own attribution header — pairs with #1.</p></div>
+        <div class="signal"><div class="n">03</div><h4>/model picker fixes</h4><p>Opus shows as its own row on Max; pinned Sonnet versions label correctly.</p></div>
+        <div class="signal"><div class="n">04</div><h4>Background-session env no longer leaks</h4><p>Background runs stop inheriting another session's <code>ANTHROPIC_*</code> provider config.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== STORIES ===== -->
+    <section class="stories">
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Where your tokens actually go</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag new">New</span>
+            <span class="ver">2.1.174</span>
+            <h3>/usage now shows a full attribution breakdown</h3>
+          </div>
+          <div class="story-body">
+            <p>The VSCode Account &amp; usage dialog (<code>/usage</code>) gained an attribution view: cache misses, long context, subagents, and a per-skill / per-agent / per-plugin / per-MCP breakdown over the last 24h or 7d.</p>
+            <p>You run heavy multi-agent workflows and 1M-context sessions all day. Until now "why did this burn so much" was guesswork. This makes it readable.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> Next time a Praxis or sales-dashboard session feels expensive, open <code>/usage</code> and look at the breakdown before you assume it's the model. If a single skill or MCP is the cost driver, you'll see it — that's the lever to trim. Worth a one-time baseline check across your active repos this week.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Changelog · 2.1.174</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag fix">Fix</span>
+            <span class="ver">2.1.174</span>
+            <h3>Workflow agent() subagents missing per-agent attribution headers</h3>
+          </div>
+          <div class="story-body">
+            <p>Subagents spawned inside the Workflow tool weren't carrying their own attribution headers. Now they do, so each <code>agent()</code> call lands in the breakdown above instead of being lumped together.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> When you fan out a workflow (review passes, migrations, your security-audit-style sweeps), you can now see which stage cost what. Pair it with signal #1 to decide whether a 16-agent fan-out is earning its tokens or you should scale it down.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Changelog · 2.1.174</a></div>
+        </article>
+      </div>
+
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Model picker &amp; background plumbing</h2>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag fix">Fix</span>
+            <span class="ver">2.1.174</span>
+            <h3>/model picker now surfaces what Default actually resolves to</h3>
+          </div>
+          <div class="story-body">
+            <p>Three picker fixes: Opus now appears as its own row (Max/Team Premium/Enterprise), Sonnet on Pro/Team, Opus on pay-as-you-go API. A pinned <code>ANTHROPIC_DEFAULT_SONNET_MODEL</code> no longer shows a hardcoded Sonnet label. And the stale "Fable 5 is now consuming usage credits" banner stops showing for enterprise usage-based accounts.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> You're on Opus 4.8 1M — the picker now reflects that honestly instead of hiding it behind "Default." Minor, but it removes the "am I actually on the model I think I'm on" doubt when you switch repos.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Changelog · 2.1.174</a></div>
+        </article>
+
+        <article class="story">
+          <div class="story-head">
+            <span class="tag fix">Fix</span>
+            <span class="ver">2.1.174</span>
+            <h3>Background sessions no longer inherit another session's provider env</h3>
+          </div>
+          <div class="story-body">
+            <p>Background sessions were picking up <code>ANTHROPIC_*</code> provider config (gateway URL, custom headers, <code>/model</code> aliases) from whatever shell started the background daemon. They now run with their own intended config.</p>
+          </div>
+          <div class="so-what"><b>So what for TSD:</b> You lean on background agents and scheduled tasks (the daily-reports scout, the 7:23 sections run). This class of bug is exactly what would have a background run silently use the wrong model or endpoint. Update before you trust the next unattended run.</div>
+          <div class="refs"><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Changelog · 2.1.174</a></div>
+        </article>
+      </div>
+
+      <!-- Minor items as quick hits -->
+      <div class="story-group">
+        <h2><span class="diamond">◆</span> Fixes &amp; smaller changes</h2>
+        <div class="quickhits">
+          <ul>
+            <li><span class="tag new qh-tag">New</span><span class="txt">Managed <code>enforceAvailableModels</code> setting — the allowlist now also constrains Default, and user/project settings can't widen a managed list <span class="ver">2.1.175</span></span></li>
+            <li><span class="tag new qh-tag">New</span><span class="txt"><code>wheelScrollAccelerationEnabled</code> setting to disable mouse-wheel scroll acceleration in fullscreen <span class="ver">2.1.174</span></span></li>
+            <li><span class="tag improve qh-tag">Improve</span><span class="txt">Skill hot-reload only re-announces the skills that changed instead of re-sending the whole listing <span class="ver">2.1.174</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt"><code>/advisor</code> dialog no longer pre-selects a saved model blocked by <code>availableModels</code> <span class="ver">2.1.174</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Bedrock GovCloud (<code>us-gov-*</code>) regions deriving the wrong inference profile prefix and throwing 400s <span class="ver">2.1.174</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Git commit co-author attribution showing an incorrect model name for some models <span class="ver">2.1.174</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">1–2 second pause when exiting shortly after an interrupted shell command (macOS/Linux) <span class="ver">2.1.174</span></span></li>
+            <li><span class="tag fix qh-tag">Fix</span><span class="txt">Pre-warmed background workers failing with "Could not resolve authentication method" after sitting idle <span class="ver">2.1.174</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="byline" style="margin-top:40px">
+      <span>◆ End of briefing</span><span>◆</span>
+      <span>Sources are linked inline. Verify anything load-bearing before acting.</span>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span><a href="../../">← All briefings</a></span>
+      <span>Scouted &amp; written by the TSD agent ◆ Built to own</span>
+    </div>
+  </footer>
+</body>
+</html>

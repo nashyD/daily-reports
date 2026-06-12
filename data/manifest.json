@@ -1,5 +1,15 @@
 [
   {
+    "source": "claude-changelog",
+    "sourceLabel": "Claude Code Changelog",
+    "sourceColor": "#4cc4ff",
+    "date": "2026-06-12",
+    "title": "A quiet fixes window — the one keeper is per-skill, per-agent usage attribution in /usage",
+    "summary": "Two patch releases, almost all fixes; the standout is a VSCode /usage breakdown that shows where your tokens actually go — cache misses, long context, subagents, per-skill and per-MCP.",
+    "highlights": 4,
+    "path": "reports/claude-changelog/2026-06-12.html"
+  },
+  {
     "source": "america",
     "sourceLabel": "America",
     "sourceColor": "#f59e0b",
