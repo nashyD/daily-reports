@@ -15,12 +15,22 @@
     <itunes:owner><itunes:name>TSD Modernization Solutions</itunes:name><itunes:email>nashdavis@tsd-ventures.com</itunes:email></itunes:owner>
     <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="https://nashyd.github.io/daily-reports/podcast.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>TSD Daily — Friday, June 12, 2026</title>
+      <description>A record SpaceX IPO opens, Bezos pours $12B into physical AI and an open-weight coder closes on the frontier, Next.js and an npm supply-chain attack make a security retainer the week&apos;s easiest sale, and wholesale inflation runs hot as the Fed prepares to hold.</description>
+      <itunes:summary>A record SpaceX IPO opens, Bezos pours $12B into physical AI and an open-weight coder closes on the frontier, Next.js and an npm supply-chain attack make a security retainer the week&apos;s easiest sale, and wholesale inflation runs hot as the Fed prepares to hold.</itunes:summary>
+      <enclosure url="https://nashyd.github.io/daily-reports/audio/2026-06-12.mp3" length="4448205" type="audio/mpeg"/>
+      <guid isPermaLink="false">tsd-daily-2026-06-12</guid>
+      <pubDate>Fri, 12 Jun 2026 12:00:00 GMT</pubDate>
+      <itunes:duration>6:11</itunes:duration>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+    <item>
       <title>TSD Daily — Thursday, June 11, 2026</title>
       <description>DiffusionGemma&apos;s open text-diffusion model, Supabase&apos;s .5B raise and a Postgres-17 self-host heads-up, May inflation at a 3-year high on an energy spike, the record SpaceX IPO, and money moves that sell TSD as a cost-cutter.</description>
       <itunes:summary>DiffusionGemma&apos;s open text-diffusion model, Supabase&apos;s .5B raise and a Postgres-17 self-host heads-up, May inflation at a 3-year high on an energy spike, the record SpaceX IPO, and money moves that sell TSD as a cost-cutter.</itunes:summary>
       <enclosure url="https://nashyd.github.io/daily-reports/audio/2026-06-11.mp3" length="4766445" type="audio/mpeg"/>
       <guid isPermaLink="false">tsd-daily-2026-06-11</guid>
-      <pubDate>Thu, 11 Jun 2026 12:00:00 GMT</pubDate>
+      <pubDate>Thu, 11 Jun 2026 12:00:01 GMT</pubDate>
       <itunes:duration>6:37</itunes:duration>
       <itunes:episodeType>full</itunes:episodeType>
     </item>
@@ -30,7 +40,7 @@
       <itunes:summary>Anthropic ships Fable 5 to the public, Google starts a .99 AI price war, a record Patch Tuesday and live Next.js advisories mean patch now, May CPI is forecast hot, and the week&apos;s best money move is a fixed-price site-security sprint.</itunes:summary>
       <enclosure url="https://nashyd.github.io/daily-reports/audio/2026-06-10.mp3" length="4290093" type="audio/mpeg"/>
       <guid isPermaLink="false">tsd-daily-2026-06-10</guid>
-      <pubDate>Wed, 10 Jun 2026 12:00:01 GMT</pubDate>
+      <pubDate>Wed, 10 Jun 2026 12:00:02 GMT</pubDate>
       <itunes:duration>5:57</itunes:duration>
       <itunes:episodeType>full</itunes:episodeType>
     </item>
@@ -40,7 +50,7 @@
       <itunes:summary>Apple puts a Gemini-powered Siri and Claude on the iPhone, Anthropic files to go public, a Next.js security patch you need to ship, a hot jobs report and an NC jobs boom, plus this week&apos;s money moves.</itunes:summary>
       <enclosure url="https://nashyd.github.io/daily-reports/audio/2026-06-09.mp3" length="4533453" type="audio/mpeg"/>
       <guid isPermaLink="false">tsd-daily-2026-06-09</guid>
-      <pubDate>Tue, 09 Jun 2026 12:00:02 GMT</pubDate>
+      <pubDate>Tue, 09 Jun 2026 12:00:03 GMT</pubDate>
       <itunes:duration>6:18</itunes:duration>
       <itunes:episodeType>full</itunes:episodeType>
     </item>
@@ -50,7 +60,7 @@
       <itunes:summary>Microsoft ships seven in-house models and a Copilot coder, DeepSeek&apos;s first raise, a Next.js patch that becomes a recurring Site Care offer, an ISS shelter scare, and two championship series swinging.</itunes:summary>
       <enclosure url="https://nashyd.github.io/daily-reports/audio/2026-06-07.mp3" length="4405581" type="audio/mpeg"/>
       <guid isPermaLink="false">tsd-daily-2026-06-07</guid>
-      <pubDate>Sun, 07 Jun 2026 12:00:03 GMT</pubDate>
+      <pubDate>Sun, 07 Jun 2026 12:00:04 GMT</pubDate>
       <itunes:duration>6:07</itunes:duration>
       <itunes:episodeType>full</itunes:episodeType>
     </item>
@@ -60,7 +70,7 @@
       <itunes:summary>Anthropic nears a trillion and Opus 4.8 ships, a Next.js security patch you need, a steady US jobs report against four-year-high gas, and a quiet week for Claude Code.</itunes:summary>
       <enclosure url="https://nashyd.github.io/daily-reports/audio/2026-06-05.mp3" length="2498157" type="audio/mpeg"/>
       <guid isPermaLink="false">tsd-daily-2026-06-05</guid>
-      <pubDate>Fri, 05 Jun 2026 12:00:04 GMT</pubDate>
+      <pubDate>Fri, 05 Jun 2026 12:00:05 GMT</pubDate>
       <itunes:duration>3:28</itunes:duration>
       <itunes:episodeType>full</itunes:episodeType>
     </item>
